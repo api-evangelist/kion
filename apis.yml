@@ -44,3 +44,38 @@ maintainers:
   - FN: Kin Lane
     email: info@apievangelist.com
 specificationVersion: '0.19'
+common:
+  - name: >-
+      Kion – FinOps automated governance, self-hosted in AWS, Azure, GCP, and
+      OCI.
+    description: 'null'
+    url: https://kion.io/
+    type: Website
+  - name: Blog – Kion
+    description: 'null'
+    url: https://kion.io/blog/?Type=blog
+    type: Blog
+  - name: Case Studies – Kion
+    description: 'null'
+    url: https://kion.io/resources/case-studies/?Type=case-study
+    type: CaseStudies
+  - name: The Glossary | Kion – Kion
+    description: 'null'
+    url: https://kion.io/resources/glossary/
+    type: Glossary
+  - name: Support – Kion
+    description: 'null'
+    url: https://kion.io/resources/support/
+    type: Support
+  - name: Kion | Partners – Kion
+    description: 'null'
+    url: https://kion.io/partners/providers/
+    type: Partners
+  - name: Pricing and Licensing | Kion – Kion
+    description: 'null'
+    url: https://kion.io/why-kion/pricing-and-licensing/
+    type: Pricing
+  - name: Request Demo of Cloud Operations Software | Kion – Kion
+    description: 'null'
+    url: https://kion.io/platform/request-a-demo/
+    type: RequestDemo
