@@ -1,29 +1,46 @@
 aid: kion
 url: https://raw.githubusercontent.com/api-evangelist/kion/refs/heads/main/apis.yml
 apis:
-  - aid: kion:kion
-    name: Kion
+  - aid: kion:kion-cloud-operations-api
+    name: Kion Cloud Operations API
     tags:
       - FinOps
       - Costs
       - Spend
-    humanURL: ' https://kion.io/'
+      - Cloud Operations
+      - Governance
+      - Compliance
+      - Multi-Cloud
+    humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+    baseURL: https://{kion-instance}/api/v3
     properties:
-      - url: ' https://kion.io/'
+      - url: https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
         type: Documentation
+      - url: openapi/kion-cloud-operations-api-openapi.yml
+        type: OpenAPI
     description: >-
-      Automate CloudOps and FinOps to maximize cloud valueand deliver AI
-      innovation faster 
+      The Kion Public API provides programmatic access to manage cloud
+      operations, governance, compliance, and financial management across AWS,
+      Azure, GCP, and OCI. The API supports managing accounts, projects,
+      organizational units, cloud rules, compliance checks and standards,
+      funding sources, IAM policies, service control policies, CloudFormation
+      templates, Azure ARM templates, Azure policies and roles, GCP IAM roles,
+      labels, users, user groups, webhooks, SAML group associations,
+      permission mappings, custom variables, and application configuration.
+      Authentication uses Bearer token via Kion App API Keys.
 name: Kion
 tags:
   - FinOps
   - Costs
   - Spend
+  - Cloud Operations
+  - Governance
+  - Compliance
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 created: '2026-01-02'
-modified: '2026-01-04'
+modified: '2026-03-14'
 position: Consuming
 description: >-
   Kion is a cloud operations platform that provides automated governance and
