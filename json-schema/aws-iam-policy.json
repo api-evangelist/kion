@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/aws-iam-policy.json",
+  "title": "Kion AWS IAM Policy",
+  "description": "An AWS IAM policy managed through Kion for applying identity and access management controls to cloud accounts.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion policy ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Policy name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Policy description."
+    },
+    "aws_iam_path": {
+      "type": "string",
+      "description": "IAM path for the policy."
+    },
+    "policy": {
+      "type": "string",
+      "description": "JSON policy document."
+    },
+    "aws_managed_policy": {
+      "type": "boolean",
+      "description": "Whether this is an AWS managed policy."
+    },
+    "owner_users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner users of the policy."
+    },
+    "owner_user_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner user groups of the policy."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the policy."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the policy was created."
+    }
+  },
+  "required": ["name", "policy"]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/user-group.json",
+  "title": "Kion User Group",
+  "description": "A user group organizes users for role-based access control and permission management in Kion.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion user group ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "User group name."
+    },
+    "description": {
+      "type": "string",
+      "description": "User group description."
+    },
+    "idms_id": {
+      "type": "integer",
+      "description": "Identity management system ID."
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Users belonging to this group."
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the user group is enabled."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the user group was created."
+    }
+  },
+  "required": ["name", "idms_id"]
+}

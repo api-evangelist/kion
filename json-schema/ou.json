@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/ou.json",
+  "title": "Kion Organizational Unit",
+  "description": "An organizational unit (OU) provides hierarchical organization of projects, accounts, and governance policies in Kion.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion OU ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "OU name."
+    },
+    "description": {
+      "type": "string",
+      "description": "OU description."
+    },
+    "parent_ou_id": {
+      "type": "integer",
+      "description": "Parent organizational unit ID."
+    },
+    "permission_scheme_id": {
+      "type": "integer",
+      "description": "Permission scheme ID applied to the OU."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the OU."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the OU was created."
+    }
+  },
+  "required": ["name", "parent_ou_id"]
+}

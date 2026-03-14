@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/label.json",
+  "title": "Kion Label",
+  "description": "A label provides key-value metadata for organizing and categorizing resources within Kion.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion label ID."
+    },
+    "key": {
+      "type": "string",
+      "description": "Label key."
+    },
+    "value": {
+      "type": "string",
+      "description": "Label value."
+    },
+    "color": {
+      "type": "string",
+      "description": "Display color for the label."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the label was created."
+    }
+  },
+  "required": ["key", "value"]
+}

@@ -1,0 +1,237 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "kion": "https://support.kion.io/hc/en-us/sections/4412439670797-Public-API#",
+    "Account": {
+      "@id": "kion:account",
+      "@context": {
+        "name": "https://schema.org/name",
+        "account_number": "https://schema.org/identifier",
+        "account_type_id": "https://schema.org/category",
+        "payer_id": "https://schema.org/fundedItem",
+        "project_id": {
+          "@id": "kion:project",
+          "@type": "@id"
+        },
+        "email": "https://schema.org/email",
+        "linked_account_number": "https://schema.org/identifier",
+        "linked_role": "https://schema.org/roleName",
+        "start_datecode": "https://schema.org/startDate",
+        "skip_access_checking": "https://schema.org/actionOption",
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "Project": {
+      "@id": "kion:project",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "ou_id": {
+          "@id": "kion:ou",
+          "@type": "@id"
+        },
+        "default_aws_region": "https://schema.org/areaServed",
+        "permission_scheme_id": "https://schema.org/accessMode",
+        "project_funding": "https://schema.org/funding",
+        "budget": "https://schema.org/totalPrice",
+        "labels": "https://schema.org/keywords",
+        "archived": "https://schema.org/status",
+        "auto_pay": "https://schema.org/actionOption",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "OU": {
+      "@id": "kion:ou",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "parent_ou_id": {
+          "@id": "kion:ou",
+          "@type": "@id"
+        },
+        "permission_scheme_id": "https://schema.org/accessMode",
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "CloudRule": {
+      "@id": "kion:cloud-rule",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "pre_webhook_id": {
+          "@id": "kion:webhook",
+          "@type": "@id"
+        },
+        "post_webhook_id": {
+          "@id": "kion:webhook",
+          "@type": "@id"
+        },
+        "built_in": "https://schema.org/isAccessibleForFree",
+        "owner_users": "https://schema.org/author",
+        "owner_user_groups": "https://schema.org/author",
+        "aws_iam_policies": "https://schema.org/hasPart",
+        "compliance_standards": "https://schema.org/hasPart",
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "ComplianceCheck": {
+      "@id": "kion:compliance-check",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "cloud_provider_id": "https://schema.org/provider",
+        "severity_type_id": "https://schema.org/significance",
+        "body": "https://schema.org/text",
+        "frequency_minutes": "https://schema.org/repeatFrequency",
+        "is_all_regions": "https://schema.org/areaServed",
+        "regions": "https://schema.org/areaServed",
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "ComplianceStandard": {
+      "@id": "kion:compliance-standard",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "compliance_checks": {
+          "@id": "kion:compliance-check",
+          "@type": "@id"
+        },
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "FundingSource": {
+      "@id": "kion:funding-source",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "amount": "https://schema.org/price",
+        "start_datecode": "https://schema.org/startDate",
+        "end_datecode": "https://schema.org/endDate",
+        "ou_id": {
+          "@id": "kion:ou",
+          "@type": "@id"
+        },
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "Label": {
+      "@id": "kion:label",
+      "@context": {
+        "key": "https://schema.org/propertyID",
+        "value": "https://schema.org/value",
+        "color": "https://schema.org/color",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "User": {
+      "@id": "kion:user",
+      "@context": {
+        "username": "https://schema.org/identifier",
+        "first_name": "https://schema.org/givenName",
+        "last_name": "https://schema.org/familyName",
+        "email": "https://schema.org/email",
+        "idms_id": "https://schema.org/memberOf",
+        "enabled": "https://schema.org/status",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "UserGroup": {
+      "@id": "kion:user-group",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "idms_id": "https://schema.org/memberOf",
+        "users": {
+          "@id": "kion:user",
+          "@type": "@id"
+        },
+        "enabled": "https://schema.org/status",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "CloudAccessRole": {
+      "@id": "kion:cloud-access-role",
+      "@context": {
+        "name": "https://schema.org/name",
+        "aws_iam_role_name": "https://schema.org/roleName",
+        "web_access": "https://schema.org/actionOption",
+        "short_term_access_keys": "https://schema.org/actionOption",
+        "long_term_access_keys": "https://schema.org/actionOption",
+        "aws_iam_policies": "https://schema.org/hasPart",
+        "users": {
+          "@id": "kion:user",
+          "@type": "@id"
+        },
+        "user_groups": {
+          "@id": "kion:user-group",
+          "@type": "@id"
+        },
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "AwsIamPolicy": {
+      "@id": "kion:aws-iam-policy",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "aws_iam_path": "https://schema.org/identifier",
+        "policy": "https://schema.org/text",
+        "aws_managed_policy": "https://schema.org/isAccessibleForFree",
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "ServiceControlPolicy": {
+      "@id": "kion:service-control-policy",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "policy": "https://schema.org/text",
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "CloudFormationTemplate": {
+      "@id": "kion:cloudformation-template",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "template_url": "https://schema.org/url",
+        "template_body": "https://schema.org/text",
+        "region": "https://schema.org/areaServed",
+        "terminate_protected": "https://schema.org/actionOption",
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "Webhook": {
+      "@id": "kion:webhook",
+      "@context": {
+        "name": "https://schema.org/name",
+        "description": "https://schema.org/description",
+        "url": "https://schema.org/url",
+        "auth_type": "https://schema.org/authenticator",
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    },
+    "CustomVariable": {
+      "@id": "kion:custom-variable",
+      "@context": {
+        "key": "https://schema.org/propertyID",
+        "value": "https://schema.org/value",
+        "description": "https://schema.org/description",
+        "labels": "https://schema.org/keywords",
+        "created_at": "https://schema.org/dateCreated"
+      }
+    }
+  }
+}

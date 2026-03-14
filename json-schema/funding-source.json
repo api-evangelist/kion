@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/funding-source.json",
+  "title": "Kion Funding Source",
+  "description": "A funding source represents a budget allocation for tracking and managing cloud spend within an organizational unit.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion funding source ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Funding source name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Funding source description."
+    },
+    "amount": {
+      "type": "number",
+      "description": "Total funding amount."
+    },
+    "start_datecode": {
+      "type": "string",
+      "description": "Funding start date."
+    },
+    "end_datecode": {
+      "type": "string",
+      "description": "Funding end date."
+    },
+    "ou_id": {
+      "type": "integer",
+      "description": "Organizational unit ID the funding source belongs to."
+    },
+    "owner_users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner users of the funding source."
+    },
+    "owner_user_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner user groups of the funding source."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the funding source."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the funding source was created."
+    }
+  },
+  "required": ["name", "amount", "start_datecode", "end_datecode", "ou_id"]
+}

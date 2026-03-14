@@ -18,6 +18,40 @@ apis:
         type: Documentation
       - url: openapi/kion-cloud-operations-api-openapi.yml
         type: OpenAPI
+      - url: json-schema/account.json
+        type: JSONSchema
+      - url: json-schema/project.json
+        type: JSONSchema
+      - url: json-schema/ou.json
+        type: JSONSchema
+      - url: json-schema/cloud-rule.json
+        type: JSONSchema
+      - url: json-schema/compliance-check.json
+        type: JSONSchema
+      - url: json-schema/compliance-standard.json
+        type: JSONSchema
+      - url: json-schema/funding-source.json
+        type: JSONSchema
+      - url: json-schema/label.json
+        type: JSONSchema
+      - url: json-schema/user.json
+        type: JSONSchema
+      - url: json-schema/user-group.json
+        type: JSONSchema
+      - url: json-schema/cloud-access-role.json
+        type: JSONSchema
+      - url: json-schema/aws-iam-policy.json
+        type: JSONSchema
+      - url: json-schema/service-control-policy.json
+        type: JSONSchema
+      - url: json-schema/cloudformation-template.json
+        type: JSONSchema
+      - url: json-schema/webhook.json
+        type: JSONSchema
+      - url: json-schema/custom-variable.json
+        type: JSONSchema
+      - url: json-ld/kion-context.jsonld
+        type: JSONLD
     description: >-
       The Kion Public API provides programmatic access to manage cloud
       operations, governance, compliance, and financial management across AWS,

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/service-control-policy.json",
+  "title": "Kion Service Control Policy",
+  "description": "An AWS service control policy (SCP) managed through Kion for restricting permissions across accounts in an AWS Organization.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion SCP ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "SCP name."
+    },
+    "description": {
+      "type": "string",
+      "description": "SCP description."
+    },
+    "policy": {
+      "type": "string",
+      "description": "JSON policy document."
+    },
+    "owner_users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner users of the SCP."
+    },
+    "owner_user_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner user groups of the SCP."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the SCP."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the SCP was created."
+    }
+  },
+  "required": ["name", "policy"]
+}

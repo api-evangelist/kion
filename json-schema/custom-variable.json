@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/custom-variable.json",
+  "title": "Kion Custom Variable",
+  "description": "A custom variable stores key-value configuration data that can be referenced across cloud rules, templates, and other Kion resources, with optional OU and project-level overrides.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion custom variable ID."
+    },
+    "key": {
+      "type": "string",
+      "description": "Variable key."
+    },
+    "value": {
+      "type": "string",
+      "description": "Variable value."
+    },
+    "description": {
+      "type": "string",
+      "description": "Variable description."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the variable."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the variable was created."
+    }
+  },
+  "required": ["key", "value"]
+}

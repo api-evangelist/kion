@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/project.json",
+  "title": "Kion Project",
+  "description": "A project is the organizational unit for attaching cloud accounts, managing funding, and applying governance policies in Kion.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion project ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Project name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Project description."
+    },
+    "ou_id": {
+      "type": "integer",
+      "description": "Organizational unit ID the project belongs to."
+    },
+    "default_aws_region": {
+      "type": "string",
+      "description": "Default AWS region for the project."
+    },
+    "permission_scheme_id": {
+      "type": "integer",
+      "description": "Permission scheme ID applied to the project."
+    },
+    "project_funding": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "funding_source_id": {
+            "type": "integer",
+            "description": "Funding source ID."
+          },
+          "amount": {
+            "type": "number",
+            "description": "Funding amount."
+          },
+          "start_datecode": {
+            "type": "string",
+            "description": "Funding start date."
+          },
+          "end_datecode": {
+            "type": "string",
+            "description": "Funding end date."
+          }
+        }
+      },
+      "description": "Funding allocations for the project."
+    },
+    "budget": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "Budget amount."
+        },
+        "funding_source_id": {
+          "type": "integer",
+          "description": "Funding source ID for the budget."
+        }
+      },
+      "description": "Budget configuration for the project."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the project."
+    },
+    "archived": {
+      "type": "boolean",
+      "description": "Whether the project is archived."
+    },
+    "auto_pay": {
+      "type": "boolean",
+      "description": "Whether auto-pay is enabled."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the project was created."
+    }
+  },
+  "required": ["name", "ou_id"]
+}

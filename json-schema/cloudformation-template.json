@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/cloudformation-template.json",
+  "title": "Kion CloudFormation Template",
+  "description": "An AWS CloudFormation template managed through Kion for deploying infrastructure resources to cloud accounts.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion template ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Template name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Template description."
+    },
+    "template_url": {
+      "type": "string",
+      "description": "URL to the CloudFormation template."
+    },
+    "template_body": {
+      "type": "string",
+      "description": "Template body content."
+    },
+    "region": {
+      "type": "string",
+      "description": "AWS region for deployment."
+    },
+    "sns_arns": {
+      "type": "string",
+      "description": "SNS ARNs for notifications."
+    },
+    "terminate_protected": {
+      "type": "boolean",
+      "description": "Whether termination protection is enabled."
+    },
+    "owner_users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner users of the template."
+    },
+    "owner_user_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner user groups of the template."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the template."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the template was created."
+    }
+  },
+  "required": ["name"]
+}

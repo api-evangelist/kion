@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/cloud-rule.json",
+  "title": "Kion Cloud Rule",
+  "description": "A cloud rule enforces policies on cloud accounts by bundling IAM policies, CloudFormation templates, Azure ARM templates, compliance standards, and other governance artifacts.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion cloud rule ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Cloud rule name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Cloud rule description."
+    },
+    "pre_webhook_id": {
+      "type": "integer",
+      "description": "Webhook ID to trigger before rule application."
+    },
+    "post_webhook_id": {
+      "type": "integer",
+      "description": "Webhook ID to trigger after rule application."
+    },
+    "built_in": {
+      "type": "boolean",
+      "description": "Whether this is a built-in cloud rule."
+    },
+    "owner_users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner users of the cloud rule."
+    },
+    "owner_user_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner user groups of the cloud rule."
+    },
+    "aws_iam_policies": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "AWS IAM policy IDs attached to the rule."
+    },
+    "aws_cloudformation_templates": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "CloudFormation template IDs attached to the rule."
+    },
+    "azure_arm_template_definitions": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Azure ARM template IDs attached to the rule."
+    },
+    "azure_policy_definitions": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Azure policy IDs attached to the rule."
+    },
+    "azure_role_definitions": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Azure role IDs attached to the rule."
+    },
+    "compliance_standards": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Compliance standard IDs attached to the rule."
+    },
+    "gcp_iam_roles": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "GCP IAM role IDs attached to the rule."
+    },
+    "service_control_policies": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Service control policy IDs attached to the rule."
+    },
+    "ous": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "OU IDs the rule is applied to."
+    },
+    "projects": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Project IDs the rule is applied to."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the cloud rule."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the cloud rule was created."
+    }
+  },
+  "required": ["name"]
+}

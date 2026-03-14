@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/compliance-check.json",
+  "title": "Kion Compliance Check",
+  "description": "A compliance check defines an automated audit rule for verifying cloud resource configurations against organizational policies.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion compliance check ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Compliance check name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Compliance check description."
+    },
+    "cloud_provider_id": {
+      "type": "integer",
+      "description": "Cloud provider ID this check applies to."
+    },
+    "compliance_check_type_id": {
+      "type": "integer",
+      "description": "Type of compliance check."
+    },
+    "severity_type_id": {
+      "type": "integer",
+      "description": "Severity level of the check."
+    },
+    "body": {
+      "type": "string",
+      "description": "The compliance check policy body."
+    },
+    "frequency_minutes": {
+      "type": "integer",
+      "description": "How often the check runs in minutes."
+    },
+    "frequency_type_id": {
+      "type": "integer",
+      "description": "Frequency type identifier."
+    },
+    "is_all_regions": {
+      "type": "boolean",
+      "description": "Whether the check applies to all regions."
+    },
+    "is_auto_archived": {
+      "type": "boolean",
+      "description": "Whether findings are auto-archived."
+    },
+    "regions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Specific regions to run the check in."
+    },
+    "owner_users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner users of the compliance check."
+    },
+    "owner_user_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner user groups of the compliance check."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the compliance check."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the compliance check was created."
+    }
+  },
+  "required": ["name", "cloud_provider_id", "compliance_check_type_id"]
+}

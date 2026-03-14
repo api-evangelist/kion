@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/webhook.json",
+  "title": "Kion Webhook",
+  "description": "A webhook provides event-driven notifications from Kion to external systems when cloud operations events occur.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion webhook ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Webhook name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Webhook description."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Webhook destination URL."
+    },
+    "auth_type": {
+      "type": "string",
+      "description": "Authentication type for the webhook."
+    },
+    "auth_token": {
+      "type": "string",
+      "description": "Authentication token for the webhook."
+    },
+    "owner_users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner users of the webhook."
+    },
+    "owner_user_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner user groups of the webhook."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the webhook."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the webhook was created."
+    }
+  },
+  "required": ["name", "url"]
+}

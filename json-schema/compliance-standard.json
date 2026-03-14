@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/compliance-standard.json",
+  "title": "Kion Compliance Standard",
+  "description": "A compliance standard groups multiple compliance checks together to represent an industry or organizational compliance framework.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion compliance standard ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Compliance standard name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Compliance standard description."
+    },
+    "compliance_checks": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Compliance check IDs included in this standard."
+    },
+    "owner_users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner users of the compliance standard."
+    },
+    "owner_user_groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" }
+        }
+      },
+      "description": "Owner user groups of the compliance standard."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the compliance standard."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the compliance standard was created."
+    }
+  },
+  "required": ["name"]
+}

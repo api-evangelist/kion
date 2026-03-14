@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/cloud-access-role.json",
+  "title": "Kion Cloud Access Role",
+  "description": "A cloud access role defines access permissions for users and groups to cloud accounts at the OU or project level, supporting AWS, Azure, and GCP IAM policies.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion cloud access role ID."
+    },
+    "name": {
+      "type": "string",
+      "description": "Cloud access role name."
+    },
+    "aws_iam_role_name": {
+      "type": "string",
+      "description": "AWS IAM role name."
+    },
+    "web_access": {
+      "type": "boolean",
+      "description": "Whether web console access is enabled."
+    },
+    "short_term_access_keys": {
+      "type": "boolean",
+      "description": "Whether short-term access keys are enabled."
+    },
+    "long_term_access_keys": {
+      "type": "boolean",
+      "description": "Whether long-term access keys are enabled."
+    },
+    "aws_iam_policies": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "AWS IAM policy IDs attached to the role."
+    },
+    "azure_role_definitions": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Azure role definition IDs attached to the role."
+    },
+    "gcp_iam_roles": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "GCP IAM role IDs attached to the role."
+    },
+    "users": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "User IDs assigned to the role."
+    },
+    "user_groups": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "User group IDs assigned to the role."
+    },
+    "accounts": {
+      "type": "array",
+      "items": { "type": "integer" },
+      "description": "Account IDs the role applies to."
+    },
+    "labels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Labels associated with the cloud access role."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the cloud access role was created."
+    }
+  },
+  "required": ["name"]
+}

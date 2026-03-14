@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-evangelist/kion/blob/main/json-schema/user.json",
+  "title": "Kion User",
+  "description": "A user within the Kion platform, associated with an identity management system for authentication and access control.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Internal Kion user ID."
+    },
+    "username": {
+      "type": "string",
+      "description": "Username for authentication."
+    },
+    "first_name": {
+      "type": "string",
+      "description": "User first name."
+    },
+    "last_name": {
+      "type": "string",
+      "description": "User last name."
+    },
+    "email": {
+      "type": "string",
+      "description": "User email address."
+    },
+    "idms_id": {
+      "type": "integer",
+      "description": "Identity management system ID."
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the user account is enabled."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the user was created."
+    }
+  },
+  "required": ["username", "first_name", "last_name", "email", "idms_id"]
+}
