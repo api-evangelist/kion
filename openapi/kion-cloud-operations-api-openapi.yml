@@ -27,54 +27,54 @@ security:
 tags:
   - name: Accounts
     description: Manage cloud accounts across AWS, Azure, GCP, and OCI
-  - name: Projects
-    description: Manage projects which are the organizational unit for attaching cloud accounts
-  - name: Organizational Units
-    description: Manage organizational units (OUs) for hierarchical organization
-  - name: Cloud Rules
-    description: Manage cloud rules that enforce policies on cloud accounts
-  - name: Compliance Checks
-    description: Manage compliance checks for auditing cloud resources
-  - name: Compliance Standards
-    description: Manage compliance standards grouping multiple compliance checks
-  - name: Funding Sources
-    description: Manage funding sources for tracking and allocating cloud spend
-  - name: Labels
-    description: Manage labels for organizing and categorizing resources
-  - name: Users
-    description: Manage users within the Kion platform
-  - name: User Groups
-    description: Manage user groups for role-based access control
-  - name: IAM Policies
-    description: Manage AWS IAM policies
-  - name: Cloud Access Roles
-    description: Manage cloud access roles for OU and project level access
-  - name: Service Control Policies
-    description: Manage AWS service control policies
-  - name: CloudFormation Templates
-    description: Manage AWS CloudFormation templates
+  - name: App Configuration
+    description: Manage Kion application configuration settings
   - name: Azure ARM Templates
     description: Manage Azure ARM templates
   - name: Azure Policies
     description: Manage Azure policies
   - name: Azure Roles
     description: Manage Azure roles
-  - name: GCP IAM Roles
-    description: Manage GCP IAM roles
-  - name: Webhooks
-    description: Manage webhooks for event notifications
-  - name: SAML Group Associations
-    description: Manage SAML group associations for SSO integration
-  - name: Enforcements
-    description: Manage project enforcements
+  - name: Cloud Access Roles
+    description: Manage cloud access roles for OU and project level access
+  - name: Cloud Rules
+    description: Manage cloud rules that enforce policies on cloud accounts
+  - name: CloudFormation Templates
+    description: Manage AWS CloudFormation templates
+  - name: Compliance Checks
+    description: Manage compliance checks for auditing cloud resources
+  - name: Compliance Standards
+    description: Manage compliance standards grouping multiple compliance checks
   - name: Custom Variables
     description: Manage custom variables and overrides
-  - name: Permission Mappings
-    description: Manage permission mappings at global, OU, project, and funding source levels
+  - name: Enforcements
+    description: Manage project enforcements
+  - name: Funding Sources
+    description: Manage funding sources for tracking and allocating cloud spend
+  - name: GCP IAM Roles
+    description: Manage GCP IAM roles
+  - name: IAM Policies
+    description: Manage AWS IAM policies
   - name: Identity Management
     description: Manage identity management systems (IDMS)
-  - name: App Configuration
-    description: Manage Kion application configuration settings
+  - name: Labels
+    description: Manage labels for organizing and categorizing resources
+  - name: Organizational Units
+    description: Manage organizational units (OUs) for hierarchical organization
+  - name: Permission Mappings
+    description: Manage permission mappings at global, OU, project, and funding source levels
+  - name: Projects
+    description: Manage projects which are the organizational unit for attaching cloud accounts
+  - name: SAML Group Associations
+    description: Manage SAML group associations for SSO integration
+  - name: Service Control Policies
+    description: Manage AWS service control policies
+  - name: User Groups
+    description: Manage user groups for role-based access control
+  - name: Users
+    description: Manage users within the Kion platform
+  - name: Webhooks
+    description: Manage webhooks for event notifications
 paths:
   /account:
     get:

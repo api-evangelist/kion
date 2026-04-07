@@ -1,22 +1,20 @@
 aid: kion
-url: 
-  https://raw.githubusercontent.com/api-evangelist/kion/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/kion/refs/heads/main/apis.yml
 apis:
   - aid: kion:kion-cloud-operations-api
     name: Kion Cloud Operations API
     tags:
-      - FinOps
-      - Costs
-      - Spend
       - Cloud Operations
-      - Governance
       - Compliance
+      - Costs
+      - FinOps
+      - Governance
       - Multi-Cloud
+      - Spend
     humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
     baseURL: https://{kion-instance}/api/v3
     properties:
-      - url: 
-          https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+      - url: https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
         type: Documentation
       - url: openapi/kion-cloud-operations-api-openapi.yml
         type: OpenAPI
@@ -60,12 +58,12 @@ apis:
       OCI.
 name: Kion
 tags:
-  - FinOps
-  - Costs
-  - Spend
   - Cloud Operations
-  - Governance
   - Compliance
+  - Costs
+  - FinOps
+  - Governance
+  - Spend
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
