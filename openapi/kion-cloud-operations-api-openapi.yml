@@ -79,7 +79,7 @@ paths:
   /account:
     get:
       operationId: listAccounts
-      summary: List accounts
+      summary: Kion List accounts
       description: Returns a list of all cloud accounts managed by Kion.
       tags:
         - Accounts
@@ -105,7 +105,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createAccount
-      summary: Create an account
+      summary: Kion Create an account
       description: Creates a new cloud account in Kion.
       tags:
         - Accounts
@@ -133,7 +133,7 @@ paths:
   /account/{id}:
     get:
       operationId: getAccount
-      summary: Get an account
+      summary: Kion Get an account
       description: Returns details for a specific cloud account.
       tags:
         - Accounts
@@ -157,7 +157,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateAccount
-      summary: Update an account
+      summary: Kion Update an account
       description: Updates an existing cloud account.
       tags:
         - Accounts
@@ -188,7 +188,7 @@ paths:
   /project:
     get:
       operationId: listProjects
-      summary: List projects
+      summary: Kion List projects
       description: Returns a list of all projects.
       tags:
         - Projects
@@ -213,7 +213,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createProject
-      summary: Create a project
+      summary: Kion Create a project
       description: Creates a new project in Kion.
       tags:
         - Projects
@@ -240,7 +240,7 @@ paths:
   /project/{id}:
     get:
       operationId: getProject
-      summary: Get a project
+      summary: Kion Get a project
       description: Returns details for a specific project.
       tags:
         - Projects
@@ -264,7 +264,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateProject
-      summary: Update a project
+      summary: Kion Update a project
       description: Updates an existing project.
       tags:
         - Projects
@@ -285,7 +285,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteProject
-      summary: Delete a project
+      summary: Kion Delete a project
       description: Deletes a project.
       tags:
         - Projects
@@ -301,7 +301,7 @@ paths:
   /project/{id}/note:
     get:
       operationId: listProjectNotes
-      summary: List project notes
+      summary: Kion List project notes
       description: Returns notes for a specific project.
       tags:
         - Projects
@@ -325,7 +325,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createProjectNote
-      summary: Create a project note
+      summary: Kion Create a project note
       description: Creates a note on a project.
       tags:
         - Projects
@@ -345,7 +345,7 @@ paths:
   /project/{id}/enforcement:
     get:
       operationId: listProjectEnforcements
-      summary: List project enforcements
+      summary: Kion List project enforcements
       description: Returns enforcements for a specific project.
       tags:
         - Enforcements
@@ -369,7 +369,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createProjectEnforcement
-      summary: Create a project enforcement
+      summary: Kion Create a project enforcement
       description: Creates an enforcement on a project.
       tags:
         - Enforcements
@@ -389,7 +389,7 @@ paths:
   /project/{id}/cloud-access-role:
     get:
       operationId: listProjectCloudAccessRoles
-      summary: List project cloud access roles
+      summary: Kion List project cloud access roles
       description: Returns cloud access roles for a specific project.
       tags:
         - Cloud Access Roles
@@ -413,7 +413,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createProjectCloudAccessRole
-      summary: Create a project cloud access role
+      summary: Kion Create a project cloud access role
       description: Creates a cloud access role on a project.
       tags:
         - Cloud Access Roles
@@ -433,7 +433,7 @@ paths:
   /project/{id}/permission-mapping:
     get:
       operationId: listProjectPermissionMappings
-      summary: List project permission mappings
+      summary: Kion List project permission mappings
       description: Returns permission mappings for a specific project.
       tags:
         - Permission Mappings
@@ -446,7 +446,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createProjectPermissionMapping
-      summary: Create a project permission mapping
+      summary: Kion Create a project permission mapping
       description: Creates a permission mapping on a project.
       tags:
         - Permission Mappings
@@ -466,7 +466,7 @@ paths:
   /ou:
     get:
       operationId: listOUs
-      summary: List organizational units
+      summary: Kion List organizational units
       description: Returns a list of all organizational units.
       tags:
         - Organizational Units
@@ -491,7 +491,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createOU
-      summary: Create an organizational unit
+      summary: Kion Create an organizational unit
       description: Creates a new organizational unit.
       tags:
         - Organizational Units
@@ -518,7 +518,7 @@ paths:
   /ou/{id}:
     get:
       operationId: getOU
-      summary: Get an organizational unit
+      summary: Kion Get an organizational unit
       description: Returns details for a specific organizational unit.
       tags:
         - Organizational Units
@@ -542,7 +542,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateOU
-      summary: Update an organizational unit
+      summary: Kion Update an organizational unit
       description: Updates an existing organizational unit.
       tags:
         - Organizational Units
@@ -563,7 +563,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteOU
-      summary: Delete an organizational unit
+      summary: Kion Delete an organizational unit
       description: Deletes an organizational unit.
       tags:
         - Organizational Units
@@ -579,7 +579,7 @@ paths:
   /ou/{id}/cloud-access-role:
     get:
       operationId: listOUCloudAccessRoles
-      summary: List OU cloud access roles
+      summary: Kion List OU cloud access roles
       description: Returns cloud access roles for a specific OU.
       tags:
         - Cloud Access Roles
@@ -592,7 +592,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createOUCloudAccessRole
-      summary: Create an OU cloud access role
+      summary: Kion Create an OU cloud access role
       description: Creates a cloud access role on an OU.
       tags:
         - Cloud Access Roles
@@ -612,7 +612,7 @@ paths:
   /ou/{id}/permission-mapping:
     get:
       operationId: listOUPermissionMappings
-      summary: List OU permission mappings
+      summary: Kion List OU permission mappings
       description: Returns permission mappings for a specific OU.
       tags:
         - Permission Mappings
@@ -625,7 +625,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createOUPermissionMapping
-      summary: Create an OU permission mapping
+      summary: Kion Create an OU permission mapping
       description: Creates a permission mapping on an OU.
       tags:
         - Permission Mappings
@@ -645,7 +645,7 @@ paths:
   /cloud-rule:
     get:
       operationId: listCloudRules
-      summary: List cloud rules
+      summary: Kion List cloud rules
       description: Returns a list of all cloud rules.
       tags:
         - Cloud Rules
@@ -667,7 +667,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createCloudRule
-      summary: Create a cloud rule
+      summary: Kion Create a cloud rule
       description: Creates a new cloud rule.
       tags:
         - Cloud Rules
@@ -685,7 +685,7 @@ paths:
   /cloud-rule/{id}:
     get:
       operationId: getCloudRule
-      summary: Get a cloud rule
+      summary: Kion Get a cloud rule
       description: Returns details for a specific cloud rule.
       tags:
         - Cloud Rules
@@ -709,7 +709,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateCloudRule
-      summary: Update a cloud rule
+      summary: Kion Update a cloud rule
       description: Updates an existing cloud rule.
       tags:
         - Cloud Rules
@@ -730,7 +730,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteCloudRule
-      summary: Delete a cloud rule
+      summary: Kion Delete a cloud rule
       description: Deletes a cloud rule.
       tags:
         - Cloud Rules
@@ -746,7 +746,7 @@ paths:
   /compliance-check:
     get:
       operationId: listComplianceChecks
-      summary: List compliance checks
+      summary: Kion List compliance checks
       description: Returns a list of all compliance checks.
       tags:
         - Compliance Checks
@@ -768,7 +768,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createComplianceCheck
-      summary: Create a compliance check
+      summary: Kion Create a compliance check
       description: Creates a new compliance check.
       tags:
         - Compliance Checks
@@ -786,7 +786,7 @@ paths:
   /compliance-check/{id}:
     get:
       operationId: getComplianceCheck
-      summary: Get a compliance check
+      summary: Kion Get a compliance check
       description: Returns details for a specific compliance check.
       tags:
         - Compliance Checks
@@ -810,7 +810,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateComplianceCheck
-      summary: Update a compliance check
+      summary: Kion Update a compliance check
       description: Updates an existing compliance check.
       tags:
         - Compliance Checks
@@ -831,7 +831,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteComplianceCheck
-      summary: Delete a compliance check
+      summary: Kion Delete a compliance check
       description: Deletes a compliance check.
       tags:
         - Compliance Checks
@@ -847,7 +847,7 @@ paths:
   /compliance-standard:
     get:
       operationId: listComplianceStandards
-      summary: List compliance standards
+      summary: Kion List compliance standards
       description: Returns a list of all compliance standards.
       tags:
         - Compliance Standards
@@ -869,7 +869,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createComplianceStandard
-      summary: Create a compliance standard
+      summary: Kion Create a compliance standard
       description: Creates a new compliance standard.
       tags:
         - Compliance Standards
@@ -887,7 +887,7 @@ paths:
   /compliance-standard/{id}:
     get:
       operationId: getComplianceStandard
-      summary: Get a compliance standard
+      summary: Kion Get a compliance standard
       description: Returns details for a specific compliance standard.
       tags:
         - Compliance Standards
@@ -911,7 +911,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateComplianceStandard
-      summary: Update a compliance standard
+      summary: Kion Update a compliance standard
       description: Updates an existing compliance standard.
       tags:
         - Compliance Standards
@@ -932,7 +932,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteComplianceStandard
-      summary: Delete a compliance standard
+      summary: Kion Delete a compliance standard
       description: Deletes a compliance standard.
       tags:
         - Compliance Standards
@@ -948,7 +948,7 @@ paths:
   /funding-source:
     get:
       operationId: listFundingSources
-      summary: List funding sources
+      summary: Kion List funding sources
       description: Returns a list of all funding sources.
       tags:
         - Funding Sources
@@ -970,7 +970,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createFundingSource
-      summary: Create a funding source
+      summary: Kion Create a funding source
       description: Creates a new funding source.
       tags:
         - Funding Sources
@@ -988,7 +988,7 @@ paths:
   /funding-source/{id}:
     get:
       operationId: getFundingSource
-      summary: Get a funding source
+      summary: Kion Get a funding source
       description: Returns details for a specific funding source.
       tags:
         - Funding Sources
@@ -1012,7 +1012,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateFundingSource
-      summary: Update a funding source
+      summary: Kion Update a funding source
       description: Updates an existing funding source.
       tags:
         - Funding Sources
@@ -1033,7 +1033,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteFundingSource
-      summary: Delete a funding source
+      summary: Kion Delete a funding source
       description: Deletes a funding source.
       tags:
         - Funding Sources
@@ -1049,7 +1049,7 @@ paths:
   /funding-source/{id}/permission-mapping:
     get:
       operationId: listFundingSourcePermissionMappings
-      summary: List funding source permission mappings
+      summary: Kion List funding source permission mappings
       description: Returns permission mappings for a specific funding source.
       tags:
         - Permission Mappings
@@ -1062,7 +1062,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createFundingSourcePermissionMapping
-      summary: Create a funding source permission mapping
+      summary: Kion Create a funding source permission mapping
       description: Creates a permission mapping on a funding source.
       tags:
         - Permission Mappings
@@ -1082,7 +1082,7 @@ paths:
   /label:
     get:
       operationId: listLabels
-      summary: List labels
+      summary: Kion List labels
       description: Returns a list of all labels.
       tags:
         - Labels
@@ -1104,7 +1104,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createLabel
-      summary: Create a label
+      summary: Kion Create a label
       description: Creates a new label.
       tags:
         - Labels
@@ -1122,7 +1122,7 @@ paths:
   /label/{id}:
     get:
       operationId: getLabel
-      summary: Get a label
+      summary: Kion Get a label
       description: Returns details for a specific label.
       tags:
         - Labels
@@ -1146,7 +1146,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateLabel
-      summary: Update a label
+      summary: Kion Update a label
       description: Updates an existing label.
       tags:
         - Labels
@@ -1167,7 +1167,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteLabel
-      summary: Delete a label
+      summary: Kion Delete a label
       description: Deletes a label.
       tags:
         - Labels
@@ -1183,7 +1183,7 @@ paths:
   /user:
     get:
       operationId: listUsers
-      summary: List users
+      summary: Kion List users
       description: Returns a list of all users.
       tags:
         - Users
@@ -1205,7 +1205,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createUser
-      summary: Create a user
+      summary: Kion Create a user
       description: Creates a new user.
       tags:
         - Users
@@ -1223,7 +1223,7 @@ paths:
   /user/{id}:
     get:
       operationId: getUser
-      summary: Get a user
+      summary: Kion Get a user
       description: Returns details for a specific user.
       tags:
         - Users
@@ -1247,7 +1247,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateUser
-      summary: Update a user
+      summary: Kion Update a user
       description: Updates an existing user.
       tags:
         - Users
@@ -1268,7 +1268,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteUser
-      summary: Delete a user
+      summary: Kion Delete a user
       description: Deletes a user.
       tags:
         - Users
@@ -1284,7 +1284,7 @@ paths:
   /user-group:
     get:
       operationId: listUserGroups
-      summary: List user groups
+      summary: Kion List user groups
       description: Returns a list of all user groups.
       tags:
         - User Groups
@@ -1306,7 +1306,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createUserGroup
-      summary: Create a user group
+      summary: Kion Create a user group
       description: Creates a new user group.
       tags:
         - User Groups
@@ -1324,7 +1324,7 @@ paths:
   /user-group/{id}:
     get:
       operationId: getUserGroup
-      summary: Get a user group
+      summary: Kion Get a user group
       description: Returns details for a specific user group.
       tags:
         - User Groups
@@ -1348,7 +1348,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateUserGroup
-      summary: Update a user group
+      summary: Kion Update a user group
       description: Updates an existing user group.
       tags:
         - User Groups
@@ -1369,7 +1369,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteUserGroup
-      summary: Delete a user group
+      summary: Kion Delete a user group
       description: Deletes a user group.
       tags:
         - User Groups
@@ -1385,7 +1385,7 @@ paths:
   /aws-iam-policy:
     get:
       operationId: listAwsIamPolicies
-      summary: List AWS IAM policies
+      summary: Kion List AWS IAM policies
       description: Returns a list of all AWS IAM policies.
       tags:
         - IAM Policies
@@ -1407,7 +1407,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createAwsIamPolicy
-      summary: Create an AWS IAM policy
+      summary: Kion Create an AWS IAM policy
       description: Creates a new AWS IAM policy.
       tags:
         - IAM Policies
@@ -1425,7 +1425,7 @@ paths:
   /aws-iam-policy/{id}:
     get:
       operationId: getAwsIamPolicy
-      summary: Get an AWS IAM policy
+      summary: Kion Get an AWS IAM policy
       description: Returns details for a specific AWS IAM policy.
       tags:
         - IAM Policies
@@ -1440,7 +1440,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateAwsIamPolicy
-      summary: Update an AWS IAM policy
+      summary: Kion Update an AWS IAM policy
       description: Updates an existing AWS IAM policy.
       tags:
         - IAM Policies
@@ -1461,7 +1461,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteAwsIamPolicy
-      summary: Delete an AWS IAM policy
+      summary: Kion Delete an AWS IAM policy
       description: Deletes an AWS IAM policy.
       tags:
         - IAM Policies
@@ -1477,7 +1477,7 @@ paths:
   /service-control-policy:
     get:
       operationId: listServiceControlPolicies
-      summary: List service control policies
+      summary: Kion List service control policies
       description: Returns a list of all AWS service control policies.
       tags:
         - Service Control Policies
@@ -1499,7 +1499,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createServiceControlPolicy
-      summary: Create a service control policy
+      summary: Kion Create a service control policy
       description: Creates a new AWS service control policy.
       tags:
         - Service Control Policies
@@ -1517,7 +1517,7 @@ paths:
   /service-control-policy/{id}:
     get:
       operationId: getServiceControlPolicy
-      summary: Get a service control policy
+      summary: Kion Get a service control policy
       description: Returns details for a specific service control policy.
       tags:
         - Service Control Policies
@@ -1532,7 +1532,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateServiceControlPolicy
-      summary: Update a service control policy
+      summary: Kion Update a service control policy
       description: Updates an existing service control policy.
       tags:
         - Service Control Policies
@@ -1553,7 +1553,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteServiceControlPolicy
-      summary: Delete a service control policy
+      summary: Kion Delete a service control policy
       description: Deletes a service control policy.
       tags:
         - Service Control Policies
@@ -1569,7 +1569,7 @@ paths:
   /aws-cloudformation-template:
     get:
       operationId: listCloudFormationTemplates
-      summary: List CloudFormation templates
+      summary: Kion List CloudFormation templates
       description: Returns a list of all AWS CloudFormation templates.
       tags:
         - CloudFormation Templates
@@ -1591,7 +1591,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createCloudFormationTemplate
-      summary: Create a CloudFormation template
+      summary: Kion Create a CloudFormation template
       description: Creates a new AWS CloudFormation template.
       tags:
         - CloudFormation Templates
@@ -1609,7 +1609,7 @@ paths:
   /aws-cloudformation-template/{id}:
     get:
       operationId: getCloudFormationTemplate
-      summary: Get a CloudFormation template
+      summary: Kion Get a CloudFormation template
       description: Returns details for a specific CloudFormation template.
       tags:
         - CloudFormation Templates
@@ -1624,7 +1624,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateCloudFormationTemplate
-      summary: Update a CloudFormation template
+      summary: Kion Update a CloudFormation template
       description: Updates an existing CloudFormation template.
       tags:
         - CloudFormation Templates
@@ -1645,7 +1645,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteCloudFormationTemplate
-      summary: Delete a CloudFormation template
+      summary: Kion Delete a CloudFormation template
       description: Deletes a CloudFormation template.
       tags:
         - CloudFormation Templates
@@ -1661,7 +1661,7 @@ paths:
   /azure-arm-template:
     get:
       operationId: listAzureArmTemplates
-      summary: List Azure ARM templates
+      summary: Kion List Azure ARM templates
       description: Returns a list of all Azure ARM templates.
       tags:
         - Azure ARM Templates
@@ -1683,7 +1683,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createAzureArmTemplate
-      summary: Create an Azure ARM template
+      summary: Kion Create an Azure ARM template
       description: Creates a new Azure ARM template.
       tags:
         - Azure ARM Templates
@@ -1701,7 +1701,7 @@ paths:
   /azure-arm-template/{id}:
     get:
       operationId: getAzureArmTemplate
-      summary: Get an Azure ARM template
+      summary: Kion Get an Azure ARM template
       description: Returns details for a specific Azure ARM template.
       tags:
         - Azure ARM Templates
@@ -1716,7 +1716,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateAzureArmTemplate
-      summary: Update an Azure ARM template
+      summary: Kion Update an Azure ARM template
       tags:
         - Azure ARM Templates
       parameters:
@@ -1736,7 +1736,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteAzureArmTemplate
-      summary: Delete an Azure ARM template
+      summary: Kion Delete an Azure ARM template
       tags:
         - Azure ARM Templates
       parameters:
@@ -1751,7 +1751,7 @@ paths:
   /azure-policy:
     get:
       operationId: listAzurePolicies
-      summary: List Azure policies
+      summary: Kion List Azure policies
       description: Returns a list of all Azure policies.
       tags:
         - Azure Policies
@@ -1773,7 +1773,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createAzurePolicy
-      summary: Create an Azure policy
+      summary: Kion Create an Azure policy
       tags:
         - Azure Policies
       requestBody:
@@ -1790,7 +1790,7 @@ paths:
   /azure-policy/{id}:
     get:
       operationId: getAzurePolicy
-      summary: Get an Azure policy
+      summary: Kion Get an Azure policy
       tags:
         - Azure Policies
       parameters:
@@ -1804,7 +1804,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateAzurePolicy
-      summary: Update an Azure policy
+      summary: Kion Update an Azure policy
       tags:
         - Azure Policies
       parameters:
@@ -1824,7 +1824,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteAzurePolicy
-      summary: Delete an Azure policy
+      summary: Kion Delete an Azure policy
       tags:
         - Azure Policies
       parameters:
@@ -1839,7 +1839,7 @@ paths:
   /azure-role:
     get:
       operationId: listAzureRoles
-      summary: List Azure roles
+      summary: Kion List Azure roles
       description: Returns a list of all Azure roles.
       tags:
         - Azure Roles
@@ -1861,7 +1861,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createAzureRole
-      summary: Create an Azure role
+      summary: Kion Create an Azure role
       tags:
         - Azure Roles
       requestBody:
@@ -1878,7 +1878,7 @@ paths:
   /azure-role/{id}:
     get:
       operationId: getAzureRole
-      summary: Get an Azure role
+      summary: Kion Get an Azure role
       tags:
         - Azure Roles
       parameters:
@@ -1892,7 +1892,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateAzureRole
-      summary: Update an Azure role
+      summary: Kion Update an Azure role
       tags:
         - Azure Roles
       parameters:
@@ -1912,7 +1912,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteAzureRole
-      summary: Delete an Azure role
+      summary: Kion Delete an Azure role
       tags:
         - Azure Roles
       parameters:
@@ -1927,7 +1927,7 @@ paths:
   /gcp-iam-role:
     get:
       operationId: listGcpIamRoles
-      summary: List GCP IAM roles
+      summary: Kion List GCP IAM roles
       description: Returns a list of all GCP IAM roles.
       tags:
         - GCP IAM Roles
@@ -1949,7 +1949,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createGcpIamRole
-      summary: Create a GCP IAM role
+      summary: Kion Create a GCP IAM role
       tags:
         - GCP IAM Roles
       requestBody:
@@ -1966,7 +1966,7 @@ paths:
   /gcp-iam-role/{id}:
     get:
       operationId: getGcpIamRole
-      summary: Get a GCP IAM role
+      summary: Kion Get a GCP IAM role
       tags:
         - GCP IAM Roles
       parameters:
@@ -1980,7 +1980,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateGcpIamRole
-      summary: Update a GCP IAM role
+      summary: Kion Update a GCP IAM role
       tags:
         - GCP IAM Roles
       parameters:
@@ -2000,7 +2000,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteGcpIamRole
-      summary: Delete a GCP IAM role
+      summary: Kion Delete a GCP IAM role
       tags:
         - GCP IAM Roles
       parameters:
@@ -2015,7 +2015,7 @@ paths:
   /webhook:
     get:
       operationId: listWebhooks
-      summary: List webhooks
+      summary: Kion List webhooks
       description: Returns a list of all webhooks.
       tags:
         - Webhooks
@@ -2037,7 +2037,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createWebhook
-      summary: Create a webhook
+      summary: Kion Create a webhook
       tags:
         - Webhooks
       requestBody:
@@ -2054,7 +2054,7 @@ paths:
   /webhook/{id}:
     get:
       operationId: getWebhook
-      summary: Get a webhook
+      summary: Kion Get a webhook
       tags:
         - Webhooks
       parameters:
@@ -2068,7 +2068,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateWebhook
-      summary: Update a webhook
+      summary: Kion Update a webhook
       tags:
         - Webhooks
       parameters:
@@ -2088,7 +2088,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteWebhook
-      summary: Delete a webhook
+      summary: Kion Delete a webhook
       tags:
         - Webhooks
       parameters:
@@ -2103,7 +2103,7 @@ paths:
   /saml-group-association:
     get:
       operationId: listSamlGroupAssociations
-      summary: List SAML group associations
+      summary: Kion List SAML group associations
       description: Returns a list of all SAML group associations.
       tags:
         - SAML Group Associations
@@ -2125,7 +2125,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createSamlGroupAssociation
-      summary: Create a SAML group association
+      summary: Kion Create a SAML group association
       tags:
         - SAML Group Associations
       requestBody:
@@ -2142,7 +2142,7 @@ paths:
   /saml-group-association/{id}:
     get:
       operationId: getSamlGroupAssociation
-      summary: Get a SAML group association
+      summary: Kion Get a SAML group association
       tags:
         - SAML Group Associations
       parameters:
@@ -2156,7 +2156,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateSamlGroupAssociation
-      summary: Update a SAML group association
+      summary: Kion Update a SAML group association
       tags:
         - SAML Group Associations
       parameters:
@@ -2176,7 +2176,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteSamlGroupAssociation
-      summary: Delete a SAML group association
+      summary: Kion Delete a SAML group association
       tags:
         - SAML Group Associations
       parameters:
@@ -2191,7 +2191,7 @@ paths:
   /custom-variable:
     get:
       operationId: listCustomVariables
-      summary: List custom variables
+      summary: Kion List custom variables
       description: Returns a list of all custom variables.
       tags:
         - Custom Variables
@@ -2213,7 +2213,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createCustomVariable
-      summary: Create a custom variable
+      summary: Kion Create a custom variable
       tags:
         - Custom Variables
       requestBody:
@@ -2230,7 +2230,7 @@ paths:
   /custom-variable/{id}:
     get:
       operationId: getCustomVariable
-      summary: Get a custom variable
+      summary: Kion Get a custom variable
       tags:
         - Custom Variables
       parameters:
@@ -2244,7 +2244,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateCustomVariable
-      summary: Update a custom variable
+      summary: Kion Update a custom variable
       tags:
         - Custom Variables
       parameters:
@@ -2264,7 +2264,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteCustomVariable
-      summary: Delete a custom variable
+      summary: Kion Delete a custom variable
       tags:
         - Custom Variables
       parameters:
@@ -2279,7 +2279,7 @@ paths:
   /custom-variable-override:
     get:
       operationId: listCustomVariableOverrides
-      summary: List custom variable overrides
+      summary: Kion List custom variable overrides
       description: Returns a list of all custom variable overrides.
       tags:
         - Custom Variables
@@ -2290,7 +2290,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createCustomVariableOverride
-      summary: Create a custom variable override
+      summary: Kion Create a custom variable override
       tags:
         - Custom Variables
       requestBody:
@@ -2307,7 +2307,7 @@ paths:
   /custom-variable-override/{id}:
     get:
       operationId: getCustomVariableOverride
-      summary: Get a custom variable override
+      summary: Kion Get a custom variable override
       tags:
         - Custom Variables
       parameters:
@@ -2321,7 +2321,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateCustomVariableOverride
-      summary: Update a custom variable override
+      summary: Kion Update a custom variable override
       tags:
         - Custom Variables
       parameters:
@@ -2341,7 +2341,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteCustomVariableOverride
-      summary: Delete a custom variable override
+      summary: Kion Delete a custom variable override
       tags:
         - Custom Variables
       parameters:
@@ -2356,7 +2356,7 @@ paths:
   /global-permission-mapping:
     get:
       operationId: listGlobalPermissionMappings
-      summary: List global permission mappings
+      summary: Kion List global permission mappings
       description: Returns a list of all global permission mappings.
       tags:
         - Permission Mappings
@@ -2367,7 +2367,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     post:
       operationId: createGlobalPermissionMapping
-      summary: Create a global permission mapping
+      summary: Kion Create a global permission mapping
       tags:
         - Permission Mappings
       requestBody:
@@ -2384,7 +2384,7 @@ paths:
   /global-permission-mapping/{id}:
     get:
       operationId: getGlobalPermissionMapping
-      summary: Get a global permission mapping
+      summary: Kion Get a global permission mapping
       tags:
         - Permission Mappings
       parameters:
@@ -2398,7 +2398,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateGlobalPermissionMapping
-      summary: Update a global permission mapping
+      summary: Kion Update a global permission mapping
       tags:
         - Permission Mappings
       parameters:
@@ -2418,7 +2418,7 @@ paths:
           $ref: '#/components/responses/NotFound'
     delete:
       operationId: deleteGlobalPermissionMapping
-      summary: Delete a global permission mapping
+      summary: Kion Delete a global permission mapping
       tags:
         - Permission Mappings
       parameters:
@@ -2433,7 +2433,7 @@ paths:
   /idms:
     get:
       operationId: listIdms
-      summary: List identity management systems
+      summary: Kion List identity management systems
       description: Returns a list of all identity management systems.
       tags:
         - Identity Management
@@ -2445,7 +2445,7 @@ paths:
   /app-config:
     get:
       operationId: getAppConfig
-      summary: Get application configuration
+      summary: Kion Get application configuration
       description: Returns the Kion application configuration settings.
       tags:
         - App Configuration
@@ -2465,7 +2465,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
     patch:
       operationId: updateAppConfig
-      summary: Update application configuration
+      summary: Kion Update application configuration
       description: Updates the Kion application configuration settings.
       tags:
         - App Configuration

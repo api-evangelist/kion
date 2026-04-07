@@ -1,5 +1,6 @@
 aid: kion
-url: https://raw.githubusercontent.com/api-evangelist/kion/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/kion/refs/heads/main/apis.yml
 apis:
   - aid: kion:kion-cloud-operations-api
     name: Kion Cloud Operations API
@@ -14,7 +15,8 @@ apis:
     humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
     baseURL: https://{kion-instance}/api/v3
     properties:
-      - url: https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+      - url: 
+          https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
         type: Documentation
       - url: openapi/kion-cloud-operations-api-openapi.yml
         type: OpenAPI
@@ -53,15 +55,9 @@ apis:
       - url: json-ld/kion-context.jsonld
         type: JSONLD
     description: >-
-      The Kion Public API provides programmatic access to manage cloud
-      operations, governance, compliance, and financial management across AWS,
-      Azure, GCP, and OCI. The API supports managing accounts, projects,
-      organizational units, cloud rules, compliance checks and standards,
-      funding sources, IAM policies, service control policies, CloudFormation
-      templates, Azure ARM templates, Azure policies and roles, GCP IAM roles,
-      labels, users, user groups, webhooks, SAML group associations,
-      permission mappings, custom variables, and application configuration.
-      Authentication uses Bearer token via Kion App API Keys.
+      The Kion Public API provides programmatic access to manage cloud operations,
+      governance, compliance, and financial management across AWS, Azure, GCP, and
+      OCI.
 name: Kion
 tags:
   - FinOps
@@ -77,20 +73,11 @@ created: '2026-01-02'
 modified: '2026-03-16'
 position: Consuming
 description: >-
-  Kion is a cloud operations platform that provides automated governance and
-  FinOps capabilities across AWS, Azure, GCP, and OCI through a self-hosted
-  deployment model. The platform consolidates multiple point solutions into a
-  comprehensive system that helps organizations allocate and track cloud
-  spending, identify savings opportunities, enforce budgets, and access
-  real-time and forecasted financial data. Kion's automation and orchestration
-  features enable rapid account provisioning, enterprise-wide visibility, and
-  full cloud lifecycle management by integrating with existing tech stacks. The
-  platform also offers continuous compliance capabilities to prevent, detect,
-  report, and remediate issues against industry standards and business policies.
-  What distinguishes Kion is its cloud-native access, private self-hosted
-  architecture, and multicloud control all within a single intuitive interface,
-  delivering results like 10x faster provisioning and decision-making, 30x
-  ongoing efficiency savings, and 100% payback within 90 days.
+  Kion is a cloud operations platform that provides automated governance and FinOps
+  capabilities across AWS, Azure, GCP, and OCI through a self-hosted deployment model.
+  The platform consolidates multiple point solutions into a comprehensive system that
+  helps organizations allocate and track cloud spending, identify savings opportunities,
+  enforce budgets, and access real-time and forecasted financial data.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
