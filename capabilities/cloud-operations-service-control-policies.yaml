@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — Service Control Policies
+  description: 'Kion Cloud Operations API — Service Control Policies. 5 operations. Lead operation: Kion List service control
+    policies. Self-contained Naftiko capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - Service Control Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-service-control-policies
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — Service Control Policies business capability. Self-contained, no shared references.
+    resources:
+    - name: service-control-policy
+      path: /service-control-policy
+      operations:
+      - name: listservicecontrolpolicies
+        method: GET
+        description: Kion List service control policies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createservicecontrolpolicy
+        method: POST
+        description: Kion Create a service control policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: service-control-policy-id
+      path: /service-control-policy/{id}
+      operations:
+      - name: getservicecontrolpolicy
+        method: GET
+        description: Kion Get a service control policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateservicecontrolpolicy
+        method: PATCH
+        description: Kion Update a service control policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteservicecontrolpolicy
+        method: DELETE
+        description: Kion Delete a service control policy
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-service-control-policies-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — Service Control Policies. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/service-control-policy
+      name: service-control-policy
+      description: REST surface for service-control-policy.
+      operations:
+      - method: GET
+        name: listservicecontrolpolicies
+        description: Kion List service control policies
+        call: cloud-operations-service-control-policies.listservicecontrolpolicies
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createservicecontrolpolicy
+        description: Kion Create a service control policy
+        call: cloud-operations-service-control-policies.createservicecontrolpolicy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/service-control-policy/{id}
+      name: service-control-policy-id
+      description: REST surface for service-control-policy-id.
+      operations:
+      - method: GET
+        name: getservicecontrolpolicy
+        description: Kion Get a service control policy
+        call: cloud-operations-service-control-policies.getservicecontrolpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateservicecontrolpolicy
+        description: Kion Update a service control policy
+        call: cloud-operations-service-control-policies.updateservicecontrolpolicy
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteservicecontrolpolicy
+        description: Kion Delete a service control policy
+        call: cloud-operations-service-control-policies.deleteservicecontrolpolicy
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-service-control-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — Service Control Policies. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: kion-list-service-control-policies
+      description: Kion List service control policies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-service-control-policies.listservicecontrolpolicies
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-service-control-policy
+      description: Kion Create a service control policy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-service-control-policies.createservicecontrolpolicy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-get-service-control-policy
+      description: Kion Get a service control policy
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-service-control-policies.getservicecontrolpolicy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-update-service-control-policy
+      description: Kion Update a service control policy
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-operations-service-control-policies.updateservicecontrolpolicy
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-delete-service-control-policy
+      description: Kion Delete a service control policy
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: cloud-operations-service-control-policies.deleteservicecontrolpolicy
+      outputParameters:
+      - type: object
+        mapping: $.

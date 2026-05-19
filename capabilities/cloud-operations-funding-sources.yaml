@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — Funding Sources
+  description: 'Kion Cloud Operations API — Funding Sources. 5 operations. Lead operation: Kion List funding sources. Self-contained
+    Naftiko capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - Funding Sources
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-funding-sources
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — Funding Sources business capability. Self-contained, no shared references.
+    resources:
+    - name: funding-source
+      path: /funding-source
+      operations:
+      - name: listfundingsources
+        method: GET
+        description: Kion List funding sources
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createfundingsource
+        method: POST
+        description: Kion Create a funding source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: funding-source-id
+      path: /funding-source/{id}
+      operations:
+      - name: getfundingsource
+        method: GET
+        description: Kion Get a funding source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatefundingsource
+        method: PATCH
+        description: Kion Update a funding source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletefundingsource
+        method: DELETE
+        description: Kion Delete a funding source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-funding-sources-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — Funding Sources. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/funding-source
+      name: funding-source
+      description: REST surface for funding-source.
+      operations:
+      - method: GET
+        name: listfundingsources
+        description: Kion List funding sources
+        call: cloud-operations-funding-sources.listfundingsources
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createfundingsource
+        description: Kion Create a funding source
+        call: cloud-operations-funding-sources.createfundingsource
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/funding-source/{id}
+      name: funding-source-id
+      description: REST surface for funding-source-id.
+      operations:
+      - method: GET
+        name: getfundingsource
+        description: Kion Get a funding source
+        call: cloud-operations-funding-sources.getfundingsource
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatefundingsource
+        description: Kion Update a funding source
+        call: cloud-operations-funding-sources.updatefundingsource
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletefundingsource
+        description: Kion Delete a funding source
+        call: cloud-operations-funding-sources.deletefundingsource
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-funding-sources-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — Funding Sources. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: kion-list-funding-sources
+      description: Kion List funding sources
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-funding-sources.listfundingsources
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-funding-source
+      description: Kion Create a funding source
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-funding-sources.createfundingsource
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-get-funding-source
+      description: Kion Get a funding source
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-funding-sources.getfundingsource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-update-funding-source
+      description: Kion Update a funding source
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-operations-funding-sources.updatefundingsource
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-delete-funding-source
+      description: Kion Delete a funding source
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: cloud-operations-funding-sources.deletefundingsource
+      outputParameters:
+      - type: object
+        mapping: $.

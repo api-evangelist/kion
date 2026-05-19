@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — CloudFormation Templates
+  description: 'Kion Cloud Operations API — CloudFormation Templates. 5 operations. Lead operation: Kion List CloudFormation
+    templates. Self-contained Naftiko capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - CloudFormation Templates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-cloudformation-templates
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — CloudFormation Templates business capability. Self-contained, no shared references.
+    resources:
+    - name: aws-cloudformation-template
+      path: /aws-cloudformation-template
+      operations:
+      - name: listcloudformationtemplates
+        method: GET
+        description: Kion List CloudFormation templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcloudformationtemplate
+        method: POST
+        description: Kion Create a CloudFormation template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: aws-cloudformation-template-id
+      path: /aws-cloudformation-template/{id}
+      operations:
+      - name: getcloudformationtemplate
+        method: GET
+        description: Kion Get a CloudFormation template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecloudformationtemplate
+        method: PATCH
+        description: Kion Update a CloudFormation template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecloudformationtemplate
+        method: DELETE
+        description: Kion Delete a CloudFormation template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-cloudformation-templates-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — CloudFormation Templates. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/aws-cloudformation-template
+      name: aws-cloudformation-template
+      description: REST surface for aws-cloudformation-template.
+      operations:
+      - method: GET
+        name: listcloudformationtemplates
+        description: Kion List CloudFormation templates
+        call: cloud-operations-cloudformation-templates.listcloudformationtemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcloudformationtemplate
+        description: Kion Create a CloudFormation template
+        call: cloud-operations-cloudformation-templates.createcloudformationtemplate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/aws-cloudformation-template/{id}
+      name: aws-cloudformation-template-id
+      description: REST surface for aws-cloudformation-template-id.
+      operations:
+      - method: GET
+        name: getcloudformationtemplate
+        description: Kion Get a CloudFormation template
+        call: cloud-operations-cloudformation-templates.getcloudformationtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatecloudformationtemplate
+        description: Kion Update a CloudFormation template
+        call: cloud-operations-cloudformation-templates.updatecloudformationtemplate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecloudformationtemplate
+        description: Kion Delete a CloudFormation template
+        call: cloud-operations-cloudformation-templates.deletecloudformationtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-cloudformation-templates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — CloudFormation Templates. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: kion-list-cloudformation-templates
+      description: Kion List CloudFormation templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-cloudformation-templates.listcloudformationtemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-cloudformation-template
+      description: Kion Create a CloudFormation template
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-cloudformation-templates.createcloudformationtemplate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-get-cloudformation-template
+      description: Kion Get a CloudFormation template
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-cloudformation-templates.getcloudformationtemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-update-cloudformation-template
+      description: Kion Update a CloudFormation template
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-operations-cloudformation-templates.updatecloudformationtemplate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-delete-cloudformation-template
+      description: Kion Delete a CloudFormation template
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: cloud-operations-cloudformation-templates.deletecloudformationtemplate
+      outputParameters:
+      - type: object
+        mapping: $.

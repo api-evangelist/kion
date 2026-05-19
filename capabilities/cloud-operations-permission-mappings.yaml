@@ -1,0 +1,398 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — Permission Mappings
+  description: 'Kion Cloud Operations API — Permission Mappings. 11 operations. Lead operation: Kion List funding source permission
+    mappings. Self-contained Naftiko capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - Permission Mappings
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-permission-mappings
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — Permission Mappings business capability. Self-contained, no shared references.
+    resources:
+    - name: funding-source-id-permission-mapping
+      path: /funding-source/{id}/permission-mapping
+      operations:
+      - name: listfundingsourcepermissionmappings
+        method: GET
+        description: Kion List funding source permission mappings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createfundingsourcepermissionmapping
+        method: POST
+        description: Kion Create a funding source permission mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: global-permission-mapping
+      path: /global-permission-mapping
+      operations:
+      - name: listglobalpermissionmappings
+        method: GET
+        description: Kion List global permission mappings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createglobalpermissionmapping
+        method: POST
+        description: Kion Create a global permission mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: global-permission-mapping-id
+      path: /global-permission-mapping/{id}
+      operations:
+      - name: getglobalpermissionmapping
+        method: GET
+        description: Kion Get a global permission mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateglobalpermissionmapping
+        method: PATCH
+        description: Kion Update a global permission mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteglobalpermissionmapping
+        method: DELETE
+        description: Kion Delete a global permission mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: ou-id-permission-mapping
+      path: /ou/{id}/permission-mapping
+      operations:
+      - name: listoupermissionmappings
+        method: GET
+        description: Kion List OU permission mappings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createoupermissionmapping
+        method: POST
+        description: Kion Create an OU permission mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: project-id-permission-mapping
+      path: /project/{id}/permission-mapping
+      operations:
+      - name: listprojectpermissionmappings
+        method: GET
+        description: Kion List project permission mappings
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createprojectpermissionmapping
+        method: POST
+        description: Kion Create a project permission mapping
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-permission-mappings-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — Permission Mappings. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/funding-source/{id}/permission-mapping
+      name: funding-source-id-permission-mapping
+      description: REST surface for funding-source-id-permission-mapping.
+      operations:
+      - method: GET
+        name: listfundingsourcepermissionmappings
+        description: Kion List funding source permission mappings
+        call: cloud-operations-permission-mappings.listfundingsourcepermissionmappings
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createfundingsourcepermissionmapping
+        description: Kion Create a funding source permission mapping
+        call: cloud-operations-permission-mappings.createfundingsourcepermissionmapping
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-permission-mapping
+      name: global-permission-mapping
+      description: REST surface for global-permission-mapping.
+      operations:
+      - method: GET
+        name: listglobalpermissionmappings
+        description: Kion List global permission mappings
+        call: cloud-operations-permission-mappings.listglobalpermissionmappings
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createglobalpermissionmapping
+        description: Kion Create a global permission mapping
+        call: cloud-operations-permission-mappings.createglobalpermissionmapping
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/global-permission-mapping/{id}
+      name: global-permission-mapping-id
+      description: REST surface for global-permission-mapping-id.
+      operations:
+      - method: GET
+        name: getglobalpermissionmapping
+        description: Kion Get a global permission mapping
+        call: cloud-operations-permission-mappings.getglobalpermissionmapping
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateglobalpermissionmapping
+        description: Kion Update a global permission mapping
+        call: cloud-operations-permission-mappings.updateglobalpermissionmapping
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteglobalpermissionmapping
+        description: Kion Delete a global permission mapping
+        call: cloud-operations-permission-mappings.deleteglobalpermissionmapping
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/ou/{id}/permission-mapping
+      name: ou-id-permission-mapping
+      description: REST surface for ou-id-permission-mapping.
+      operations:
+      - method: GET
+        name: listoupermissionmappings
+        description: Kion List OU permission mappings
+        call: cloud-operations-permission-mappings.listoupermissionmappings
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createoupermissionmapping
+        description: Kion Create an OU permission mapping
+        call: cloud-operations-permission-mappings.createoupermissionmapping
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/project/{id}/permission-mapping
+      name: project-id-permission-mapping
+      description: REST surface for project-id-permission-mapping.
+      operations:
+      - method: GET
+        name: listprojectpermissionmappings
+        description: Kion List project permission mappings
+        call: cloud-operations-permission-mappings.listprojectpermissionmappings
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createprojectpermissionmapping
+        description: Kion Create a project permission mapping
+        call: cloud-operations-permission-mappings.createprojectpermissionmapping
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-permission-mappings-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — Permission Mappings. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: kion-list-funding-source-permission
+      description: Kion List funding source permission mappings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-permission-mappings.listfundingsourcepermissionmappings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-funding-source-permission
+      description: Kion Create a funding source permission mapping
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-permission-mappings.createfundingsourcepermissionmapping
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-list-global-permission-mappings
+      description: Kion List global permission mappings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-permission-mappings.listglobalpermissionmappings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-global-permission-mapping
+      description: Kion Create a global permission mapping
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-permission-mappings.createglobalpermissionmapping
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-get-global-permission-mapping
+      description: Kion Get a global permission mapping
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-permission-mappings.getglobalpermissionmapping
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-update-global-permission-mapping
+      description: Kion Update a global permission mapping
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-operations-permission-mappings.updateglobalpermissionmapping
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-delete-global-permission-mapping
+      description: Kion Delete a global permission mapping
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: cloud-operations-permission-mappings.deleteglobalpermissionmapping
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-list-ou-permission-mappings
+      description: Kion List OU permission mappings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-permission-mappings.listoupermissionmappings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-ou-permission-mapping
+      description: Kion Create an OU permission mapping
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-permission-mappings.createoupermissionmapping
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-list-project-permission-mappings
+      description: Kion List project permission mappings
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-permission-mappings.listprojectpermissionmappings
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-project-permission-mapping
+      description: Kion Create a project permission mapping
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-permission-mappings.createprojectpermissionmapping
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

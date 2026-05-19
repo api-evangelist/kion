@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — App Configuration
+  description: 'Kion Cloud Operations API — App Configuration. 2 operations. Lead operation: Kion Get application configuration.
+    Self-contained Naftiko capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - App Configuration
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-app-configuration
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — App Configuration business capability. Self-contained, no shared references.
+    resources:
+    - name: app-config
+      path: /app-config
+      operations:
+      - name: getappconfig
+        method: GET
+        description: Kion Get application configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateappconfig
+        method: PATCH
+        description: Kion Update application configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-app-configuration-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — App Configuration. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/app-config
+      name: app-config
+      description: REST surface for app-config.
+      operations:
+      - method: GET
+        name: getappconfig
+        description: Kion Get application configuration
+        call: cloud-operations-app-configuration.getappconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateappconfig
+        description: Kion Update application configuration
+        call: cloud-operations-app-configuration.updateappconfig
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-app-configuration-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — App Configuration. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: kion-get-application-configuration
+      description: Kion Get application configuration
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-app-configuration.getappconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-update-application-configuration
+      description: Kion Update application configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-operations-app-configuration.updateappconfig
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — Azure ARM Templates
+  description: 'Kion Cloud Operations API — Azure ARM Templates. 5 operations. Lead operation: Kion List Azure ARM templates.
+    Self-contained Naftiko capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - Azure ARM Templates
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-azure-arm-templates
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — Azure ARM Templates business capability. Self-contained, no shared references.
+    resources:
+    - name: azure-arm-template
+      path: /azure-arm-template
+      operations:
+      - name: listazurearmtemplates
+        method: GET
+        description: Kion List Azure ARM templates
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createazurearmtemplate
+        method: POST
+        description: Kion Create an Azure ARM template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: azure-arm-template-id
+      path: /azure-arm-template/{id}
+      operations:
+      - name: getazurearmtemplate
+        method: GET
+        description: Kion Get an Azure ARM template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateazurearmtemplate
+        method: PATCH
+        description: Kion Update an Azure ARM template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteazurearmtemplate
+        method: DELETE
+        description: Kion Delete an Azure ARM template
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-azure-arm-templates-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — Azure ARM Templates. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/azure-arm-template
+      name: azure-arm-template
+      description: REST surface for azure-arm-template.
+      operations:
+      - method: GET
+        name: listazurearmtemplates
+        description: Kion List Azure ARM templates
+        call: cloud-operations-azure-arm-templates.listazurearmtemplates
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createazurearmtemplate
+        description: Kion Create an Azure ARM template
+        call: cloud-operations-azure-arm-templates.createazurearmtemplate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/azure-arm-template/{id}
+      name: azure-arm-template-id
+      description: REST surface for azure-arm-template-id.
+      operations:
+      - method: GET
+        name: getazurearmtemplate
+        description: Kion Get an Azure ARM template
+        call: cloud-operations-azure-arm-templates.getazurearmtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateazurearmtemplate
+        description: Kion Update an Azure ARM template
+        call: cloud-operations-azure-arm-templates.updateazurearmtemplate
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteazurearmtemplate
+        description: Kion Delete an Azure ARM template
+        call: cloud-operations-azure-arm-templates.deleteazurearmtemplate
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-azure-arm-templates-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — Azure ARM Templates. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: kion-list-azure-arm-templates
+      description: Kion List Azure ARM templates
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-azure-arm-templates.listazurearmtemplates
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-azure-arm-template
+      description: Kion Create an Azure ARM template
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-azure-arm-templates.createazurearmtemplate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-get-azure-arm-template
+      description: Kion Get an Azure ARM template
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-azure-arm-templates.getazurearmtemplate
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-update-azure-arm-template
+      description: Kion Update an Azure ARM template
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-operations-azure-arm-templates.updateazurearmtemplate
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-delete-azure-arm-template
+      description: Kion Delete an Azure ARM template
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: cloud-operations-azure-arm-templates.deleteazurearmtemplate
+      outputParameters:
+      - type: object
+        mapping: $.

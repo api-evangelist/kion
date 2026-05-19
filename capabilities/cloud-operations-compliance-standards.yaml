@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — Compliance Standards
+  description: 'Kion Cloud Operations API — Compliance Standards. 5 operations. Lead operation: Kion List compliance standards.
+    Self-contained Naftiko capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - Compliance Standards
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-compliance-standards
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — Compliance Standards business capability. Self-contained, no shared references.
+    resources:
+    - name: compliance-standard
+      path: /compliance-standard
+      operations:
+      - name: listcompliancestandards
+        method: GET
+        description: Kion List compliance standards
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createcompliancestandard
+        method: POST
+        description: Kion Create a compliance standard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: compliance-standard-id
+      path: /compliance-standard/{id}
+      operations:
+      - name: getcompliancestandard
+        method: GET
+        description: Kion Get a compliance standard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecompliancestandard
+        method: PATCH
+        description: Kion Update a compliance standard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecompliancestandard
+        method: DELETE
+        description: Kion Delete a compliance standard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-compliance-standards-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — Compliance Standards. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/compliance-standard
+      name: compliance-standard
+      description: REST surface for compliance-standard.
+      operations:
+      - method: GET
+        name: listcompliancestandards
+        description: Kion List compliance standards
+        call: cloud-operations-compliance-standards.listcompliancestandards
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcompliancestandard
+        description: Kion Create a compliance standard
+        call: cloud-operations-compliance-standards.createcompliancestandard
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/compliance-standard/{id}
+      name: compliance-standard-id
+      description: REST surface for compliance-standard-id.
+      operations:
+      - method: GET
+        name: getcompliancestandard
+        description: Kion Get a compliance standard
+        call: cloud-operations-compliance-standards.getcompliancestandard
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatecompliancestandard
+        description: Kion Update a compliance standard
+        call: cloud-operations-compliance-standards.updatecompliancestandard
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecompliancestandard
+        description: Kion Delete a compliance standard
+        call: cloud-operations-compliance-standards.deletecompliancestandard
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-compliance-standards-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — Compliance Standards. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: kion-list-compliance-standards
+      description: Kion List compliance standards
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-compliance-standards.listcompliancestandards
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-compliance-standard
+      description: Kion Create a compliance standard
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-compliance-standards.createcompliancestandard
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-get-compliance-standard
+      description: Kion Get a compliance standard
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-compliance-standards.getcompliancestandard
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-update-compliance-standard
+      description: Kion Update a compliance standard
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-operations-compliance-standards.updatecompliancestandard
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-delete-compliance-standard
+      description: Kion Delete a compliance standard
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: cloud-operations-compliance-standards.deletecompliancestandard
+      outputParameters:
+      - type: object
+        mapping: $.

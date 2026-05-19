@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — Enforcements
+  description: 'Kion Cloud Operations API — Enforcements. 2 operations. Lead operation: Kion List project enforcements. Self-contained
+    Naftiko capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - Enforcements
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-enforcements
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — Enforcements business capability. Self-contained, no shared references.
+    resources:
+    - name: project-id-enforcement
+      path: /project/{id}/enforcement
+      operations:
+      - name: listprojectenforcements
+        method: GET
+        description: Kion List project enforcements
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createprojectenforcement
+        method: POST
+        description: Kion Create a project enforcement
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-enforcements-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — Enforcements. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/project/{id}/enforcement
+      name: project-id-enforcement
+      description: REST surface for project-id-enforcement.
+      operations:
+      - method: GET
+        name: listprojectenforcements
+        description: Kion List project enforcements
+        call: cloud-operations-enforcements.listprojectenforcements
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createprojectenforcement
+        description: Kion Create a project enforcement
+        call: cloud-operations-enforcements.createprojectenforcement
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-enforcements-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — Enforcements. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: kion-list-project-enforcements
+      description: Kion List project enforcements
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-enforcements.listprojectenforcements
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-project-enforcement
+      description: Kion Create a project enforcement
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-enforcements.createprojectenforcement
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

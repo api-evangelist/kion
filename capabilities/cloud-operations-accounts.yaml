@@ -1,0 +1,172 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — Accounts
+  description: 'Kion Cloud Operations API — Accounts. 4 operations. Lead operation: Kion List accounts. Self-contained Naftiko
+    capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - Accounts
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-accounts
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — Accounts business capability. Self-contained, no shared references.
+    resources:
+    - name: account
+      path: /account
+      operations:
+      - name: listaccounts
+        method: GET
+        description: Kion List accounts
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createaccount
+        method: POST
+        description: Kion Create an account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: account-id
+      path: /account/{id}
+      operations:
+      - name: getaccount
+        method: GET
+        description: Kion Get an account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateaccount
+        method: PATCH
+        description: Kion Update an account
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-accounts-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — Accounts. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/account
+      name: account
+      description: REST surface for account.
+      operations:
+      - method: GET
+        name: listaccounts
+        description: Kion List accounts
+        call: cloud-operations-accounts.listaccounts
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createaccount
+        description: Kion Create an account
+        call: cloud-operations-accounts.createaccount
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/account/{id}
+      name: account-id
+      description: REST surface for account-id.
+      operations:
+      - method: GET
+        name: getaccount
+        description: Kion Get an account
+        call: cloud-operations-accounts.getaccount
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateaccount
+        description: Kion Update an account
+        call: cloud-operations-accounts.updateaccount
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-accounts-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — Accounts. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: kion-list-accounts
+      description: Kion List accounts
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-accounts.listaccounts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-account
+      description: Kion Create an account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-accounts.createaccount
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-get-account
+      description: Kion Get an account
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-accounts.getaccount
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-update-account
+      description: Kion Update an account
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-operations-accounts.updateaccount
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

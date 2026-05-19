@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — User Groups
+  description: 'Kion Cloud Operations API — User Groups. 5 operations. Lead operation: Kion List user groups. Self-contained
+    Naftiko capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - User Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-user-groups
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — User Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: user-group
+      path: /user-group
+      operations:
+      - name: listusergroups
+        method: GET
+        description: Kion List user groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createusergroup
+        method: POST
+        description: Kion Create a user group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: user-group-id
+      path: /user-group/{id}
+      operations:
+      - name: getusergroup
+        method: GET
+        description: Kion Get a user group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateusergroup
+        method: PATCH
+        description: Kion Update a user group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteusergroup
+        method: DELETE
+        description: Kion Delete a user group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-user-groups-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — User Groups. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/user-group
+      name: user-group
+      description: REST surface for user-group.
+      operations:
+      - method: GET
+        name: listusergroups
+        description: Kion List user groups
+        call: cloud-operations-user-groups.listusergroups
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createusergroup
+        description: Kion Create a user group
+        call: cloud-operations-user-groups.createusergroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/user-group/{id}
+      name: user-group-id
+      description: REST surface for user-group-id.
+      operations:
+      - method: GET
+        name: getusergroup
+        description: Kion Get a user group
+        call: cloud-operations-user-groups.getusergroup
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateusergroup
+        description: Kion Update a user group
+        call: cloud-operations-user-groups.updateusergroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteusergroup
+        description: Kion Delete a user group
+        call: cloud-operations-user-groups.deleteusergroup
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-user-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — User Groups. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: kion-list-user-groups
+      description: Kion List user groups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-user-groups.listusergroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-user-group
+      description: Kion Create a user group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-user-groups.createusergroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-get-user-group
+      description: Kion Get a user group
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-user-groups.getusergroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-update-user-group
+      description: Kion Update a user group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-operations-user-groups.updateusergroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-delete-user-group
+      description: Kion Delete a user group
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: cloud-operations-user-groups.deleteusergroup
+      outputParameters:
+      - type: object
+        mapping: $.

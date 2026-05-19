@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Kion Cloud Operations API — Webhooks
+  description: 'Kion Cloud Operations API — Webhooks. 5 operations. Lead operation: Kion List webhooks. Self-contained Naftiko
+    capability covering one Kion business surface.'
+  tags:
+  - Kion
+  - Webhooks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KION_API_KEY: KION_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: cloud-operations-webhooks
+    baseUri: https://{kion-instance}/api/v3
+    description: Kion Cloud Operations API — Webhooks business capability. Self-contained, no shared references.
+    resources:
+    - name: webhook
+      path: /webhook
+      operations:
+      - name: listwebhooks
+        method: GET
+        description: Kion List webhooks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createwebhook
+        method: POST
+        description: Kion Create a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: webhook-id
+      path: /webhook/{id}
+      operations:
+      - name: getwebhook
+        method: GET
+        description: Kion Get a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatewebhook
+        method: PATCH
+        description: Kion Update a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletewebhook
+        method: DELETE
+        description: Kion Delete a webhook
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.KION_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: cloud-operations-webhooks-rest
+    port: 8080
+    description: REST adapter for Kion Cloud Operations API — Webhooks. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/webhook
+      name: webhook
+      description: REST surface for webhook.
+      operations:
+      - method: GET
+        name: listwebhooks
+        description: Kion List webhooks
+        call: cloud-operations-webhooks.listwebhooks
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createwebhook
+        description: Kion Create a webhook
+        call: cloud-operations-webhooks.createwebhook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/webhook/{id}
+      name: webhook-id
+      description: REST surface for webhook-id.
+      operations:
+      - method: GET
+        name: getwebhook
+        description: Kion Get a webhook
+        call: cloud-operations-webhooks.getwebhook
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatewebhook
+        description: Kion Update a webhook
+        call: cloud-operations-webhooks.updatewebhook
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletewebhook
+        description: Kion Delete a webhook
+        call: cloud-operations-webhooks.deletewebhook
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: cloud-operations-webhooks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Kion Cloud Operations API — Webhooks. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: kion-list-webhooks
+      description: Kion List webhooks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-webhooks.listwebhooks
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-create-webhook
+      description: Kion Create a webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: cloud-operations-webhooks.createwebhook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-get-webhook
+      description: Kion Get a webhook
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: cloud-operations-webhooks.getwebhook
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-update-webhook
+      description: Kion Update a webhook
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: cloud-operations-webhooks.updatewebhook
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: kion-delete-webhook
+      description: Kion Delete a webhook
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: cloud-operations-webhooks.deletewebhook
+      outputParameters:
+      - type: object
+        mapping: $.
