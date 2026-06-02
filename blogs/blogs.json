@@ -2,12 +2,14 @@
   "repo": "kion",
   "feeds": [
     {
+      "source": "https://kion.io/feed/",
+      "error": "HTTPError"
+    },
+    {
       "source": "https://kion.io/blog/?Type=blog",
-      "feed_url": "https://kion.io/feed/",
-      "title": "Kion",
-      "saved": 5
+      "error": "HTTPError"
     }
   ],
   "post_count": 17,
-  "fetched": "2026-05-17T20:20:35Z"
+  "fetched": "2026-06-01T23:35:02Z"
 }
