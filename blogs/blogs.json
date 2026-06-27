@@ -3,13 +3,19 @@
   "feeds": [
     {
       "source": "https://kion.io/feed/",
-      "error": "HTTPError"
+      "feed_url": "https://kion.io/feed/",
+      "title": "",
+      "saved": 1,
+      "method": "feed"
     },
     {
       "source": "https://kion.io/blog/?Type=blog",
-      "error": "HTTPError"
+      "feed_url": "https://kion.io/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     }
   ],
-  "post_count": 18,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:03:07Z",
+  "post_count": 22
 }
