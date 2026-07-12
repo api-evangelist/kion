@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/kion-cloud-operations-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in
+    the Authorization header as: Bearer YOUR_API_KEY'
+  sources:
+  - openapi/kion-cloud-operations-api-openapi.yml
