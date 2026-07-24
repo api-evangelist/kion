@@ -1,0 +1,233 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts Compliance Standards API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: Compliance Standards
+  description: Manage compliance standards grouping multiple compliance checks
+paths:
+  /compliance-standard:
+    get:
+      operationId: listComplianceStandards
+      summary: Kion List compliance standards
+      description: Returns a list of all compliance standards.
+      tags:
+      - Compliance Standards
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ComplianceStandard'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createComplianceStandard
+      summary: Kion Create a compliance standard
+      description: Creates a new compliance standard.
+      tags:
+      - Compliance Standards
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComplianceStandardCreate'
+      responses:
+        '201':
+          description: Compliance standard created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /compliance-standard/{id}:
+    get:
+      operationId: getComplianceStandard
+      summary: Kion Get a compliance standard
+      description: Returns details for a specific compliance standard.
+      tags:
+      - Compliance Standards
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/ComplianceStandard'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateComplianceStandard
+      summary: Kion Update a compliance standard
+      description: Updates an existing compliance standard.
+      tags:
+      - Compliance Standards
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComplianceStandardUpdate'
+      responses:
+        '200':
+          description: Compliance standard updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteComplianceStandard
+      summary: Kion Delete a compliance standard
+      description: Deletes a compliance standard.
+      tags:
+      - Compliance Standards
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Compliance standard deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    ComplianceStandardCreate:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        compliance_checks:
+          type: array
+          items:
+            type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    ComplianceStandard:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        compliance_checks:
+          type: array
+          items:
+            type: integer
+        owner_users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        owner_user_groups:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+    ComplianceStandardUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        compliance_checks:
+          type: array
+          items:
+            type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

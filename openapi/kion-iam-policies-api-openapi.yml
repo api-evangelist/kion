@@ -1,0 +1,230 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts IAM Policies API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: IAM Policies
+  description: Manage AWS IAM policies
+paths:
+  /aws-iam-policy:
+    get:
+      operationId: listAwsIamPolicies
+      summary: Kion List AWS IAM policies
+      description: Returns a list of all AWS IAM policies.
+      tags:
+      - IAM Policies
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AwsIamPolicy'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createAwsIamPolicy
+      summary: Kion Create an AWS IAM policy
+      description: Creates a new AWS IAM policy.
+      tags:
+      - IAM Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AwsIamPolicyCreate'
+      responses:
+        '201':
+          description: Policy created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /aws-iam-policy/{id}:
+    get:
+      operationId: getAwsIamPolicy
+      summary: Kion Get an AWS IAM policy
+      description: Returns details for a specific AWS IAM policy.
+      tags:
+      - IAM Policies
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateAwsIamPolicy
+      summary: Kion Update an AWS IAM policy
+      description: Updates an existing AWS IAM policy.
+      tags:
+      - IAM Policies
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AwsIamPolicyUpdate'
+      responses:
+        '200':
+          description: Policy updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteAwsIamPolicy
+      summary: Kion Delete an AWS IAM policy
+      description: Deletes an AWS IAM policy.
+      tags:
+      - IAM Policies
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Policy deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  schemas:
+    AwsIamPolicyUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        aws_iam_path:
+          type: string
+        policy:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    AwsIamPolicy:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        aws_iam_path:
+          type: string
+        policy:
+          type: string
+          description: JSON policy document
+        aws_managed_policy:
+          type: boolean
+        owner_users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        owner_user_groups:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+    AwsIamPolicyCreate:
+      type: object
+      required:
+      - name
+      - policy
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        aws_iam_path:
+          type: string
+        policy:
+          type: string
+        aws_managed_policy:
+          type: boolean
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

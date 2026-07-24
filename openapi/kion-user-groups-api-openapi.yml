@@ -1,0 +1,227 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts User Groups API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: User Groups
+  description: Manage user groups for role-based access control
+paths:
+  /user-group:
+    get:
+      operationId: listUserGroups
+      summary: Kion List user groups
+      description: Returns a list of all user groups.
+      tags:
+      - User Groups
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/UserGroup'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createUserGroup
+      summary: Kion Create a user group
+      description: Creates a new user group.
+      tags:
+      - User Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserGroupCreate'
+      responses:
+        '201':
+          description: User group created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /user-group/{id}:
+    get:
+      operationId: getUserGroup
+      summary: Kion Get a user group
+      description: Returns details for a specific user group.
+      tags:
+      - User Groups
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/UserGroup'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateUserGroup
+      summary: Kion Update a user group
+      description: Updates an existing user group.
+      tags:
+      - User Groups
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserGroupUpdate'
+      responses:
+        '200':
+          description: User group updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteUserGroup
+      summary: Kion Delete a user group
+      description: Deletes a user group.
+      tags:
+      - User Groups
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: User group deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  schemas:
+    UserGroupCreate:
+      type: object
+      required:
+      - name
+      - idms_id
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        idms_id:
+          type: integer
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        enabled:
+          type: boolean
+    UserGroupUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        enabled:
+          type: boolean
+    UserGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        idms_id:
+          type: integer
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        enabled:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

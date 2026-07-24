@@ -1,0 +1,297 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts Custom Variables API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: Custom Variables
+  description: Manage custom variables and overrides
+paths:
+  /custom-variable:
+    get:
+      operationId: listCustomVariables
+      summary: Kion List custom variables
+      description: Returns a list of all custom variables.
+      tags:
+      - Custom Variables
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CustomVariable'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCustomVariable
+      summary: Kion Create a custom variable
+      tags:
+      - Custom Variables
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomVariableCreate'
+      responses:
+        '201':
+          description: Variable created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /custom-variable/{id}:
+    get:
+      operationId: getCustomVariable
+      summary: Kion Get a custom variable
+      tags:
+      - Custom Variables
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateCustomVariable
+      summary: Kion Update a custom variable
+      tags:
+      - Custom Variables
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomVariableUpdate'
+      responses:
+        '200':
+          description: Variable updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteCustomVariable
+      summary: Kion Delete a custom variable
+      tags:
+      - Custom Variables
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Variable deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /custom-variable-override:
+    get:
+      operationId: listCustomVariableOverrides
+      summary: Kion List custom variable overrides
+      description: Returns a list of all custom variable overrides.
+      tags:
+      - Custom Variables
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCustomVariableOverride
+      summary: Kion Create a custom variable override
+      tags:
+      - Custom Variables
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomVariableOverrideCreate'
+      responses:
+        '201':
+          description: Override created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /custom-variable-override/{id}:
+    get:
+      operationId: getCustomVariableOverride
+      summary: Kion Get a custom variable override
+      tags:
+      - Custom Variables
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateCustomVariableOverride
+      summary: Kion Update a custom variable override
+      tags:
+      - Custom Variables
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomVariableOverrideUpdate'
+      responses:
+        '200':
+          description: Override updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteCustomVariableOverride
+      summary: Kion Delete a custom variable override
+      tags:
+      - Custom Variables
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Override deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  schemas:
+    CustomVariableOverrideCreate:
+      type: object
+      required:
+      - custom_variable_id
+      - value
+      properties:
+        custom_variable_id:
+          type: integer
+        value:
+          type: string
+        ou_id:
+          type: integer
+        project_id:
+          type: integer
+    CustomVariableCreate:
+      type: object
+      required:
+      - key
+      - value
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    CustomVariable:
+      type: object
+      properties:
+        id:
+          type: integer
+        key:
+          type: string
+        value:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+    CustomVariableOverrideUpdate:
+      type: object
+      properties:
+        value:
+          type: string
+    CustomVariableUpdate:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

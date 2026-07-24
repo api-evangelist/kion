@@ -1,0 +1,202 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts Labels API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: Labels
+  description: Manage labels for organizing and categorizing resources
+paths:
+  /label:
+    get:
+      operationId: listLabels
+      summary: Kion List labels
+      description: Returns a list of all labels.
+      tags:
+      - Labels
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Label'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createLabel
+      summary: Kion Create a label
+      description: Creates a new label.
+      tags:
+      - Labels
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LabelCreate'
+      responses:
+        '201':
+          description: Label created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /label/{id}:
+    get:
+      operationId: getLabel
+      summary: Kion Get a label
+      description: Returns details for a specific label.
+      tags:
+      - Labels
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/Label'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateLabel
+      summary: Kion Update a label
+      description: Updates an existing label.
+      tags:
+      - Labels
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LabelUpdate'
+      responses:
+        '200':
+          description: Label updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteLabel
+      summary: Kion Delete a label
+      description: Deletes a label.
+      tags:
+      - Labels
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Label deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  schemas:
+    LabelUpdate:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        color:
+          type: string
+    Label:
+      type: object
+      properties:
+        id:
+          type: integer
+        key:
+          type: string
+        value:
+          type: string
+        color:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    LabelCreate:
+      type: object
+      required:
+      - key
+      - value
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        color:
+          type: string
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

@@ -1,0 +1,363 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts Projects API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: Projects
+  description: Manage projects which are the organizational unit for attaching cloud accounts
+paths:
+  /project:
+    get:
+      operationId: listProjects
+      summary: Kion List projects
+      description: Returns a list of all projects.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/PageParam'
+      - $ref: '#/components/parameters/PageSizeParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Project'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createProject
+      summary: Kion Create a project
+      description: Creates a new project in Kion.
+      tags:
+      - Projects
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectCreate'
+      responses:
+        '201':
+          description: Project created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/Project'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /project/{id}:
+    get:
+      operationId: getProject
+      summary: Kion Get a project
+      description: Returns details for a specific project.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/Project'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateProject
+      summary: Kion Update a project
+      description: Updates an existing project.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectUpdate'
+      responses:
+        '200':
+          description: Project updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteProject
+      summary: Kion Delete a project
+      description: Deletes a project.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Project deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /project/{id}/note:
+    get:
+      operationId: listProjectNotes
+      summary: Kion List project notes
+      description: Returns notes for a specific project.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProjectNote'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createProjectNote
+      summary: Kion Create a project note
+      description: Creates a note on a project.
+      tags:
+      - Projects
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectNoteCreate'
+      responses:
+        '201':
+          description: Note created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  parameters:
+    PageParam:
+      name: page
+      in: query
+      required: false
+      description: Page number for pagination
+      schema:
+        type: integer
+        default: 1
+    PageSizeParam:
+      name: page_size
+      in: query
+      required: false
+      description: Number of items per page
+      schema:
+        type: integer
+        default: 50
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  schemas:
+    ProjectUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        ou_id:
+          type: integer
+        default_aws_region:
+          type: string
+        permission_scheme_id:
+          type: integer
+        archived:
+          type: boolean
+        auto_pay:
+          type: boolean
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    ProjectNote:
+      type: object
+      properties:
+        id:
+          type: integer
+        project_id:
+          type: integer
+        content:
+          type: string
+        created_by_user_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+    ProjectNoteCreate:
+      type: object
+      required:
+      - content
+      properties:
+        content:
+          type: string
+    Project:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        ou_id:
+          type: integer
+          description: Organizational unit ID
+        default_aws_region:
+          type: string
+        permission_scheme_id:
+          type: integer
+        project_funding:
+          type: array
+          items:
+            type: object
+            properties:
+              funding_source_id:
+                type: integer
+              amount:
+                type: number
+              start_datecode:
+                type: string
+              end_datecode:
+                type: string
+        budget:
+          type: object
+          properties:
+            amount:
+              type: number
+            funding_source_id:
+              type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        archived:
+          type: boolean
+        auto_pay:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+    ProjectCreate:
+      type: object
+      required:
+      - name
+      - ou_id
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        ou_id:
+          type: integer
+        default_aws_region:
+          type: string
+        permission_scheme_id:
+          type: integer
+        project_funding:
+          type: array
+          items:
+            type: object
+            properties:
+              funding_source_id:
+                type: integer
+              amount:
+                type: number
+              start_datecode:
+                type: string
+              end_datecode:
+                type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        auto_pay:
+          type: boolean
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

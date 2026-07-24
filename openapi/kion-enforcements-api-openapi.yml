@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts Enforcements API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: Enforcements
+  description: Manage project enforcements
+paths:
+  /project/{id}/enforcement:
+    get:
+      operationId: listProjectEnforcements
+      summary: Kion List project enforcements
+      description: Returns enforcements for a specific project.
+      tags:
+      - Enforcements
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProjectEnforcement'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createProjectEnforcement
+      summary: Kion Create a project enforcement
+      description: Creates an enforcement on a project.
+      tags:
+      - Enforcements
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectEnforcementCreate'
+      responses:
+        '201':
+          description: Enforcement created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+  schemas:
+    ProjectEnforcementCreate:
+      type: object
+      properties:
+        cloud_rule_id:
+          type: integer
+        description:
+          type: string
+        overwrite:
+          type: boolean
+        timeframe:
+          type: string
+        amount:
+          type: number
+        threshold_type:
+          type: string
+        enabled:
+          type: boolean
+    ProjectEnforcement:
+      type: object
+      properties:
+        id:
+          type: integer
+        project_id:
+          type: integer
+        cloud_rule_id:
+          type: integer
+        description:
+          type: string
+        overwrite:
+          type: boolean
+        timeframe:
+          type: string
+        amount:
+          type: number
+        threshold_type:
+          type: string
+        enabled:
+          type: boolean
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

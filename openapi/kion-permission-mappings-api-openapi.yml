@@ -1,0 +1,270 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts Permission Mappings API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: Permission Mappings
+  description: Manage permission mappings at global, OU, project, and funding source levels
+paths:
+  /project/{id}/permission-mapping:
+    get:
+      operationId: listProjectPermissionMappings
+      summary: Kion List project permission mappings
+      description: Returns permission mappings for a specific project.
+      tags:
+      - Permission Mappings
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createProjectPermissionMapping
+      summary: Kion Create a project permission mapping
+      description: Creates a permission mapping on a project.
+      tags:
+      - Permission Mappings
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PermissionMappingCreate'
+      responses:
+        '201':
+          description: Permission mapping created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /ou/{id}/permission-mapping:
+    get:
+      operationId: listOUPermissionMappings
+      summary: Kion List OU permission mappings
+      description: Returns permission mappings for a specific OU.
+      tags:
+      - Permission Mappings
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createOUPermissionMapping
+      summary: Kion Create an OU permission mapping
+      description: Creates a permission mapping on an OU.
+      tags:
+      - Permission Mappings
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PermissionMappingCreate'
+      responses:
+        '201':
+          description: Permission mapping created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /funding-source/{id}/permission-mapping:
+    get:
+      operationId: listFundingSourcePermissionMappings
+      summary: Kion List funding source permission mappings
+      description: Returns permission mappings for a specific funding source.
+      tags:
+      - Permission Mappings
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createFundingSourcePermissionMapping
+      summary: Kion Create a funding source permission mapping
+      description: Creates a permission mapping on a funding source.
+      tags:
+      - Permission Mappings
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PermissionMappingCreate'
+      responses:
+        '201':
+          description: Permission mapping created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /global-permission-mapping:
+    get:
+      operationId: listGlobalPermissionMappings
+      summary: Kion List global permission mappings
+      description: Returns a list of all global permission mappings.
+      tags:
+      - Permission Mappings
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createGlobalPermissionMapping
+      summary: Kion Create a global permission mapping
+      tags:
+      - Permission Mappings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PermissionMappingCreate'
+      responses:
+        '201':
+          description: Mapping created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /global-permission-mapping/{id}:
+    get:
+      operationId: getGlobalPermissionMapping
+      summary: Kion Get a global permission mapping
+      tags:
+      - Permission Mappings
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateGlobalPermissionMapping
+      summary: Kion Update a global permission mapping
+      tags:
+      - Permission Mappings
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PermissionMappingUpdate'
+      responses:
+        '200':
+          description: Mapping updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteGlobalPermissionMapping
+      summary: Kion Delete a global permission mapping
+      tags:
+      - Permission Mappings
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Mapping deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    PermissionMappingUpdate:
+      type: object
+      properties:
+        app_role_id:
+          type: integer
+        user_ids:
+          type: array
+          items:
+            type: integer
+        user_group_ids:
+          type: array
+          items:
+            type: integer
+    PermissionMappingCreate:
+      type: object
+      required:
+      - app_role_id
+      properties:
+        app_role_id:
+          type: integer
+        user_ids:
+          type: array
+          items:
+            type: integer
+        user_group_ids:
+          type: array
+          items:
+            type: integer
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

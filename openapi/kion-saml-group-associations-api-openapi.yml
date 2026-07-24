@@ -1,0 +1,215 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts SAML Group Associations API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: SAML Group Associations
+  description: Manage SAML group associations for SSO integration
+paths:
+  /saml-group-association:
+    get:
+      operationId: listSamlGroupAssociations
+      summary: Kion List SAML group associations
+      description: Returns a list of all SAML group associations.
+      tags:
+      - SAML Group Associations
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SamlGroupAssociation'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createSamlGroupAssociation
+      summary: Kion Create a SAML group association
+      tags:
+      - SAML Group Associations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SamlGroupAssociationCreate'
+      responses:
+        '201':
+          description: Association created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /saml-group-association/{id}:
+    get:
+      operationId: getSamlGroupAssociation
+      summary: Kion Get a SAML group association
+      tags:
+      - SAML Group Associations
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateSamlGroupAssociation
+      summary: Kion Update a SAML group association
+      tags:
+      - SAML Group Associations
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SamlGroupAssociationUpdate'
+      responses:
+        '200':
+          description: Association updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteSamlGroupAssociation
+      summary: Kion Delete a SAML group association
+      tags:
+      - SAML Group Associations
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Association deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  schemas:
+    SamlGroupAssociationUpdate:
+      type: object
+      properties:
+        assertion_name:
+          type: string
+        assertion_regex:
+          type: string
+        user_group_mappings:
+          type: array
+          items:
+            type: object
+            properties:
+              assertion_value:
+                type: string
+              user_group_id:
+                type: integer
+    SamlGroupAssociationCreate:
+      type: object
+      required:
+      - assertion_name
+      - assertion_regex
+      - idms_id
+      properties:
+        assertion_name:
+          type: string
+        assertion_regex:
+          type: string
+        idms_id:
+          type: integer
+        user_group_mappings:
+          type: array
+          items:
+            type: object
+            properties:
+              assertion_value:
+                type: string
+              user_group_id:
+                type: integer
+    SamlGroupAssociation:
+      type: object
+      properties:
+        id:
+          type: integer
+        assertion_name:
+          type: string
+        assertion_regex:
+          type: string
+        idms_id:
+          type: integer
+        user_group_mappings:
+          type: array
+          items:
+            type: object
+            properties:
+              assertion_value:
+                type: string
+              user_group_id:
+                type: integer
+        created_at:
+          type: string
+          format: date-time
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

@@ -1,0 +1,220 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts Service Control Policies API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: Service Control Policies
+  description: Manage AWS service control policies
+paths:
+  /service-control-policy:
+    get:
+      operationId: listServiceControlPolicies
+      summary: Kion List service control policies
+      description: Returns a list of all AWS service control policies.
+      tags:
+      - Service Control Policies
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ServiceControlPolicy'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createServiceControlPolicy
+      summary: Kion Create a service control policy
+      description: Creates a new AWS service control policy.
+      tags:
+      - Service Control Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceControlPolicyCreate'
+      responses:
+        '201':
+          description: Policy created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /service-control-policy/{id}:
+    get:
+      operationId: getServiceControlPolicy
+      summary: Kion Get a service control policy
+      description: Returns details for a specific service control policy.
+      tags:
+      - Service Control Policies
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateServiceControlPolicy
+      summary: Kion Update a service control policy
+      description: Updates an existing service control policy.
+      tags:
+      - Service Control Policies
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ServiceControlPolicyUpdate'
+      responses:
+        '200':
+          description: Policy updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteServiceControlPolicy
+      summary: Kion Delete a service control policy
+      description: Deletes a service control policy.
+      tags:
+      - Service Control Policies
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Policy deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  schemas:
+    ServiceControlPolicy:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        policy:
+          type: string
+          description: JSON policy document
+        owner_users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        owner_user_groups:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+    ServiceControlPolicyUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        policy:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    ServiceControlPolicyCreate:
+      type: object
+      required:
+      - name
+      - policy
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        policy:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

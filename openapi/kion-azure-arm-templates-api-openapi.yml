@@ -1,0 +1,234 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts Azure ARM Templates API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: Azure ARM Templates
+  description: Manage Azure ARM templates
+paths:
+  /azure-arm-template:
+    get:
+      operationId: listAzureArmTemplates
+      summary: Kion List Azure ARM templates
+      description: Returns a list of all Azure ARM templates.
+      tags:
+      - Azure ARM Templates
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/AzureArmTemplate'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createAzureArmTemplate
+      summary: Kion Create an Azure ARM template
+      description: Creates a new Azure ARM template.
+      tags:
+      - Azure ARM Templates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AzureArmTemplateCreate'
+      responses:
+        '201':
+          description: Template created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /azure-arm-template/{id}:
+    get:
+      operationId: getAzureArmTemplate
+      summary: Kion Get an Azure ARM template
+      description: Returns details for a specific Azure ARM template.
+      tags:
+      - Azure ARM Templates
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateAzureArmTemplate
+      summary: Kion Update an Azure ARM template
+      tags:
+      - Azure ARM Templates
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AzureArmTemplateUpdate'
+      responses:
+        '200':
+          description: Template updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteAzureArmTemplate
+      summary: Kion Delete an Azure ARM template
+      tags:
+      - Azure ARM Templates
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Template deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    AzureArmTemplate:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        resource_group_name:
+          type: string
+        resource_group_region:
+          type: string
+        template:
+          type: string
+        deployment_mode:
+          type: string
+        owner_users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        owner_user_groups:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+    AzureArmTemplateCreate:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        resource_group_name:
+          type: string
+        resource_group_region:
+          type: string
+        template:
+          type: string
+        deployment_mode:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    AzureArmTemplateUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        resource_group_name:
+          type: string
+        resource_group_region:
+          type: string
+        template:
+          type: string
+        deployment_mode:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

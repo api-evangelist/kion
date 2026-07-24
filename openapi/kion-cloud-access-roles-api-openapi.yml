@@ -1,0 +1,219 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts Cloud Access Roles API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: Cloud Access Roles
+  description: Manage cloud access roles for OU and project level access
+paths:
+  /project/{id}/cloud-access-role:
+    get:
+      operationId: listProjectCloudAccessRoles
+      summary: Kion List project cloud access roles
+      description: Returns cloud access roles for a specific project.
+      tags:
+      - Cloud Access Roles
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CloudAccessRole'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createProjectCloudAccessRole
+      summary: Kion Create a project cloud access role
+      description: Creates a cloud access role on a project.
+      tags:
+      - Cloud Access Roles
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CloudAccessRoleCreate'
+      responses:
+        '201':
+          description: Cloud access role created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /ou/{id}/cloud-access-role:
+    get:
+      operationId: listOUCloudAccessRoles
+      summary: Kion List OU cloud access roles
+      description: Returns cloud access roles for a specific OU.
+      tags:
+      - Cloud Access Roles
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createOUCloudAccessRole
+      summary: Kion Create an OU cloud access role
+      description: Creates a cloud access role on an OU.
+      tags:
+      - Cloud Access Roles
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CloudAccessRoleCreate'
+      responses:
+        '201':
+          description: Cloud access role created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    CloudAccessRoleCreate:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        aws_iam_role_name:
+          type: string
+        web_access:
+          type: boolean
+        short_term_access_keys:
+          type: boolean
+        long_term_access_keys:
+          type: boolean
+        aws_iam_policies:
+          type: array
+          items:
+            type: integer
+        azure_role_definitions:
+          type: array
+          items:
+            type: integer
+        gcp_iam_roles:
+          type: array
+          items:
+            type: integer
+        users:
+          type: array
+          items:
+            type: integer
+        user_groups:
+          type: array
+          items:
+            type: integer
+        accounts:
+          type: array
+          items:
+            type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    CloudAccessRole:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        aws_iam_role_name:
+          type: string
+        web_access:
+          type: boolean
+        short_term_access_keys:
+          type: boolean
+        long_term_access_keys:
+          type: boolean
+        aws_iam_policies:
+          type: array
+          items:
+            type: integer
+        azure_role_definitions:
+          type: array
+          items:
+            type: integer
+        gcp_iam_roles:
+          type: array
+          items:
+            type: integer
+        users:
+          type: array
+          items:
+            type: integer
+        user_groups:
+          type: array
+          items:
+            type: integer
+        accounts:
+          type: array
+          items:
+            type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

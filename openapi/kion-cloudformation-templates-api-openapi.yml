@@ -1,0 +1,242 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts CloudFormation Templates API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: CloudFormation Templates
+  description: Manage AWS CloudFormation templates
+paths:
+  /aws-cloudformation-template:
+    get:
+      operationId: listCloudFormationTemplates
+      summary: Kion List CloudFormation templates
+      description: Returns a list of all AWS CloudFormation templates.
+      tags:
+      - CloudFormation Templates
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/CloudFormationTemplate'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createCloudFormationTemplate
+      summary: Kion Create a CloudFormation template
+      description: Creates a new AWS CloudFormation template.
+      tags:
+      - CloudFormation Templates
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CloudFormationTemplateCreate'
+      responses:
+        '201':
+          description: Template created
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /aws-cloudformation-template/{id}:
+    get:
+      operationId: getCloudFormationTemplate
+      summary: Kion Get a CloudFormation template
+      description: Returns details for a specific CloudFormation template.
+      tags:
+      - CloudFormation Templates
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateCloudFormationTemplate
+      summary: Kion Update a CloudFormation template
+      description: Updates an existing CloudFormation template.
+      tags:
+      - CloudFormation Templates
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CloudFormationTemplateUpdate'
+      responses:
+        '200':
+          description: Template updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    delete:
+      operationId: deleteCloudFormationTemplate
+      summary: Kion Delete a CloudFormation template
+      description: Deletes a CloudFormation template.
+      tags:
+      - CloudFormation Templates
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '204':
+          description: Template deleted
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    CloudFormationTemplateUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        template_url:
+          type: string
+        template_body:
+          type: string
+        region:
+          type: string
+        sns_arns:
+          type: string
+        terminate_protected:
+          type: boolean
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    CloudFormationTemplate:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        template_url:
+          type: string
+        template_body:
+          type: string
+        region:
+          type: string
+        sns_arns:
+          type: string
+        terminate_protected:
+          type: boolean
+        owner_users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        owner_user_groups:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        created_at:
+          type: string
+          format: date-time
+    CloudFormationTemplateCreate:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        template_url:
+          type: string
+        template_body:
+          type: string
+        region:
+          type: string
+        sns_arns:
+          type: string
+        terminate_protected:
+          type: boolean
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

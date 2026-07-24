@@ -1,0 +1,290 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: Accounts
+  description: Manage cloud accounts across AWS, Azure, GCP, and OCI
+paths:
+  /account:
+    get:
+      operationId: listAccounts
+      summary: Kion List accounts
+      description: Returns a list of all cloud accounts managed by Kion.
+      tags:
+      - Accounts
+      parameters:
+      - $ref: '#/components/parameters/PageParam'
+      - $ref: '#/components/parameters/PageSizeParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 200
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Account'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    post:
+      operationId: createAccount
+      summary: Kion Create an account
+      description: Creates a new cloud account in Kion.
+      tags:
+      - Accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountCreate'
+      responses:
+        '201':
+          description: Account created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    example: 201
+                  data:
+                    $ref: '#/components/schemas/Account'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /account/{id}:
+    get:
+      operationId: getAccount
+      summary: Kion Get an account
+      description: Returns details for a specific cloud account.
+      tags:
+      - Accounts
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/Account'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+    patch:
+      operationId: updateAccount
+      summary: Kion Update an account
+      description: Updates an existing cloud account.
+      tags:
+      - Accounts
+      parameters:
+      - $ref: '#/components/parameters/IdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountUpdate'
+      responses:
+        '200':
+          description: Account updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/Account'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    AccountUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        linked_role:
+          type: string
+        start_datecode:
+          type: string
+        skip_access_checking:
+          type: boolean
+        use_org_account_access_role:
+          type: boolean
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    AccountCreate:
+      type: object
+      required:
+      - name
+      - account_number
+      - account_type_id
+      - payer_id
+      - project_id
+      properties:
+        name:
+          type: string
+        account_number:
+          type: string
+        account_type_id:
+          type: integer
+        payer_id:
+          type: integer
+        project_id:
+          type: integer
+        email:
+          type: string
+        linked_role:
+          type: string
+        start_datecode:
+          type: string
+        skip_access_checking:
+          type: boolean
+        use_org_account_access_role:
+          type: boolean
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    Account:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Internal Kion account ID
+        name:
+          type: string
+          description: Account name
+        account_number:
+          type: string
+          description: Cloud provider account number or ID
+        account_type_id:
+          type: integer
+          description: Account type identifier
+        payer_id:
+          type: integer
+          description: Payer account ID
+        project_id:
+          type: integer
+          description: Project ID the account belongs to
+        email:
+          type: string
+          description: Email associated with the account
+        linked_account_number:
+          type: string
+          description: Linked account number
+        linked_role:
+          type: string
+          description: IAM role used for linked access
+        start_datecode:
+          type: string
+          description: Start date for the account
+        skip_access_checking:
+          type: boolean
+          description: Whether to skip access checking
+        use_org_account_access_role:
+          type: boolean
+          description: Whether to use organization account access role
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+          description: Labels associated with the account
+        created_at:
+          type: string
+          format: date-time
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  parameters:
+    PageParam:
+      name: page
+      in: query
+      required: false
+      description: Page number for pagination
+      schema:
+        type: integer
+        default: 1
+    PageSizeParam:
+      name: page_size
+      in: query
+      required: false
+      description: Number of items per page
+      schema:
+        type: integer
+        default: 50
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'

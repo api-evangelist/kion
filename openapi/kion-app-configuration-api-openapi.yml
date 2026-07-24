@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Kion Cloud Operations Accounts App Configuration API
+  description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
+  version: 3.10.0
+  contact:
+    name: Kion Support
+    url: https://support.kion.io
+  license:
+    name: Proprietary
+    url: https://kion.io/why-kion/pricing-and-licensing/
+servers:
+- url: https://{kion-instance}/api/v3
+  description: Kion Instance API Server
+  variables:
+    kion-instance:
+      default: your-kion-instance.example.com
+      description: Your Kion deployment hostname
+security:
+- bearerAuth: []
+tags:
+- name: App Configuration
+  description: Manage Kion application configuration settings
+paths:
+  /app-config:
+    get:
+      operationId: getAppConfig
+      summary: Kion Get application configuration
+      description: Returns the Kion application configuration settings.
+      tags:
+      - App Configuration
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  data:
+                    $ref: '#/components/schemas/AppConfig'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    patch:
+      operationId: updateAppConfig
+      summary: Kion Update application configuration
+      description: Updates the Kion application configuration settings.
+      tags:
+      - App Configuration
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppConfigUpdate'
+      responses:
+        '200':
+          description: Configuration updated
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+components:
+  schemas:
+    AppConfigUpdate:
+      type: object
+      properties:
+        app_name:
+          type: string
+        default_aws_region:
+          type: string
+        session_timeout:
+          type: integer
+        allow_long_term_access_keys:
+          type: boolean
+        compliance_scan_interval_minutes:
+          type: integer
+    AppConfig:
+      type: object
+      properties:
+        id:
+          type: integer
+        app_name:
+          type: string
+        default_aws_region:
+          type: string
+        session_timeout:
+          type: integer
+        allow_long_term_access_keys:
+          type: boolean
+        compliance_scan_interval_minutes:
+          type: integer
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Kion App API Key. Generate in Kion under your user profile settings. Use in the Authorization header as: Bearer YOUR_API_KEY'
