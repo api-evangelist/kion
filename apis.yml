@@ -1,60 +1,1181 @@
 aid: kion
 url: https://raw.githubusercontent.com/api-evangelist/kion/refs/heads/main/apis.yml
 apis:
-  - aid: kion:kion-cloud-operations-api
-    name: Kion Cloud Operations API
-    tags:
-      - Cloud Operations
-      - Compliance
-      - Costs
-      - FinOps
-      - Governance
-      - Multi-Cloud
-      - Spend
-    humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
-    baseURL: https://{kion-instance}/api/v3
-    properties:
-      - url: https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
-        type: Documentation
-      - url: openapi/kion-cloud-operations-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/account.json
-        type: JSONSchema
-      - url: json-schema/project.json
-        type: JSONSchema
-      - url: json-schema/ou.json
-        type: JSONSchema
-      - url: json-schema/cloud-rule.json
-        type: JSONSchema
-      - url: json-schema/compliance-check.json
-        type: JSONSchema
-      - url: json-schema/compliance-standard.json
-        type: JSONSchema
-      - url: json-schema/funding-source.json
-        type: JSONSchema
-      - url: json-schema/label.json
-        type: JSONSchema
-      - url: json-schema/user.json
-        type: JSONSchema
-      - url: json-schema/user-group.json
-        type: JSONSchema
-      - url: json-schema/cloud-access-role.json
-        type: JSONSchema
-      - url: json-schema/aws-iam-policy.json
-        type: JSONSchema
-      - url: json-schema/service-control-policy.json
-        type: JSONSchema
-      - url: json-schema/cloudformation-template.json
-        type: JSONSchema
-      - url: json-schema/webhook.json
-        type: JSONSchema
-      - url: json-schema/custom-variable.json
-        type: JSONSchema
-      - url: json-ld/kion-context.jsonld
-        type: JSONLD
-    description: >-
-      The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial
-      management across AWS, Azure, GCP, and OCI.
+- aid: kion:kion-accounts-api
+  name: Kion Accounts API
+  description: Manage cloud accounts across AWS, Azure, GCP, and OCI
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-accounts-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-app-configuration-api
+  name: Kion App Configuration API
+  description: Manage Kion application configuration settings
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - App Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-app-configuration-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-azure-arm-templates-api
+  name: Kion Azure ARM Templates API
+  description: Manage Azure ARM templates
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Azure ARM Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-azure-arm-templates-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-azure-policies-api
+  name: Kion Azure Policies API
+  description: Manage Azure policies
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Azure Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-azure-policies-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-azure-roles-api
+  name: Kion Azure Roles API
+  description: Manage Azure roles
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Azure Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-azure-roles-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-cloud-access-roles-api
+  name: Kion Cloud Access Roles API
+  description: Manage cloud access roles for OU and project level access
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Cloud Access Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-cloud-access-roles-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-cloud-rules-api
+  name: Kion Cloud Rules API
+  description: Manage cloud rules that enforce policies on cloud accounts
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Cloud Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-cloud-rules-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-cloudformation-templates-api
+  name: Kion CloudFormation Templates API
+  description: Manage AWS CloudFormation templates
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - CloudFormation Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-cloudformation-templates-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-compliance-checks-api
+  name: Kion Compliance Checks API
+  description: Manage compliance checks for auditing cloud resources
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Compliance Checks
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-compliance-checks-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-compliance-standards-api
+  name: Kion Compliance Standards API
+  description: Manage compliance standards grouping multiple compliance checks
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Compliance Standards
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-compliance-standards-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-custom-variables-api
+  name: Kion Custom Variables API
+  description: Manage custom variables and overrides
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Custom Variables
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-custom-variables-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-enforcements-api
+  name: Kion Enforcements API
+  description: Manage project enforcements
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Enforcements
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-enforcements-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-funding-sources-api
+  name: Kion Funding Sources API
+  description: Manage funding sources for tracking and allocating cloud spend
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Funding Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-funding-sources-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-gcp-iam-roles-api
+  name: Kion GCP IAM Roles API
+  description: Manage GCP IAM roles
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - GCP IAM Roles
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-gcp-iam-roles-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-iam-policies-api
+  name: Kion IAM Policies API
+  description: Manage AWS IAM policies
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - IAM Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-iam-policies-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-identity-management-api
+  name: Kion Identity Management API
+  description: Manage identity management systems (IDMS)
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Identity Management
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-identity-management-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-labels-api
+  name: Kion Labels API
+  description: Manage labels for organizing and categorizing resources
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Labels
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-labels-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-organizational-units-api
+  name: Kion Organizational Units API
+  description: Manage organizational units (OUs) for hierarchical organization
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Organizational Units
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-organizational-units-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-permission-mappings-api
+  name: Kion Permission Mappings API
+  description: Manage permission mappings at global, OU, project, and funding source levels
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Permission Mappings
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-permission-mappings-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-projects-api
+  name: Kion Projects API
+  description: Manage projects which are the organizational unit for attaching cloud accounts
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-projects-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-saml-group-associations-api
+  name: Kion SAML Group Associations API
+  description: Manage SAML group associations for SSO integration
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - SAML Group Associations
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-saml-group-associations-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-service-control-policies-api
+  name: Kion Service Control Policies API
+  description: Manage AWS service control policies
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Service Control Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-service-control-policies-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-user-groups-api
+  name: Kion User Groups API
+  description: Manage user groups for role-based access control
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - User Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-user-groups-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-users-api
+  name: Kion Users API
+  description: Manage users within the Kion platform
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-users-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
+- aid: kion:kion-webhooks-api
+  name: Kion Webhooks API
+  description: Manage webhooks for event notifications
+  humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
+  baseURL: https://{kion-instance}/api/v3
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/kion-webhooks-api-openapi.yml
+  - type: Documentation
+    url: >-
+      https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API
+  - type: JSONSchema
+    url: json-schema/account.json
+  - type: JSONSchema
+    url: json-schema/project.json
+  - type: JSONSchema
+    url: json-schema/ou.json
+  - type: JSONSchema
+    url: json-schema/cloud-rule.json
+  - type: JSONSchema
+    url: json-schema/compliance-check.json
+  - type: JSONSchema
+    url: json-schema/compliance-standard.json
+  - type: JSONSchema
+    url: json-schema/funding-source.json
+  - type: JSONSchema
+    url: json-schema/label.json
+  - type: JSONSchema
+    url: json-schema/user.json
+  - type: JSONSchema
+    url: json-schema/user-group.json
+  - type: JSONSchema
+    url: json-schema/cloud-access-role.json
+  - type: JSONSchema
+    url: json-schema/aws-iam-policy.json
+  - type: JSONSchema
+    url: json-schema/service-control-policy.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-template.json
+  - type: JSONSchema
+    url: json-schema/webhook.json
+  - type: JSONSchema
+    url: json-schema/custom-variable.json
+  - type: JSONLD
+    url: json-ld/kion-context.jsonld
 name: Kion
 tags:
   - Cloud Operations
@@ -64,7 +1185,20 @@ tags:
   - Governance
   - Spend
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/kion.png
 access: 3rd-Party
 created: '2026-01-02'
 modified: '2026-05-19'
