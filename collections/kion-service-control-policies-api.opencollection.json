@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kion Cloud Operations Accounts Service Control Policies API",
+    "version": "3.10.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Service Control Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kion List service control policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/service-control-policy"
+          },
+          "docs": "Returns a list of all AWS service control policies."
+        },
+        {
+          "info": {
+            "name": "Kion Create a service control policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{kion-instance}/api/v3/service-control-policy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new AWS service control policy."
+        },
+        {
+          "info": {
+            "name": "Kion Get a service control policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/service-control-policy/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Returns details for a specific service control policy."
+        },
+        {
+          "info": {
+            "name": "Kion Update a service control policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{kion-instance}/api/v3/service-control-policy/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing service control policy."
+        },
+        {
+          "info": {
+            "name": "Kion Delete a service control policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{kion-instance}/api/v3/service-control-policy/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Deletes a service control policy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

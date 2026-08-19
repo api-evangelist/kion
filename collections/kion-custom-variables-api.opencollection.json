@@ -1,0 +1,198 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kion Cloud Operations Accounts Custom Variables API",
+    "version": "3.10.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Variables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kion List custom variables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/custom-variable"
+          },
+          "docs": "Returns a list of all custom variables."
+        },
+        {
+          "info": {
+            "name": "Kion Create a custom variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{kion-instance}/api/v3/custom-variable",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Kion Create a custom variable"
+        },
+        {
+          "info": {
+            "name": "Kion Get a custom variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/custom-variable/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Kion Get a custom variable"
+        },
+        {
+          "info": {
+            "name": "Kion Update a custom variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{kion-instance}/api/v3/custom-variable/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Kion Update a custom variable"
+        },
+        {
+          "info": {
+            "name": "Kion Delete a custom variable",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{kion-instance}/api/v3/custom-variable/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Kion Delete a custom variable"
+        },
+        {
+          "info": {
+            "name": "Kion List custom variable overrides",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/custom-variable-override"
+          },
+          "docs": "Returns a list of all custom variable overrides."
+        },
+        {
+          "info": {
+            "name": "Kion Create a custom variable override",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{kion-instance}/api/v3/custom-variable-override",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Kion Create a custom variable override"
+        },
+        {
+          "info": {
+            "name": "Kion Get a custom variable override",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/custom-variable-override/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Kion Get a custom variable override"
+        },
+        {
+          "info": {
+            "name": "Kion Update a custom variable override",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{kion-instance}/api/v3/custom-variable-override/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Kion Update a custom variable override"
+        },
+        {
+          "info": {
+            "name": "Kion Delete a custom variable override",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{kion-instance}/api/v3/custom-variable-override/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Kion Delete a custom variable override"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

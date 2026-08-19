@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kion Cloud Operations Accounts Organizational Units API",
+    "version": "3.10.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Organizational Units",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kion List organizational units",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/ou",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination"
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Number of items per page"
+              }
+            ]
+          },
+          "docs": "Returns a list of all organizational units."
+        },
+        {
+          "info": {
+            "name": "Kion Create an organizational unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{kion-instance}/api/v3/ou",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new organizational unit."
+        },
+        {
+          "info": {
+            "name": "Kion Get an organizational unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/ou/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Returns details for a specific organizational unit."
+        },
+        {
+          "info": {
+            "name": "Kion Update an organizational unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{kion-instance}/api/v3/ou/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing organizational unit."
+        },
+        {
+          "info": {
+            "name": "Kion Delete an organizational unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{kion-instance}/api/v3/ou/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Deletes an organizational unit."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

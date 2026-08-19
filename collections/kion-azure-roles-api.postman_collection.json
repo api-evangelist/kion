@@ -1,0 +1,1044 @@
+{
+  "item": [
+    {
+      "id": "abf557ba-17cc-49d4-99c4-46dbf07d4805",
+      "name": "Azure Roles",
+      "description": {
+        "content": "Manage Azure roles",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2f7b773d-4f33-4387-a7a7-9d9fd571611f",
+          "name": "Kion List Azure roles",
+          "request": {
+            "name": "Kion List Azure roles",
+            "description": {
+              "content": "Returns a list of all Azure roles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "azure-role"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1af5fd1d-0109-4e10-9039-2c473eb3fe76",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 4633,\n  \"data\": [\n    {\n      \"id\": 5264,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"role_permissions\": \"string\",\n      \"built_in\": true,\n      \"owner_users\": [\n        {\n          \"id\": 5526\n        },\n        {\n          \"id\": 7282\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 183\n        },\n        {\n          \"id\": 2511\n        }\n      ],\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"1963-04-23T22:08:27.428Z\"\n    },\n    {\n      \"id\": 9093,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"role_permissions\": \"string\",\n      \"built_in\": true,\n      \"owner_users\": [\n        {\n          \"id\": 5614\n        },\n        {\n          \"id\": 6125\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 4640\n        },\n        {\n          \"id\": 3590\n        }\n      ],\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"created_at\": \"1957-09-29T13:33:21.930Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "18c44224-d1b5-4158-942a-06897d9bce7d",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe2a4792-0b47-4591-abbc-7b7697039b18",
+          "name": "Kion Create an Azure role",
+          "request": {
+            "name": "Kion Create an Azure role",
+            "description": {},
+            "url": {
+              "path": [
+                "azure-role"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"role_permissions\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4271201b-6dc5-48d0-bd4e-5385a599a321",
+              "name": "Role created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"role_permissions\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d17c0453-fe03-46f4-aaf6-2241a3199614",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"role_permissions\": \"<string>\",\n  \"description\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bf17bed-86d5-402d-a1a8-fd24f6ec8aaf",
+          "name": "Kion Get an Azure role",
+          "request": {
+            "name": "Kion Get an Azure role",
+            "description": {},
+            "url": {
+              "path": [
+                "azure-role",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72e91563-e1e7-4027-947e-0f1ba0477795",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5ff19937-98bb-4ff5-87f7-19840480c4de",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c29a81a8-7ab2-4e80-92d9-d434e098d2dc",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d1510ff-b508-425b-a3ef-7ce2a7d3b0ed",
+          "name": "Kion Update an Azure role",
+          "request": {
+            "name": "Kion Update an Azure role",
+            "description": {},
+            "url": {
+              "path": [
+                "azure-role",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"role_permissions\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b91dc3ec-0b67-472b-b8dd-211b3860ea72",
+              "name": "Role updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"role_permissions\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1c535780-89a7-4b5e-8999-b738fa4183f9",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"role_permissions\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "862234ba-a879-48ce-91ce-1b5996b2ba0f",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"role_permissions\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a0f23fa-2f54-4a48-96a1-34bf03ee58a5",
+          "name": "Kion Delete an Azure role",
+          "request": {
+            "name": "Kion Delete an Azure role",
+            "description": {},
+            "url": {
+              "path": [
+                "azure-role",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "945c5a8f-9e77-448f-a397-eb82c6c2eede",
+              "name": "Role deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85b63719-34cf-409c-9f8e-59e99154296d",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f59aed2-da55-4d9a-b4f9-fe56e34ff64e",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "azure-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Kion deployment hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-kion-instance.example.com",
+      "key": "kion-instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{kion-instance}}/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "52ad1923-d846-4dd3-adfb-b16bb4dcf59d",
+    "name": "Kion Cloud Operations Accounts Azure Roles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kion Cloud Operations Accounts Identity Management API",
+    "version": "3.10.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Identity Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kion List identity management systems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/idms"
+          },
+          "docs": "Returns a list of all identity management systems."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

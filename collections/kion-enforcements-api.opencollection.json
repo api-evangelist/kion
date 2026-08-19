@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kion Cloud Operations Accounts Enforcements API",
+    "version": "3.10.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Enforcements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kion List project enforcements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/project/:id/enforcement",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Returns enforcements for a specific project."
+        },
+        {
+          "info": {
+            "name": "Kion Create a project enforcement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{kion-instance}/api/v3/project/:id/enforcement",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates an enforcement on a project."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

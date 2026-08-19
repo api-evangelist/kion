@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kion Cloud Operations Accounts SAML Group Associations API",
+    "version": "3.10.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SAML Group Associations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kion List SAML group associations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/saml-group-association"
+          },
+          "docs": "Returns a list of all SAML group associations."
+        },
+        {
+          "info": {
+            "name": "Kion Create a SAML group association",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{kion-instance}/api/v3/saml-group-association",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Kion Create a SAML group association"
+        },
+        {
+          "info": {
+            "name": "Kion Get a SAML group association",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/saml-group-association/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Kion Get a SAML group association"
+        },
+        {
+          "info": {
+            "name": "Kion Update a SAML group association",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{kion-instance}/api/v3/saml-group-association/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Kion Update a SAML group association"
+        },
+        {
+          "info": {
+            "name": "Kion Delete a SAML group association",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{kion-instance}/api/v3/saml-group-association/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Kion Delete a SAML group association"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

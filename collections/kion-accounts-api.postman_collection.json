@@ -1,0 +1,879 @@
+{
+  "item": [
+    {
+      "id": "402e5415-dfc1-42a2-838a-363e93343120",
+      "name": "Accounts",
+      "description": {
+        "content": "Manage cloud accounts across AWS, Azure, GCP, and OCI",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8769dd96-98f5-43cb-93a4-832ab3f10055",
+          "name": "Kion List accounts",
+          "request": {
+            "name": "Kion List accounts",
+            "description": {
+              "content": "Returns a list of all cloud accounts managed by Kion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number for pagination"
+                },
+                {
+                  "disabled": false,
+                  "key": "page_size",
+                  "value": "50",
+                  "description": "Number of items per page"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae6628ae-def4-4e70-a483-8ed5515fc9ac",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 200,\n  \"data\": [\n    {\n      \"id\": 3438,\n      \"name\": \"string\",\n      \"account_number\": \"string\",\n      \"account_type_id\": 8863,\n      \"payer_id\": 5750,\n      \"project_id\": 454,\n      \"email\": \"string\",\n      \"linked_account_number\": \"string\",\n      \"linked_role\": \"string\",\n      \"start_datecode\": \"string\",\n      \"skip_access_checking\": true,\n      \"use_org_account_access_role\": false,\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"created_at\": \"2013-09-28T20:04:31.914Z\"\n    },\n    {\n      \"id\": 547,\n      \"name\": \"string\",\n      \"account_number\": \"string\",\n      \"account_type_id\": 5314,\n      \"payer_id\": 9608,\n      \"project_id\": 948,\n      \"email\": \"string\",\n      \"linked_account_number\": \"string\",\n      \"linked_role\": \"string\",\n      \"start_datecode\": \"string\",\n      \"skip_access_checking\": false,\n      \"use_org_account_access_role\": true,\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"created_at\": \"1954-02-20T00:03:43.843Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "96ad00bd-dee5-4e52-9ec7-86679a86e838",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "page_size",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "30625faa-4021-4c64-81e2-2d6cd49f4537",
+          "name": "Kion Create an account",
+          "request": {
+            "name": "Kion Create an account",
+            "description": {
+              "content": "Creates a new cloud account in Kion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"account_number\": \"<string>\",\n  \"account_type_id\": \"<integer>\",\n  \"payer_id\": \"<integer>\",\n  \"project_id\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"linked_role\": \"<string>\",\n  \"start_datecode\": \"<string>\",\n  \"skip_access_checking\": \"<boolean>\",\n  \"use_org_account_access_role\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "622cc330-31c6-405c-85b0-75db11754f4e",
+              "name": "Account created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"account_number\": \"<string>\",\n  \"account_type_id\": \"<integer>\",\n  \"payer_id\": \"<integer>\",\n  \"project_id\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"linked_role\": \"<string>\",\n  \"start_datecode\": \"<string>\",\n  \"skip_access_checking\": \"<boolean>\",\n  \"use_org_account_access_role\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 201,\n  \"data\": {\n    \"id\": 8364,\n    \"name\": \"string\",\n    \"account_number\": \"string\",\n    \"account_type_id\": 8192,\n    \"payer_id\": 3185,\n    \"project_id\": 1392,\n    \"email\": \"string\",\n    \"linked_account_number\": \"string\",\n    \"linked_role\": \"string\",\n    \"start_datecode\": \"string\",\n    \"skip_access_checking\": true,\n    \"use_org_account_access_role\": true,\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"created_at\": \"1958-06-29T18:10:32.294Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1cb991c-96fe-4698-821b-ca9e095425f9",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"account_number\": \"<string>\",\n  \"account_type_id\": \"<integer>\",\n  \"payer_id\": \"<integer>\",\n  \"project_id\": \"<integer>\",\n  \"email\": \"<string>\",\n  \"linked_role\": \"<string>\",\n  \"start_datecode\": \"<string>\",\n  \"skip_access_checking\": \"<boolean>\",\n  \"use_org_account_access_role\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "139f615b-b63d-40ea-9fd7-0ea246e84324",
+          "name": "Kion Get an account",
+          "request": {
+            "name": "Kion Get an account",
+            "description": {
+              "content": "Returns details for a specific cloud account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e351eb5-7a61-4d5c-9cda-8feac94f9c1f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7480,\n  \"data\": {\n    \"id\": 9682,\n    \"name\": \"string\",\n    \"account_number\": \"string\",\n    \"account_type_id\": 2859,\n    \"payer_id\": 4002,\n    \"project_id\": 5522,\n    \"email\": \"string\",\n    \"linked_account_number\": \"string\",\n    \"linked_role\": \"string\",\n    \"start_datecode\": \"string\",\n    \"skip_access_checking\": false,\n    \"use_org_account_access_role\": false,\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"created_at\": \"1976-09-24T03:26:10.913Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e54da5f-0d72-4907-b789-904c251ef93a",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d181a12-bd93-4ba8-b455-bbb4210bc281",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51226844-e62b-4012-b9b3-1e202f04b40f",
+          "name": "Kion Update an account",
+          "request": {
+            "name": "Kion Update an account",
+            "description": {
+              "content": "Updates an existing cloud account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"linked_role\": \"<string>\",\n  \"start_datecode\": \"<string>\",\n  \"skip_access_checking\": \"<boolean>\",\n  \"use_org_account_access_role\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2afd7f16-01a4-4a20-a926-89a723619e58",
+              "name": "Account updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"linked_role\": \"<string>\",\n  \"start_datecode\": \"<string>\",\n  \"skip_access_checking\": \"<boolean>\",\n  \"use_org_account_access_role\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 7480,\n  \"data\": {\n    \"id\": 9682,\n    \"name\": \"string\",\n    \"account_number\": \"string\",\n    \"account_type_id\": 2859,\n    \"payer_id\": 4002,\n    \"project_id\": 5522,\n    \"email\": \"string\",\n    \"linked_account_number\": \"string\",\n    \"linked_role\": \"string\",\n    \"start_datecode\": \"string\",\n    \"skip_access_checking\": false,\n    \"use_org_account_access_role\": false,\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"created_at\": \"1976-09-24T03:26:10.913Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0634267-97e6-4516-9c90-b08babf39407",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"linked_role\": \"<string>\",\n  \"start_datecode\": \"<string>\",\n  \"skip_access_checking\": \"<boolean>\",\n  \"use_org_account_access_role\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d40f87eb-4890-4b0d-8870-cddfcc74e50d",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"linked_role\": \"<string>\",\n  \"start_datecode\": \"<string>\",\n  \"skip_access_checking\": \"<boolean>\",\n  \"use_org_account_access_role\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Kion deployment hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-kion-instance.example.com",
+      "key": "kion-instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{kion-instance}}/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "94fbee2a-9746-486b-9280-cc4904910a11",
+    "name": "Kion Cloud Operations Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+      "type": "text/plain"
+    }
+  }
+}

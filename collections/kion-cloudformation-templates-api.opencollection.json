@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kion Cloud Operations Accounts CloudFormation Templates API",
+    "version": "3.10.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CloudFormation Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kion List CloudFormation templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/aws-cloudformation-template"
+          },
+          "docs": "Returns a list of all AWS CloudFormation templates."
+        },
+        {
+          "info": {
+            "name": "Kion Create a CloudFormation template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{kion-instance}/api/v3/aws-cloudformation-template",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new AWS CloudFormation template."
+        },
+        {
+          "info": {
+            "name": "Kion Get a CloudFormation template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/aws-cloudformation-template/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Returns details for a specific CloudFormation template."
+        },
+        {
+          "info": {
+            "name": "Kion Update a CloudFormation template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{kion-instance}/api/v3/aws-cloudformation-template/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing CloudFormation template."
+        },
+        {
+          "info": {
+            "name": "Kion Delete a CloudFormation template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{kion-instance}/api/v3/aws-cloudformation-template/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Deletes a CloudFormation template."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

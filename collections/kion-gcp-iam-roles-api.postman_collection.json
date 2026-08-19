@@ -1,0 +1,1044 @@
+{
+  "item": [
+    {
+      "id": "017c404d-be94-45a8-b4ae-bc81a40f5110",
+      "name": "GCP IAM Roles",
+      "description": {
+        "content": "Manage GCP IAM roles",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "96853f6a-0bf9-4522-ba3e-0683770b2e7d",
+          "name": "Kion List GCP IAM roles",
+          "request": {
+            "name": "Kion List GCP IAM roles",
+            "description": {
+              "content": "Returns a list of all GCP IAM roles.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gcp-iam-role"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9093670-e259-419c-85e0-4c508650a047",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 3353,\n  \"data\": [\n    {\n      \"id\": 4107,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"gcp_id\": \"string\",\n      \"gcp_role_launch_stage\": 1596,\n      \"role_permissions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"owner_users\": [\n        {\n          \"id\": 4948\n        },\n        {\n          \"id\": 1969\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 3481\n        },\n        {\n          \"id\": 7973\n        }\n      ],\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"2015-02-13T01:35:03.168Z\"\n    },\n    {\n      \"id\": 7653,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"gcp_id\": \"string\",\n      \"gcp_role_launch_stage\": 2531,\n      \"role_permissions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"owner_users\": [\n        {\n          \"id\": 7050\n        },\n        {\n          \"id\": 2236\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 4924\n        },\n        {\n          \"id\": 2796\n        }\n      ],\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"1969-10-27T14:39:53.563Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca93e3d1-1d38-41a7-a9f6-64ae793e9695",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65fcbd1a-e73a-4e56-9b8b-b7c4c292de58",
+          "name": "Kion Create a GCP IAM role",
+          "request": {
+            "name": "Kion Create a GCP IAM role",
+            "description": {},
+            "url": {
+              "path": [
+                "gcp-iam-role"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"gcp_id\": \"<string>\",\n  \"role_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"gcp_role_launch_stage\": \"<integer>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9cd29e81-b649-4833-83ef-b1d781287c40",
+              "name": "Role created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"gcp_id\": \"<string>\",\n  \"role_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"gcp_role_launch_stage\": \"<integer>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\",\n    \"key_4\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e7be0f40-46a9-4e05-ac6c-92067aee802f",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"gcp_id\": \"<string>\",\n  \"role_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"gcp_role_launch_stage\": \"<integer>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\",\n    \"key_4\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "af7eb6ac-7fd0-4d60-bca6-c1d9ee4dd3f4",
+          "name": "Kion Get a GCP IAM role",
+          "request": {
+            "name": "Kion Get a GCP IAM role",
+            "description": {},
+            "url": {
+              "path": [
+                "gcp-iam-role",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee98b8d9-73cd-4d00-8378-ad2768abd06d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "67931d69-f88b-480d-a577-de15311bbd1f",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea7f6f1e-ff12-451e-9859-25a2dcbee68b",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40d7b680-de16-4346-8ecd-510408089d85",
+          "name": "Kion Update a GCP IAM role",
+          "request": {
+            "name": "Kion Update a GCP IAM role",
+            "description": {},
+            "url": {
+              "path": [
+                "gcp-iam-role",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"gcp_role_launch_stage\": \"<integer>\",\n  \"role_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0bfb52bd-2649-4e9b-911a-206a50f7b396",
+              "name": "Role updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"gcp_role_launch_stage\": \"<integer>\",\n  \"role_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f1257965-6af9-4f73-b9c7-a780dd69fb59",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"gcp_role_launch_stage\": \"<integer>\",\n  \"role_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a31a1fa4-cad2-43d9-95d5-675ae0495b62",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"gcp_role_launch_stage\": \"<integer>\",\n  \"role_permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ada84e18-eeed-4d95-8e55-d0b62bad94df",
+          "name": "Kion Delete a GCP IAM role",
+          "request": {
+            "name": "Kion Delete a GCP IAM role",
+            "description": {},
+            "url": {
+              "path": [
+                "gcp-iam-role",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76c3f05a-f494-491d-b083-1a74cb2a8e7b",
+              "name": "Role deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "90914cac-32c0-400a-8bbf-18d4bce7351b",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "51c1dae1-db32-46fb-8bb1-4ff479a35f3f",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gcp-iam-role",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Kion deployment hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-kion-instance.example.com",
+      "key": "kion-instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{kion-instance}}/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0244e424-4531-4627-87d7-fc8663409e8f",
+    "name": "Kion Cloud Operations Accounts GCP IAM Roles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+      "type": "text/plain"
+    }
+  }
+}

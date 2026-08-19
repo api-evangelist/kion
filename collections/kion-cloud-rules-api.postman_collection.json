@@ -1,0 +1,1060 @@
+{
+  "item": [
+    {
+      "id": "faa2fb8f-f624-418c-9d18-ac3e2be8bf95",
+      "name": "Cloud Rules",
+      "description": {
+        "content": "Manage cloud rules that enforce policies on cloud accounts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9b4baf1e-4915-4809-a2af-780a5222746c",
+          "name": "Kion List cloud rules",
+          "request": {
+            "name": "Kion List cloud rules",
+            "description": {
+              "content": "Returns a list of all cloud rules.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloud-rule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95423bd4-7334-49f3-8917-778101f67e8e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 8611,\n  \"data\": [\n    {\n      \"id\": 3041,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"pre_webhook_id\": 3885,\n      \"post_webhook_id\": 6711,\n      \"built_in\": true,\n      \"owner_users\": [\n        {\n          \"id\": 3539\n        },\n        {\n          \"id\": 6733\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 6227\n        },\n        {\n          \"id\": 4508\n        }\n      ],\n      \"aws_iam_policies\": [\n        7277,\n        2489\n      ],\n      \"aws_cloudformation_templates\": [\n        7050,\n        6263\n      ],\n      \"azure_arm_template_definitions\": [\n        9853,\n        7400\n      ],\n      \"azure_policy_definitions\": [\n        7845,\n        7057\n      ],\n      \"azure_role_definitions\": [\n        7057,\n        4516\n      ],\n      \"compliance_standards\": [\n        5639,\n        8573\n      ],\n      \"gcp_iam_roles\": [\n        9920,\n        9260\n      ],\n      \"internal_aws_amis\": [\n        3225,\n        9412\n      ],\n      \"internal_aws_service_catalog_portfolios\": [\n        1862,\n        3884\n      ],\n      \"ous\": [\n        5249,\n        1096\n      ],\n      \"projects\": [\n        1555,\n        4056\n      ],\n      \"service_control_policies\": [\n        4623,\n        1616\n      ],\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"1989-04-08T17:29:44.675Z\"\n    },\n    {\n      \"id\": 7733,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"pre_webhook_id\": 6152,\n      \"post_webhook_id\": 7396,\n      \"built_in\": true,\n      \"owner_users\": [\n        {\n          \"id\": 3724\n        },\n        {\n          \"id\": 2131\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 698\n        },\n        {\n          \"id\": 5748\n        }\n      ],\n      \"aws_iam_policies\": [\n        5689,\n        2990\n      ],\n      \"aws_cloudformation_templates\": [\n        5556,\n        126\n      ],\n      \"azure_arm_template_definitions\": [\n        5499,\n        8662\n      ],\n      \"azure_policy_definitions\": [\n        3559,\n        8057\n      ],\n      \"azure_role_definitions\": [\n        1373,\n        4888\n      ],\n      \"compliance_standards\": [\n        9278,\n        289\n      ],\n      \"gcp_iam_roles\": [\n        9985,\n        4570\n      ],\n      \"internal_aws_amis\": [\n        7019,\n        5636\n      ],\n      \"internal_aws_service_catalog_portfolios\": [\n        1859,\n        3823\n      ],\n      \"ous\": [\n        1432,\n        2612\n      ],\n      \"projects\": [\n        1595,\n        496\n      ],\n      \"service_control_policies\": [\n        9877,\n        2223\n      ],\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"created_at\": \"2004-06-18T14:00:31.993Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5082761-6153-4ac8-8630-dff276e397fb",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f119a2b9-07ed-4b5e-938c-e069a6a8b8d4",
+          "name": "Kion Create a cloud rule",
+          "request": {
+            "name": "Kion Create a cloud rule",
+            "description": {
+              "content": "Creates a new cloud rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloud-rule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"pre_webhook_id\": \"<integer>\",\n  \"post_webhook_id\": \"<integer>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"aws_cloudformation_templates\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_arm_template_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_policy_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"compliance_standards\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"ous\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"projects\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"service_control_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "397a5aee-8dc1-44b9-a3c5-402c3ca32f87",
+              "name": "Cloud rule created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"pre_webhook_id\": \"<integer>\",\n  \"post_webhook_id\": \"<integer>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"aws_cloudformation_templates\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_arm_template_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_policy_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"compliance_standards\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"ous\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"projects\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"service_control_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4648e45a-97b5-46a5-9f34-0310382c1ad3",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"pre_webhook_id\": \"<integer>\",\n  \"post_webhook_id\": \"<integer>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"aws_cloudformation_templates\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_arm_template_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_policy_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"compliance_standards\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"ous\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"projects\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"service_control_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c43a2af-5706-437d-8d35-8d722782834c",
+          "name": "Kion Get a cloud rule",
+          "request": {
+            "name": "Kion Get a cloud rule",
+            "description": {
+              "content": "Returns details for a specific cloud rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloud-rule",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9dc1890b-fb77-4ccb-8cbb-608317ec0e12",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 2008,\n  \"data\": {\n    \"id\": 2105,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"pre_webhook_id\": 9925,\n    \"post_webhook_id\": 1794,\n    \"built_in\": false,\n    \"owner_users\": [\n      {\n        \"id\": 2151\n      },\n      {\n        \"id\": 6347\n      }\n    ],\n    \"owner_user_groups\": [\n      {\n        \"id\": 1336\n      },\n      {\n        \"id\": 8530\n      }\n    ],\n    \"aws_iam_policies\": [\n      5882,\n      1867\n    ],\n    \"aws_cloudformation_templates\": [\n      4129,\n      4840\n    ],\n    \"azure_arm_template_definitions\": [\n      9875,\n      9568\n    ],\n    \"azure_policy_definitions\": [\n      8043,\n      3464\n    ],\n    \"azure_role_definitions\": [\n      9996,\n      7441\n    ],\n    \"compliance_standards\": [\n      6706,\n      9597\n    ],\n    \"gcp_iam_roles\": [\n      4565,\n      7692\n    ],\n    \"internal_aws_amis\": [\n      8529,\n      3082\n    ],\n    \"internal_aws_service_catalog_portfolios\": [\n      661,\n      7695\n    ],\n    \"ous\": [\n      6625,\n      8821\n    ],\n    \"projects\": [\n      9985,\n      7706\n    ],\n    \"service_control_policies\": [\n      8646,\n      9472\n    ],\n    \"labels\": {\n      \"key_0\": \"string\"\n    },\n    \"created_at\": \"1962-04-29T10:52:22.668Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "802e36fc-cf70-4ee8-b931-7f9caedd05eb",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1fb0e342-a6ad-4557-8f47-89134bd9d60e",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "994e46c5-967a-46ab-9ae4-b122024a32de",
+          "name": "Kion Update a cloud rule",
+          "request": {
+            "name": "Kion Update a cloud rule",
+            "description": {
+              "content": "Updates an existing cloud rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloud-rule",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"pre_webhook_id\": \"<integer>\",\n  \"post_webhook_id\": \"<integer>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"aws_cloudformation_templates\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_arm_template_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_policy_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"compliance_standards\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"ous\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"projects\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"service_control_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cb96d14f-c81d-41aa-8d47-470c7dae9d3c",
+              "name": "Cloud rule updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"pre_webhook_id\": \"<integer>\",\n  \"post_webhook_id\": \"<integer>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"aws_cloudformation_templates\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_arm_template_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_policy_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"compliance_standards\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"ous\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"projects\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"service_control_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f158cd2-d3c0-46d6-8b71-5e824d4081a4",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"pre_webhook_id\": \"<integer>\",\n  \"post_webhook_id\": \"<integer>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"aws_cloudformation_templates\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_arm_template_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_policy_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"compliance_standards\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"ous\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"projects\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"service_control_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a886c744-eb88-4ea8-b68b-a9add0a83a12",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"pre_webhook_id\": \"<integer>\",\n  \"post_webhook_id\": \"<integer>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"aws_cloudformation_templates\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_arm_template_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_policy_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"compliance_standards\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"ous\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"projects\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"service_control_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "084942eb-73b3-44d6-a80e-9290ce24d40e",
+          "name": "Kion Delete a cloud rule",
+          "request": {
+            "name": "Kion Delete a cloud rule",
+            "description": {
+              "content": "Deletes a cloud rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cloud-rule",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The unique identifier of the resource in Kion"
+                },
+                {
+                  "description": "Your Kion deployment hostname",
+                  "type": "any",
+                  "value": "{{kion-instance}}",
+                  "key": "kion-instance"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1115eaf8-dc29-47cf-a73c-f7ead28f58d8",
+              "name": "Cloud rule deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1df7d105-e7ca-485a-a0b5-710433bee46e",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2575c1ea-125c-4364-98ed-66c9e7001d20",
+              "name": "The requested resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud-rule",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    },
+                    {
+                      "description": "Your Kion deployment hostname",
+                      "type": "any",
+                      "value": "{{kion-instance}}",
+                      "key": "kion-instance"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your Kion deployment hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-kion-instance.example.com",
+      "key": "kion-instance"
+    },
+    {
+      "type": "string",
+      "value": "https://{{kion-instance}}/api/v3",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "15733d03-2816-4921-9211-3b6b25ef1177",
+    "name": "Kion Cloud Operations Accounts Cloud Rules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+      "type": "text/plain"
+    }
+  }
+}

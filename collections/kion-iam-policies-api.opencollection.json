@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kion Cloud Operations Accounts IAM Policies API",
+    "version": "3.10.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IAM Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kion List AWS IAM policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/aws-iam-policy"
+          },
+          "docs": "Returns a list of all AWS IAM policies."
+        },
+        {
+          "info": {
+            "name": "Kion Create an AWS IAM policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{kion-instance}/api/v3/aws-iam-policy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new AWS IAM policy."
+        },
+        {
+          "info": {
+            "name": "Kion Get an AWS IAM policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/aws-iam-policy/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Returns details for a specific AWS IAM policy."
+        },
+        {
+          "info": {
+            "name": "Kion Update an AWS IAM policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{kion-instance}/api/v3/aws-iam-policy/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates an existing AWS IAM policy."
+        },
+        {
+          "info": {
+            "name": "Kion Delete an AWS IAM policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{kion-instance}/api/v3/aws-iam-policy/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Deletes an AWS IAM policy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

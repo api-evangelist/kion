@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kion Cloud Operations Accounts GCP IAM Roles API",
+    "version": "3.10.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "GCP IAM Roles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kion List GCP IAM roles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/gcp-iam-role"
+          },
+          "docs": "Returns a list of all GCP IAM roles."
+        },
+        {
+          "info": {
+            "name": "Kion Create a GCP IAM role",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{kion-instance}/api/v3/gcp-iam-role",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Kion Create a GCP IAM role"
+        },
+        {
+          "info": {
+            "name": "Kion Get a GCP IAM role",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{kion-instance}/api/v3/gcp-iam-role/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Kion Get a GCP IAM role"
+        },
+        {
+          "info": {
+            "name": "Kion Update a GCP IAM role",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{kion-instance}/api/v3/gcp-iam-role/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Kion Update a GCP IAM role"
+        },
+        {
+          "info": {
+            "name": "Kion Delete a GCP IAM role",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{kion-instance}/api/v3/gcp-iam-role/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the resource in Kion"
+              }
+            ]
+          },
+          "docs": "Kion Delete a GCP IAM role"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
