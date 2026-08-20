@@ -7,6 +7,8 @@ apis:
   humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
   baseURL: https://{kion-instance}/api/v3
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -900,6 +902,8 @@ apis:
   humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
   baseURL: https://{kion-instance}/api/v3
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -1088,6 +1092,8 @@ apis:
   humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
   baseURL: https://{kion-instance}/api/v3
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -1135,6 +1141,8 @@ apis:
   humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
   baseURL: https://{kion-instance}/api/v3
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
