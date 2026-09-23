@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Kion Cloud Operations Accounts Compliance Checks API
+  title: Kion Cloud Operations Compliance Checks API
   description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
   version: 3.10.0
   contact:
@@ -124,34 +124,67 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
   schemas:
+    ComplianceCheckUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        severity_type_id:
+          type: integer
+        body:
+          type: string
+        frequency_minutes:
+          type: integer
+        is_all_regions:
+          type: boolean
+        is_auto_archived:
+          type: boolean
+        regions:
+          type: array
+          items:
+            type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    ComplianceCheckCreate:
+      type: object
+      required:
+      - name
+      - cloud_provider_id
+      - compliance_check_type_id
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        cloud_provider_id:
+          type: integer
+        compliance_check_type_id:
+          type: integer
+        severity_type_id:
+          type: integer
+        body:
+          type: string
+        frequency_minutes:
+          type: integer
+        frequency_type_id:
+          type: integer
+        is_all_regions:
+          type: boolean
+        is_auto_archived:
+          type: boolean
+        regions:
+          type: array
+          items:
+            type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
     ComplianceCheck:
       type: object
       properties:
@@ -203,66 +236,33 @@ components:
         created_at:
           type: string
           format: date-time
-    ComplianceCheckCreate:
-      type: object
-      required:
-      - name
-      - cloud_provider_id
-      - compliance_check_type_id
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        cloud_provider_id:
-          type: integer
-        compliance_check_type_id:
-          type: integer
-        severity_type_id:
-          type: integer
-        body:
-          type: string
-        frequency_minutes:
-          type: integer
-        frequency_type_id:
-          type: integer
-        is_all_regions:
-          type: boolean
-        is_auto_archived:
-          type: boolean
-        regions:
-          type: array
-          items:
-            type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-    ComplianceCheckUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        severity_type_id:
-          type: integer
-        body:
-          type: string
-        frequency_minutes:
-          type: integer
-        is_all_regions:
-          type: boolean
-        is_auto_archived:
-          type: boolean
-        regions:
-          type: array
-          items:
-            type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
+  responses:
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   parameters:
     IdParam:
       name: id

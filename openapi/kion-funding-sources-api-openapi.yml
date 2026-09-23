@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Kion Cloud Operations Accounts Funding Sources API
+  title: Kion Cloud Operations Funding Sources API
   description: The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.
   version: 3.10.0
   contact:
@@ -142,31 +142,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    FundingSourceCreate:
-      type: object
-      required:
-      - name
-      - amount
-      - start_datecode
-      - end_datecode
-      - ou_id
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        amount:
-          type: number
-        start_datecode:
-          type: string
-        end_datecode:
-          type: string
-        ou_id:
-          type: integer
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     FundingSource:
       type: object
       properties:
@@ -205,20 +180,32 @@ components:
         created_at:
           type: string
           format: date-time
+    FundingSourceCreate:
+      type: object
+      required:
+      - name
+      - amount
+      - start_datecode
+      - end_datecode
+      - ou_id
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        amount:
+          type: number
+        start_datecode:
+          type: string
+        end_datecode:
+          type: string
+        ou_id:
+          type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
   responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
     NotFound:
       description: The requested resource was not found
       content:
@@ -232,6 +219,19 @@ components:
               message:
                 type: string
                 example: Not found
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   parameters:
     IdParam:
       name: id

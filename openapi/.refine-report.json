@@ -1,31 +1,7 @@
 {
   "provider": "kion",
   "sources": [
-    "kion-accounts-api-openapi.yml",
-    "kion-app-configuration-api-openapi.yml",
-    "kion-azure-arm-templates-api-openapi.yml",
-    "kion-azure-policies-api-openapi.yml",
-    "kion-azure-roles-api-openapi.yml",
-    "kion-cloud-access-roles-api-openapi.yml",
-    "kion-cloud-rules-api-openapi.yml",
-    "kion-cloudformation-templates-api-openapi.yml",
-    "kion-compliance-checks-api-openapi.yml",
-    "kion-compliance-standards-api-openapi.yml",
-    "kion-custom-variables-api-openapi.yml",
-    "kion-enforcements-api-openapi.yml",
-    "kion-funding-sources-api-openapi.yml",
-    "kion-gcp-iam-roles-api-openapi.yml",
-    "kion-iam-policies-api-openapi.yml",
-    "kion-identity-management-api-openapi.yml",
-    "kion-labels-api-openapi.yml",
-    "kion-organizational-units-api-openapi.yml",
-    "kion-permission-mappings-api-openapi.yml",
-    "kion-projects-api-openapi.yml",
-    "kion-saml-group-associations-api-openapi.yml",
-    "kion-service-control-policies-api-openapi.yml",
-    "kion-user-groups-api-openapi.yml",
-    "kion-users-api-openapi.yml",
-    "kion-webhooks-api-openapi.yml"
+    "_original/kion-cloud-operations-api-openapi.yml"
   ],
   "outputs": [
     "kion-accounts-api-openapi.yml",
@@ -57,6 +33,36 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "kion-cloud-operations-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "kion-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-app-configuration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-azure-arm-templates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-azure-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-azure-roles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-cloud-access-roles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-cloud-rules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-cloudformation-templates-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-compliance-checks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-compliance-standards-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-custom-variables-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-enforcements-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-funding-sources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-gcp-iam-roles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-iam-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-identity-management-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-labels-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-organizational-units-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-permission-mappings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-projects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-saml-group-associations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-service-control-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-user-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "kion-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
