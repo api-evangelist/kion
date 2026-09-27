@@ -125,8 +125,14 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    FundingSourceUpdate:
+    FundingSourceCreate:
       type: object
+      required:
+      - name
+      - amount
+      - start_datecode
+      - end_datecode
+      - ou_id
       properties:
         name:
           type: string
@@ -138,6 +144,8 @@ components:
           type: string
         end_datecode:
           type: string
+        ou_id:
+          type: integer
         labels:
           type: object
           additionalProperties:
@@ -180,14 +188,8 @@ components:
         created_at:
           type: string
           format: date-time
-    FundingSourceCreate:
+    FundingSourceUpdate:
       type: object
-      required:
-      - name
-      - amount
-      - start_datecode
-      - end_datecode
-      - ou_id
       properties:
         name:
           type: string
@@ -199,8 +201,6 @@ components:
           type: string
         end_datecode:
           type: string
-        ou_id:
-          type: integer
         labels:
           type: object
           additionalProperties:

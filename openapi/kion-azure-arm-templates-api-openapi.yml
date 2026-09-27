@@ -114,19 +114,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
       content:
@@ -140,7 +127,58 @@ components:
               message:
                 type: string
                 example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
   schemas:
+    AzureArmTemplate:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        resource_group_name:
+          type: string
+        resource_group_region:
+          type: string
+        template:
+          type: string
+        deployment_mode:
+          type: string
+        owner_users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        owner_user_groups:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        created_at:
+          type: string
+          format: date-time
     AzureArmTemplateUpdate:
       type: object
       properties:
@@ -181,44 +219,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    AzureArmTemplate:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        description:
-          type: string
-        resource_group_name:
-          type: string
-        resource_group_region:
-          type: string
-        template:
-          type: string
-        deployment_mode:
-          type: string
-        owner_users:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-        owner_user_groups:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-        created_at:
-          type: string
-          format: date-time
   parameters:
     IdParam:
       name: id

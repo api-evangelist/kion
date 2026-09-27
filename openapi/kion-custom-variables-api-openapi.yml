@@ -189,6 +189,27 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    CustomVariableOverrideUpdate:
+      type: object
+      properties:
+        value:
+          type: string
+    CustomVariableCreate:
+      type: object
+      required:
+      - key
+      - value
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
     CustomVariableOverrideCreate:
       type: object
       required:
@@ -221,27 +242,6 @@ components:
         created_at:
           type: string
           format: date-time
-    CustomVariableCreate:
-      type: object
-      required:
-      - key
-      - value
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-        description:
-          type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-    CustomVariableOverrideUpdate:
-      type: object
-      properties:
-        value:
-          type: string
     CustomVariableUpdate:
       type: object
       properties:

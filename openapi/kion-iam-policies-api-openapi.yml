@@ -116,21 +116,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    AwsIamPolicyUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        aws_iam_path:
-          type: string
-        policy:
-          type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     AwsIamPolicyCreate:
       type: object
       required:
@@ -147,6 +132,21 @@ components:
           type: string
         aws_managed_policy:
           type: boolean
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    AwsIamPolicyUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        aws_iam_path:
+          type: string
+        policy:
+          type: string
         labels:
           type: object
           additionalProperties:

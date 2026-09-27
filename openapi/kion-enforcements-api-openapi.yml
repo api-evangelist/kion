@@ -68,23 +68,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
-    ProjectEnforcementCreate:
-      type: object
-      properties:
-        cloud_rule_id:
-          type: integer
-        description:
-          type: string
-        overwrite:
-          type: boolean
-        timeframe:
-          type: string
-        amount:
-          type: number
-        threshold_type:
-          type: string
-        enabled:
-          type: boolean
     ProjectEnforcement:
       type: object
       properties:
@@ -106,6 +89,31 @@ components:
           type: string
         enabled:
           type: boolean
+    ProjectEnforcementCreate:
+      type: object
+      properties:
+        cloud_rule_id:
+          type: integer
+        description:
+          type: string
+        overwrite:
+          type: boolean
+        timeframe:
+          type: string
+        amount:
+          type: number
+        threshold_type:
+          type: string
+        enabled:
+          type: boolean
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
   responses:
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
@@ -120,14 +128,6 @@ components:
               message:
                 type: string
                 example: Unauthorized
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource in Kion
-      schema:
-        type: integer
   securitySchemes:
     bearerAuth:
       type: http

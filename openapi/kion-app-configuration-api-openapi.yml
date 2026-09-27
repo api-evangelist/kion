@@ -61,21 +61,20 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
   schemas:
+    AppConfigUpdate:
+      type: object
+      properties:
+        app_name:
+          type: string
+        default_aws_region:
+          type: string
+        session_timeout:
+          type: integer
+        allow_long_term_access_keys:
+          type: boolean
+        compliance_scan_interval_minutes:
+          type: integer
     AppConfig:
       type: object
       properties:
@@ -91,19 +90,20 @@ components:
           type: boolean
         compliance_scan_interval_minutes:
           type: integer
-    AppConfigUpdate:
-      type: object
-      properties:
-        app_name:
-          type: string
-        default_aws_region:
-          type: string
-        session_timeout:
-          type: integer
-        allow_long_term_access_keys:
-          type: boolean
-        compliance_scan_interval_minutes:
-          type: integer
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   securitySchemes:
     bearerAuth:
       type: http

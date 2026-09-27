@@ -125,17 +125,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    UserUpdate:
-      type: object
-      properties:
-        first_name:
-          type: string
-        last_name:
-          type: string
-        email:
-          type: string
-        enabled:
-          type: boolean
     User:
       type: object
       properties:
@@ -156,6 +145,17 @@ components:
         created_at:
           type: string
           format: date-time
+    UserUpdate:
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        enabled:
+          type: boolean
     UserCreate:
       type: object
       required:

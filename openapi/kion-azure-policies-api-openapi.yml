@@ -112,35 +112,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    AzurePolicyUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        policy:
-          type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-    AzurePolicyCreate:
-      type: object
-      required:
-      - name
-      - policy
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        policy:
-          type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     AzurePolicy:
       type: object
       properties:
@@ -175,6 +146,35 @@ components:
         created_at:
           type: string
           format: date-time
+    AzurePolicyCreate:
+      type: object
+      required:
+      - name
+      - policy
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        policy:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    AzurePolicyUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        policy:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
   responses:
     NotFound:
       description: The requested resource was not found

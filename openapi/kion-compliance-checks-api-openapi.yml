@@ -125,31 +125,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ComplianceCheckUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        severity_type_id:
-          type: integer
-        body:
-          type: string
-        frequency_minutes:
-          type: integer
-        is_all_regions:
-          type: boolean
-        is_auto_archived:
-          type: boolean
-        regions:
-          type: array
-          items:
-            type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     ComplianceCheckCreate:
       type: object
       required:
@@ -236,6 +211,31 @@ components:
         created_at:
           type: string
           format: date-time
+    ComplianceCheckUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        severity_type_id:
+          type: integer
+        body:
+          type: string
+        frequency_minutes:
+          type: integer
+        is_all_regions:
+          type: boolean
+        is_auto_archived:
+          type: boolean
+        regions:
+          type: array
+          items:
+            type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
   responses:
     NotFound:
       description: The requested resource was not found

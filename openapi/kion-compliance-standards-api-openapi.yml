@@ -125,23 +125,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ComplianceStandardCreate:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        compliance_checks:
-          type: array
-          items:
-            type: integer
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     ComplianceStandardUpdate:
       type: object
       properties:
@@ -191,6 +174,23 @@ components:
         created_at:
           type: string
           format: date-time
+    ComplianceStandardCreate:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        compliance_checks:
+          type: array
+          items:
+            type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
   responses:
     NotFound:
       description: The requested resource was not found

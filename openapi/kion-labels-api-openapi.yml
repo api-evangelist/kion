@@ -125,6 +125,15 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    LabelUpdate:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        color:
+          type: string
     LabelCreate:
       type: object
       required:
@@ -151,15 +160,6 @@ components:
         created_at:
           type: string
           format: date-time
-    LabelUpdate:
-      type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-        color:
-          type: string
   responses:
     NotFound:
       description: The requested resource was not found

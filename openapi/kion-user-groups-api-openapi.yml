@@ -125,6 +125,29 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    UserGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        idms_id:
+          type: integer
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        enabled:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
     UserGroupCreate:
       type: object
       required:
@@ -162,29 +185,6 @@ components:
                 type: integer
         enabled:
           type: boolean
-    UserGroup:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        description:
-          type: string
-        idms_id:
-          type: integer
-        users:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-        enabled:
-          type: boolean
-        created_at:
-          type: string
-          format: date-time
   responses:
     NotFound:
       description: The requested resource was not found
