@@ -148,6 +148,22 @@ components:
         created_at:
           type: string
           format: date-time
+    UserGroupUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        enabled:
+          type: boolean
     UserGroupCreate:
       type: object
       required:
@@ -169,36 +185,7 @@ components:
                 type: integer
         enabled:
           type: boolean
-    UserGroupUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        users:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-        enabled:
-          type: boolean
   responses:
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
       content:
@@ -212,6 +199,19 @@ components:
               message:
                 type: string
                 example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
   parameters:
     IdParam:
       name: id

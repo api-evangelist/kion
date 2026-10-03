@@ -125,6 +125,27 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    UserCreate:
+      type: object
+      required:
+      - username
+      - first_name
+      - last_name
+      - email
+      - idms_id
+      properties:
+        username:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+        idms_id:
+          type: integer
+        enabled:
+          type: boolean
     User:
       type: object
       properties:
@@ -156,41 +177,7 @@ components:
           type: string
         enabled:
           type: boolean
-    UserCreate:
-      type: object
-      required:
-      - username
-      - first_name
-      - last_name
-      - email
-      - idms_id
-      properties:
-        username:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        email:
-          type: string
-        idms_id:
-          type: integer
-        enabled:
-          type: boolean
   responses:
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
       content:
@@ -204,6 +191,19 @@ components:
               message:
                 type: string
                 example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
   parameters:
     IdParam:
       name: id

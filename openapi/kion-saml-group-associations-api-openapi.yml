@@ -128,6 +128,28 @@ components:
                 type: string
               user_group_id:
                 type: integer
+    SamlGroupAssociationCreate:
+      type: object
+      required:
+      - assertion_name
+      - assertion_regex
+      - idms_id
+      properties:
+        assertion_name:
+          type: string
+        assertion_regex:
+          type: string
+        idms_id:
+          type: integer
+        user_group_mappings:
+          type: array
+          items:
+            type: object
+            properties:
+              assertion_value:
+                type: string
+              user_group_id:
+                type: integer
     SamlGroupAssociation:
       type: object
       properties:
@@ -151,42 +173,7 @@ components:
         created_at:
           type: string
           format: date-time
-    SamlGroupAssociationCreate:
-      type: object
-      required:
-      - assertion_name
-      - assertion_regex
-      - idms_id
-      properties:
-        assertion_name:
-          type: string
-        assertion_regex:
-          type: string
-        idms_id:
-          type: integer
-        user_group_mappings:
-          type: array
-          items:
-            type: object
-            properties:
-              assertion_value:
-                type: string
-              user_group_id:
-                type: integer
   responses:
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
       content:
@@ -200,6 +187,19 @@ components:
               message:
                 type: string
                 example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
   parameters:
     IdParam:
       name: id

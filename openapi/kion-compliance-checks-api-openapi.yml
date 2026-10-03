@@ -125,28 +125,18 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    ComplianceCheckCreate:
+    ComplianceCheckUpdate:
       type: object
-      required:
-      - name
-      - cloud_provider_id
-      - compliance_check_type_id
       properties:
         name:
           type: string
         description:
           type: string
-        cloud_provider_id:
-          type: integer
-        compliance_check_type_id:
-          type: integer
         severity_type_id:
           type: integer
         body:
           type: string
         frequency_minutes:
-          type: integer
-        frequency_type_id:
           type: integer
         is_all_regions:
           type: boolean
@@ -211,18 +201,28 @@ components:
         created_at:
           type: string
           format: date-time
-    ComplianceCheckUpdate:
+    ComplianceCheckCreate:
       type: object
+      required:
+      - name
+      - cloud_provider_id
+      - compliance_check_type_id
       properties:
         name:
           type: string
         description:
           type: string
+        cloud_provider_id:
+          type: integer
+        compliance_check_type_id:
+          type: integer
         severity_type_id:
           type: integer
         body:
           type: string
         frequency_minutes:
+          type: integer
+        frequency_type_id:
           type: integer
         is_all_regions:
           type: boolean
@@ -237,19 +237,6 @@ components:
           additionalProperties:
             type: string
   responses:
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
       content:
@@ -263,6 +250,19 @@ components:
               message:
                 type: string
                 example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
   parameters:
     IdParam:
       name: id

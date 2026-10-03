@@ -181,6 +181,48 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   schemas:
+    ProjectNoteCreate:
+      type: object
+      required:
+      - content
+      properties:
+        content:
+          type: string
+    ProjectUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        ou_id:
+          type: integer
+        default_aws_region:
+          type: string
+        permission_scheme_id:
+          type: integer
+        archived:
+          type: boolean
+        auto_pay:
+          type: boolean
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    ProjectNote:
+      type: object
+      properties:
+        id:
+          type: integer
+        project_id:
+          type: integer
+        content:
+          type: string
+        created_by_user_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
     Project:
       type: object
       properties:
@@ -228,41 +270,6 @@ components:
         created_at:
           type: string
           format: date-time
-    ProjectNote:
-      type: object
-      properties:
-        id:
-          type: integer
-        project_id:
-          type: integer
-        content:
-          type: string
-        created_by_user_id:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
-    ProjectUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        ou_id:
-          type: integer
-        default_aws_region:
-          type: string
-        permission_scheme_id:
-          type: integer
-        archived:
-          type: boolean
-        auto_pay:
-          type: boolean
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     ProjectCreate:
       type: object
       required:
@@ -298,27 +305,31 @@ components:
             type: string
         auto_pay:
           type: boolean
-    ProjectNoteCreate:
-      type: object
-      required:
-      - content
-      properties:
-        content:
-          type: string
+  parameters:
+    PageParam:
+      name: page
+      in: query
+      required: false
+      description: Page number for pagination
+      schema:
+        type: integer
+        default: 1
+    PageSizeParam:
+      name: page_size
+      in: query
+      required: false
+      description: Number of items per page
+      schema:
+        type: integer
+        default: 50
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
   responses:
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
       content:
@@ -332,30 +343,19 @@ components:
               message:
                 type: string
                 example: Unauthorized
-  parameters:
-    PageSizeParam:
-      name: page_size
-      in: query
-      required: false
-      description: Number of items per page
-      schema:
-        type: integer
-        default: 50
-    PageParam:
-      name: page
-      in: query
-      required: false
-      description: Page number for pagination
-      schema:
-        type: integer
-        default: 1
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource in Kion
-      schema:
-        type: integer
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
   securitySchemes:
     bearerAuth:
       type: http
