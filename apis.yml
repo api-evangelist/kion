@@ -1234,6 +1234,9 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.23'
 common:
+  - type: CapabilityMap
+    url: capabilities/kion-capability-edges.yml
+    name: Kion Business Capability Map
   - type: AgenticAccess
     url: agentic-access/kion-agentic-access.yml
   - type: TrustCenter

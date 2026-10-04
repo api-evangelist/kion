@@ -1,0 +1,116 @@
+slug: kion
+provider: Kion
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 11
+edges:
+- tag: Permission Mappings
+  spec_file: kion-permission-mappings-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /project/{id}/permission-mapping  createProjectPermissionMapping ... POST /global-permission-mapping  createGlobalPermissionMapping
+  reason: Operations bind roles/groups to projects, OUs, funding sources and global scope — authorisation
+    grant management, i.e. access management within the cloud operations platform.
+- tag: SAML Group Associations
+  spec_file: kion-saml-group-associations-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /saml-group-association  createSamlGroupAssociation  Kion Create a SAML group association
+  reason: Associating SAML assertion groups from a federated identity provider with platform groups/roles
+    is federation and access provisioning — squarely identity & access management.
+- tag: Cloud Access Roles
+  spec_file: kion-cloud-access-roles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.82
+  evidence: POST /project/{id}/cloud-access-role 'Kion Create a project cloud access role'
+  reason: Creates and lists cloud access roles scoped to projects and OUs — granting users entitlements
+    to cloud accounts, i.e. access management.
+- tag: IAM Policies
+  spec_file: kion-iam-policies-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.82
+  evidence: POST /aws-iam-policy 'Kion Create an AWS IAM policy'
+  reason: Manages AWS IAM policy documents that define access permissions, squarely identity and access
+    management.
+- tag: GCP IAM Roles
+  spec_file: kion-gcp-iam-roles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: POST /gcp-iam-role createGcpIamRole 'Kion Create a GCP IAM role'
+  reason: CRUD over GCP IAM role definitions governing who can access cloud resources — identity and access
+    management.
+- tag: Azure Roles
+  spec_file: kion-azure-roles-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.78
+  evidence: GET /azure-role listAzureRoles 'Kion List Azure roles'; platform provides 'access management'
+  reason: Manages Azure RBAC role definitions used to grant cloud access, which is identity and access
+    management tooling.
+- tag: Accounts
+  spec_file: kion-accounts-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.75
+  evidence: POST /account "Kion Create an account"; platform "consolidates account provisioning, access
+    management, compliance enforcement, and FinOps" across "AWS, Azure, GCP, and OCI"
+  reason: These are cloud provider accounts provisioned and managed by a cloud operations platform — cloud
+    infrastructure management, not customer or financial accounts.
+- tag: User Groups
+  spec_file: kion-user-groups-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: POST /user-group  createUserGroup  Kion Create a user group
+  reason: Group lifecycle CRUD for platform principals, which feed the permission-mapping model — access
+    administration rather than HR or customer data.
+- tag: Users
+  spec_file: kion-users-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: 'POST /user  createUser  Kion Create a user; schemas: UserCreate, User, UserUpdate'
+  reason: Lifecycle management of platform user accounts (joiner/mover/leaver style CRUD) in a cloud governance
+    tool — identity administration, not customer master data or HR records.
+- tag: Azure ARM Templates
+  spec_file: kion-azure-arm-templates-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /azure-arm-template "Kion Create an Azure ARM template"; schemas AzureArmTemplate, AzureArmTemplateCreate
+  reason: Managing Azure Resource Manager infrastructure-as-code templates used to provision cloud resources
+    is IT infrastructure (cloud) management.
+- tag: Identity Management
+  spec_file: kion-identity-management-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.7
+  evidence: GET /idms  listIdms  Kion List identity management systems
+  reason: The single operation enumerates configured identity management systems (identity providers)
+    used for authenticating platform users — an identity and access management concern, not a FinOps one.
+    Thin surface (one read-only call) so confidence is moderate.
