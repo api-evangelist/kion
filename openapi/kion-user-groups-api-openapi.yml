@@ -124,7 +124,71 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   schemas:
+    UserGroupCreate:
+      type: object
+      required:
+      - name
+      - idms_id
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        idms_id:
+          type: integer
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        enabled:
+          type: boolean
+    UserGroupUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        users:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+        enabled:
+          type: boolean
     UserGroup:
       type: object
       properties:
@@ -148,70 +212,6 @@ components:
         created_at:
           type: string
           format: date-time
-    UserGroupUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        users:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-        enabled:
-          type: boolean
-    UserGroupCreate:
-      type: object
-      required:
-      - name
-      - idms_id
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        idms_id:
-          type: integer
-        users:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: integer
-        enabled:
-          type: boolean
-  responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
   parameters:
     IdParam:
       name: id

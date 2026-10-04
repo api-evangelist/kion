@@ -111,7 +111,55 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   schemas:
+    WebhookCreate:
+      type: object
+      required:
+      - name
+      - url
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+          format: uri
+        auth_type:
+          type: string
+        auth_token:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
     Webhook:
       type: object
       properties:
@@ -149,27 +197,6 @@ components:
         created_at:
           type: string
           format: date-time
-    WebhookCreate:
-      type: object
-      required:
-      - name
-      - url
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        url:
-          type: string
-          format: uri
-        auth_type:
-          type: string
-        auth_token:
-          type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     WebhookUpdate:
       type: object
       properties:
@@ -188,33 +215,6 @@ components:
           type: object
           additionalProperties:
             type: string
-  responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
   parameters:
     IdParam:
       name: id

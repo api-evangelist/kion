@@ -67,14 +67,20 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource in Kion
-      schema:
-        type: integer
+  responses:
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   schemas:
     ProjectEnforcement:
       type: object
@@ -114,20 +120,14 @@ components:
           type: string
         enabled:
           type: boolean
-  responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
   securitySchemes:
     bearerAuth:
       type: http

@@ -188,14 +188,57 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   schemas:
+    CustomVariableUpdate:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
     CustomVariableOverrideUpdate:
       type: object
       properties:
         value:
           type: string
-    CustomVariableUpdate:
+    CustomVariableCreate:
       type: object
+      required:
+      - key
+      - value
       properties:
         key:
           type: string
@@ -221,22 +264,6 @@ components:
           type: integer
         project_id:
           type: integer
-    CustomVariableCreate:
-      type: object
-      required:
-      - key
-      - value
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-        description:
-          type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     CustomVariable:
       type: object
       properties:
@@ -255,33 +282,6 @@ components:
         created_at:
           type: string
           format: date-time
-  responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
   parameters:
     IdParam:
       name: id

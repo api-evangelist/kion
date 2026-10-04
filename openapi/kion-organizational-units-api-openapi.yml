@@ -136,12 +136,54 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   schemas:
     OUCreate:
       type: object
       required:
       - name
       - parent_ou_id
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        parent_ou_id:
+          type: integer
+        permission_scheme_id:
+          type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    OUUpdate:
+      type: object
       properties:
         name:
           type: string
@@ -176,21 +218,6 @@ components:
         created_at:
           type: string
           format: date-time
-    OUUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        parent_ou_id:
-          type: integer
-        permission_scheme_id:
-          type: integer
-        labels:
-          type: object
-          additionalProperties:
-            type: string
   parameters:
     PageParam:
       name: page
@@ -200,6 +227,13 @@ components:
       schema:
         type: integer
         default: 1
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
     PageSizeParam:
       name: page_size
       in: query
@@ -208,40 +242,6 @@ components:
       schema:
         type: integer
         default: 50
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource in Kion
-      schema:
-        type: integer
-  responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
   securitySchemes:
     bearerAuth:
       type: http

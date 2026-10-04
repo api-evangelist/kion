@@ -124,62 +124,34 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   schemas:
-    CloudRuleUpdate:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        pre_webhook_id:
-          type: integer
-        post_webhook_id:
-          type: integer
-        aws_iam_policies:
-          type: array
-          items:
-            type: integer
-        aws_cloudformation_templates:
-          type: array
-          items:
-            type: integer
-        azure_arm_template_definitions:
-          type: array
-          items:
-            type: integer
-        azure_policy_definitions:
-          type: array
-          items:
-            type: integer
-        azure_role_definitions:
-          type: array
-          items:
-            type: integer
-        compliance_standards:
-          type: array
-          items:
-            type: integer
-        gcp_iam_roles:
-          type: array
-          items:
-            type: integer
-        ous:
-          type: array
-          items:
-            type: integer
-        projects:
-          type: array
-          items:
-            type: integer
-        service_control_policies:
-          type: array
-          items:
-            type: integer
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     CloudRuleCreate:
       type: object
       required:
@@ -321,33 +293,61 @@ components:
         created_at:
           type: string
           format: date-time
-  responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
+    CloudRuleUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        pre_webhook_id:
+          type: integer
+        post_webhook_id:
+          type: integer
+        aws_iam_policies:
+          type: array
+          items:
+            type: integer
+        aws_cloudformation_templates:
+          type: array
+          items:
+            type: integer
+        azure_arm_template_definitions:
+          type: array
+          items:
+            type: integer
+        azure_policy_definitions:
+          type: array
+          items:
+            type: integer
+        azure_role_definitions:
+          type: array
+          items:
+            type: integer
+        compliance_standards:
+          type: array
+          items:
+            type: integer
+        gcp_iam_roles:
+          type: array
+          items:
+            type: integer
+        ous:
+          type: array
+          items:
+            type: integer
+        projects:
+          type: array
+          items:
+            type: integer
+        service_control_policies:
+          type: array
+          items:
+            type: integer
+        labels:
+          type: object
+          additionalProperties:
+            type: string
   parameters:
     IdParam:
       name: id

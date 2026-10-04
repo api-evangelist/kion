@@ -180,14 +180,34 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   schemas:
-    ProjectNoteCreate:
-      type: object
-      required:
-      - content
-      properties:
-        content:
-          type: string
     ProjectUpdate:
       type: object
       properties:
@@ -209,20 +229,41 @@ components:
           type: object
           additionalProperties:
             type: string
-    ProjectNote:
+    ProjectCreate:
       type: object
+      required:
+      - name
+      - ou_id
       properties:
-        id:
-          type: integer
-        project_id:
-          type: integer
-        content:
+        name:
           type: string
-        created_by_user_id:
-          type: integer
-        created_at:
+        description:
           type: string
-          format: date-time
+        ou_id:
+          type: integer
+        default_aws_region:
+          type: string
+        permission_scheme_id:
+          type: integer
+        project_funding:
+          type: array
+          items:
+            type: object
+            properties:
+              funding_source_id:
+                type: integer
+              amount:
+                type: number
+              start_datecode:
+                type: string
+              end_datecode:
+                type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        auto_pay:
+          type: boolean
     Project:
       type: object
       properties:
@@ -270,41 +311,27 @@ components:
         created_at:
           type: string
           format: date-time
-    ProjectCreate:
+    ProjectNote:
+      type: object
+      properties:
+        id:
+          type: integer
+        project_id:
+          type: integer
+        content:
+          type: string
+        created_by_user_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+    ProjectNoteCreate:
       type: object
       required:
-      - name
-      - ou_id
+      - content
       properties:
-        name:
+        content:
           type: string
-        description:
-          type: string
-        ou_id:
-          type: integer
-        default_aws_region:
-          type: string
-        permission_scheme_id:
-          type: integer
-        project_funding:
-          type: array
-          items:
-            type: object
-            properties:
-              funding_source_id:
-                type: integer
-              amount:
-                type: number
-              start_datecode:
-                type: string
-              end_datecode:
-                type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-        auto_pay:
-          type: boolean
   parameters:
     PageParam:
       name: page
@@ -314,6 +341,13 @@ components:
       schema:
         type: integer
         default: 1
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
     PageSizeParam:
       name: page_size
       in: query
@@ -322,40 +356,6 @@ components:
       schema:
         type: integer
         default: 50
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource in Kion
-      schema:
-        type: integer
-  responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
   securitySchemes:
     bearerAuth:
       type: http

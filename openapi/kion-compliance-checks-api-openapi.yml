@@ -124,6 +124,33 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+    Unauthorized:
+      description: Authentication failed or API key is missing/invalid
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 401
+              message:
+                type: string
+                example: Unauthorized
   schemas:
     ComplianceCheckUpdate:
       type: object
@@ -137,6 +164,41 @@ components:
         body:
           type: string
         frequency_minutes:
+          type: integer
+        is_all_regions:
+          type: boolean
+        is_auto_archived:
+          type: boolean
+        regions:
+          type: array
+          items:
+            type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    ComplianceCheckCreate:
+      type: object
+      required:
+      - name
+      - cloud_provider_id
+      - compliance_check_type_id
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        cloud_provider_id:
+          type: integer
+        compliance_check_type_id:
+          type: integer
+        severity_type_id:
+          type: integer
+        body:
+          type: string
+        frequency_minutes:
+          type: integer
+        frequency_type_id:
           type: integer
         is_all_regions:
           type: boolean
@@ -201,68 +263,6 @@ components:
         created_at:
           type: string
           format: date-time
-    ComplianceCheckCreate:
-      type: object
-      required:
-      - name
-      - cloud_provider_id
-      - compliance_check_type_id
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        cloud_provider_id:
-          type: integer
-        compliance_check_type_id:
-          type: integer
-        severity_type_id:
-          type: integer
-        body:
-          type: string
-        frequency_minutes:
-          type: integer
-        frequency_type_id:
-          type: integer
-        is_all_regions:
-          type: boolean
-        is_auto_archived:
-          type: boolean
-        regions:
-          type: array
-          items:
-            type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-  responses:
-    Unauthorized:
-      description: Authentication failed or API key is missing/invalid
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 401
-              message:
-                type: string
-                example: Unauthorized
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
   parameters:
     IdParam:
       name: id
