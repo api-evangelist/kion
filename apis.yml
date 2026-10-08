@@ -1234,6 +1234,12 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.23'
 common:
+  - type: Plans
+    url: plans/kion-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/kion-rate-limits.yml
+  - type: FinOps
+    url: finops/kion-finops.yml
   - type: CapabilityMap
     url: capabilities/kion-capability-edges.yml
     name: Kion Business Capability Map
