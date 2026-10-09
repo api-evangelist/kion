@@ -1,0 +1,34 @@
+# Front Door AI Index — kion — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: kion
+  lexicon_version: '1.0'
+  probed_at: '2026-09-25'
+  host: kion.io
+  final_host: kion.io
+  ownership: own
+  owner: kion
+  shares_host_with: null
+  inherited_from: null
+  alias_of: null
+  verdict: scored
+  score: 16
+  band: 5
+  band_label: prominent
+  host_score: 16
+  density: 22.92
+  words: 698
+  tiers:
+    agentic: 5
+    core: 11
+    model: 0
+  ambiguous: 3
+  top_terms:
+    AI: 10
+    prompts: 3
+    automation: 2
+    AI agent: 1
+    LLMs: 1
+    MCP: 1
+    agent: 1
