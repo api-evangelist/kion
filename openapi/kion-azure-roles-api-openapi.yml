@@ -112,19 +112,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
       content:
@@ -138,23 +125,28 @@ components:
               message:
                 type: string
                 example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      description: The unique identifier of the resource in Kion
+      schema:
+        type: integer
   schemas:
-    AzureRoleCreate:
-      type: object
-      required:
-      - name
-      - role_permissions
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        role_permissions:
-          type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     AzureRole:
       type: object
       properties:
@@ -202,14 +194,22 @@ components:
           type: object
           additionalProperties:
             type: string
-  parameters:
-    IdParam:
-      name: id
-      in: path
-      required: true
-      description: The unique identifier of the resource in Kion
-      schema:
-        type: integer
+    AzureRoleCreate:
+      type: object
+      required:
+      - name
+      - role_permissions
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        role_permissions:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
   securitySchemes:
     bearerAuth:
       type: http

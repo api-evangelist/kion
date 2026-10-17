@@ -181,19 +181,6 @@ paths:
           $ref: '#/components/responses/Unauthorized'
 components:
   responses:
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
       content:
@@ -207,7 +194,41 @@ components:
               message:
                 type: string
                 example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
   schemas:
+    ProjectNote:
+      type: object
+      properties:
+        id:
+          type: integer
+        project_id:
+          type: integer
+        content:
+          type: string
+        created_by_user_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+    ProjectNoteCreate:
+      type: object
+      required:
+      - content
+      properties:
+        content:
+          type: string
     ProjectUpdate:
       type: object
       properties:
@@ -229,41 +250,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    ProjectCreate:
-      type: object
-      required:
-      - name
-      - ou_id
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        ou_id:
-          type: integer
-        default_aws_region:
-          type: string
-        permission_scheme_id:
-          type: integer
-        project_funding:
-          type: array
-          items:
-            type: object
-            properties:
-              funding_source_id:
-                type: integer
-              amount:
-                type: number
-              start_datecode:
-                type: string
-              end_datecode:
-                type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
-        auto_pay:
-          type: boolean
     Project:
       type: object
       properties:
@@ -311,27 +297,41 @@ components:
         created_at:
           type: string
           format: date-time
-    ProjectNote:
-      type: object
-      properties:
-        id:
-          type: integer
-        project_id:
-          type: integer
-        content:
-          type: string
-        created_by_user_id:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
-    ProjectNoteCreate:
+    ProjectCreate:
       type: object
       required:
-      - content
+      - name
+      - ou_id
       properties:
-        content:
+        name:
           type: string
+        description:
+          type: string
+        ou_id:
+          type: integer
+        default_aws_region:
+          type: string
+        permission_scheme_id:
+          type: integer
+        project_funding:
+          type: array
+          items:
+            type: object
+            properties:
+              funding_source_id:
+                type: integer
+              amount:
+                type: number
+              start_datecode:
+                type: string
+              end_datecode:
+                type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        auto_pay:
+          type: boolean
   parameters:
     PageParam:
       name: page

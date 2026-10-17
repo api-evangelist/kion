@@ -76,9 +76,11 @@ components:
                 type: string
                 example: Unauthorized
   schemas:
-    AppConfigUpdate:
+    AppConfig:
       type: object
       properties:
+        id:
+          type: integer
         app_name:
           type: string
         default_aws_region:
@@ -89,11 +91,9 @@ components:
           type: boolean
         compliance_scan_interval_minutes:
           type: integer
-    AppConfig:
+    AppConfigUpdate:
       type: object
       properties:
-        id:
-          type: integer
         app_name:
           type: string
         default_aws_region:

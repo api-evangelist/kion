@@ -125,19 +125,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
       content:
@@ -151,21 +138,22 @@ components:
               message:
                 type: string
                 example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
   schemas:
     LabelUpdate:
       type: object
-      properties:
-        key:
-          type: string
-        value:
-          type: string
-        color:
-          type: string
-    LabelCreate:
-      type: object
-      required:
-      - key
-      - value
       properties:
         key:
           type: string
@@ -187,6 +175,18 @@ components:
         created_at:
           type: string
           format: date-time
+    LabelCreate:
+      type: object
+      required:
+      - key
+      - value
+      properties:
+        key:
+          type: string
+        value:
+          type: string
+        color:
+          type: string
   parameters:
     IdParam:
       name: id

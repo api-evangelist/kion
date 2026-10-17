@@ -116,19 +116,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   responses:
-    NotFound:
-      description: The requested resource was not found
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: integer
-                example: 404
-              message:
-                type: string
-                example: Not found
     Unauthorized:
       description: Authentication failed or API key is missing/invalid
       content:
@@ -142,23 +129,20 @@ components:
               message:
                 type: string
                 example: Unauthorized
+    NotFound:
+      description: The requested resource was not found
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 404
+              message:
+                type: string
+                example: Not found
   schemas:
-    ServiceControlPolicyCreate:
-      type: object
-      required:
-      - name
-      - policy
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        policy:
-          type: string
-        labels:
-          type: object
-          additionalProperties:
-            type: string
     ServiceControlPolicy:
       type: object
       properties:
@@ -194,6 +178,22 @@ components:
           format: date-time
     ServiceControlPolicyUpdate:
       type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        policy:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+    ServiceControlPolicyCreate:
+      type: object
+      required:
+      - name
+      - policy
       properties:
         name:
           type: string
