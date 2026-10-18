@@ -714,6 +714,8 @@ apis:
   humanURL: https://support.kion.io/hc/en-us/sections/4412439670797-Public-API
   baseURL: https://{kion-instance}/api/v3
   tags:
+  - Identity and Access Management
+  tags_raw:
   - Identity Management
   properties:
   - type: OpenAPI
