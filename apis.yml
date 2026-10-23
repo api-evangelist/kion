@@ -1236,6 +1236,8 @@ maintainers:
     email: kin@apievangelist.com
 specificationVersion: '0.23'
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/kion/overview
   - type: Plans
     url: plans/kion-plans-pricing.yml
   - type: RateLimits
