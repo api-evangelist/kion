@@ -1,2099 +1,1850 @@
 {
+  "info": {
+    "_postman_id": "f18eb1f2-04a6-49f4-a960-621c11dcac43",
+    "name": "Kion Cloud Operations Permission Mappings API",
+    "description": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:21:27.000Z",
+    "updatedAt": "2026-10-22T02:21:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f18eb1f2-04a6-49f4-a960-621c11dcac43"
+  },
   "item": [
     {
-      "id": "5a6aeaf0-7718-456f-ae7e-9a4c669c6657",
-      "name": "Permission Mappings",
-      "description": {
-        "content": "Manage permission mappings at global, OU, project, and funding source levels",
-        "type": "text/plain"
-      },
+      "name": "project",
       "item": [
         {
-          "id": "ae54d96b-fb2b-47c5-bab1-1d3c523a9070",
-          "name": "Kion List project permission mappings",
-          "request": {
-            "name": "Kion List project permission mappings",
-            "description": {
-              "content": "Returns permission mappings for a specific project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id",
-                "permission-mapping"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{id}",
+          "item": [
             {
-              "id": "d29c9e4a-c591-462f-af2b-9cc5c6029d16",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "permission-mapping",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "d8665960-2cc0-4bef-8654-6f15a2cd1a14",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                  "name": "Kion List project permission mappings",
+                  "id": "94484198-2ed6-4620-a4fd-a15ebfb47ce5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id/permission-mapping",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id",
+                        "permission-mapping"
+                      ],
+                      "variable": [
+                        {
+                          "id": "8a2fc51c-241f-48a6-8ed8-e17af2678eed",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Returns permission mappings for a specific project."
+                  },
+                  "response": [
+                    {
+                      "id": "7362775b-676c-47b8-8032-39c3ae0000fc",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-7362775b-676c-47b8-8032-39c3ae0000fc"
+                    },
+                    {
+                      "id": "e3375f20-58de-4800-88be-711a4e97bffb",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-e3375f20-58de-4800-88be-711a4e97bffb"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-94484198-2ed6-4620-a4fd-a15ebfb47ce5"
+                },
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Kion Create a project permission mapping",
+                  "id": "3a7b4869-a06a-4923-bf88-7f4615a70aec",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id/permission-mapping",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id",
+                        "permission-mapping"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5e7940d9-0607-4928-90eb-c05458b09ec9",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Creates a permission mapping on a project."
+                  },
+                  "response": [
+                    {
+                      "id": "d8f1fe8f-72a3-4988-8947-b05bdfd05c80",
+                      "name": "Permission mapping created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-d8f1fe8f-72a3-4988-8947-b05bdfd05c80"
+                    },
+                    {
+                      "id": "23e81814-19ce-4e14-a1a5-6b0ef068b4a1",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-23e81814-19ce-4e14-a1a5-6b0ef068b4a1"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-3a7b4869-a06a-4923-bf88-7f4615a70aec"
                 }
               ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "732abff0-64a9-4779-9fb3-5d7d5a4f14fe",
+              "createdAt": "2026-10-22T02:21:27.000Z",
+              "updatedAt": "2026-10-22T02:21:27.000Z",
+              "uid": "35240-732abff0-64a9-4779-9fb3-5d7d5a4f14fe"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f986dd15-b1a3-484b-a1b9-ffdcc9910736",
-          "name": "Kion Create a project permission mapping",
-          "request": {
-            "name": "Kion Create a project permission mapping",
-            "description": {
-              "content": "Creates a permission mapping on a project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id",
-                "permission-mapping"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "717ed528-82cb-4df7-9915-0f94b1e9bec5",
-              "name": "Permission mapping created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c1c28c4c-1128-4e7c-bf00-7b121b785e39",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "040a6f77-cb2b-41bb-b976-8590ddc94f7d",
-          "name": "Kion List OU permission mappings",
-          "request": {
-            "name": "Kion List OU permission mappings",
-            "description": {
-              "content": "Returns permission mappings for a specific OU.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "ou",
-                ":id",
-                "permission-mapping"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "13070e3c-9edd-46e7-975f-61c651dd4877",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ou",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "351912f3-bb9d-4f5e-bdbc-15d45855efdc",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ou",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ac5a7a1b-b925-4c78-9af7-a194faf39100",
-          "name": "Kion Create an OU permission mapping",
-          "request": {
-            "name": "Kion Create an OU permission mapping",
-            "description": {
-              "content": "Creates a permission mapping on an OU.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "ou",
-                ":id",
-                "permission-mapping"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "026941ae-e5a8-4eaa-bad2-ac34ac555359",
-              "name": "Permission mapping created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ou",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "9ee2e7ed-6f5f-4448-b222-990773d807f7",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ou",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a6cb6aad-aa5e-4a6d-8e45-b6193564ad0a",
-          "name": "Kion List funding source permission mappings",
-          "request": {
-            "name": "Kion List funding source permission mappings",
-            "description": {
-              "content": "Returns permission mappings for a specific funding source.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "funding-source",
-                ":id",
-                "permission-mapping"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1504eec3-5c9d-4f8a-a719-95f42b6dedd5",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "funding-source",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "6999e280-3228-4cee-ab6a-ea51e5e6a0e4",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "funding-source",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "50c7ebd0-7278-4803-bd31-028bf71f6903",
-          "name": "Kion Create a funding source permission mapping",
-          "request": {
-            "name": "Kion Create a funding source permission mapping",
-            "description": {
-              "content": "Creates a permission mapping on a funding source.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "funding-source",
-                ":id",
-                "permission-mapping"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "89d9f8cc-8c0a-417d-8e6e-7102e08afcc0",
-              "name": "Permission mapping created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "funding-source",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c7adca8f-d02c-4a17-9a10-3857f624361d",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "funding-source",
-                    ":id",
-                    "permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "259b899a-0e49-477f-9ccd-63b2905d1733",
-          "name": "Kion List global permission mappings",
-          "request": {
-            "name": "Kion List global permission mappings",
-            "description": {
-              "content": "Returns a list of all global permission mappings.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "global-permission-mapping"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f59975f1-70f4-4d73-94b7-1633b049a961",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "5ca5dcb7-a2e3-490f-b550-dc753356e885",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "70b37a77-d8a4-4b60-9fcf-dee1284a160e",
-          "name": "Kion Create a global permission mapping",
-          "request": {
-            "name": "Kion Create a global permission mapping",
-            "description": {},
-            "url": {
-              "path": [
-                "global-permission-mapping"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "9e697c80-48ea-4c0b-8814-e54445e914b0",
-              "name": "Mapping created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "3add3890-4942-46b8-ae32-9b579dc9330c",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a2785714-07ad-4967-8431-f2e0495b7bda",
-          "name": "Kion Get a global permission mapping",
-          "request": {
-            "name": "Kion Get a global permission mapping",
-            "description": {},
-            "url": {
-              "path": [
-                "global-permission-mapping",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b03cc441-f0a6-42d5-b7fd-ec0cd0e3da13",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "f7b0d62d-a09a-4e72-87f5-a07474508ce3",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "832c1354-2f1b-4084-8ba0-5e32d69907db",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8efb58c8-14e7-4d80-b877-6783be06a3d7",
-          "name": "Kion Update a global permission mapping",
-          "request": {
-            "name": "Kion Update a global permission mapping",
-            "description": {},
-            "url": {
-              "path": [
-                "global-permission-mapping",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "f51e3bbe-f3af-4852-9c61-63c06b9918d2",
-              "name": "Mapping updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c63647f3-cb41-42bc-b191-c46c0f23a588",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f1bd02ca-9e6c-4b45-930a-1c180d41b95c",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a4726167-43e8-4ea0-98c1-1eb8989c3921",
-          "name": "Kion Delete a global permission mapping",
-          "request": {
-            "name": "Kion Delete a global permission mapping",
-            "description": {},
-            "url": {
-              "path": [
-                "global-permission-mapping",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7e2932ef-710c-4794-9d4c-15b0579c4d1c",
-              "name": "Mapping deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c16e1cb1-415d-49ec-aa27-1815d00b8485",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "31d7a1c0-967e-4c6d-8a87-23fc65c1e92f",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "global-permission-mapping",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "07fffa3c-dd68-415b-8be2-20b78534e3e3",
+          "createdAt": "2026-10-22T02:21:27.000Z",
+          "updatedAt": "2026-10-22T02:21:27.000Z",
+          "uid": "35240-07fffa3c-dd68-415b-8be2-20b78534e3e3"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "Your Kion deployment hostname",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "your-kion-instance.example.com",
-      "key": "kion-instance"
+      "id": "722b990a-d28e-47d4-b4a8-58e836aee62c",
+      "createdAt": "2026-10-22T02:21:27.000Z",
+      "updatedAt": "2026-10-22T02:21:27.000Z",
+      "uid": "35240-722b990a-d28e-47d4-b4a8-58e836aee62c"
     },
     {
-      "type": "string",
-      "value": "https://{{kion-instance}}/api/v3",
-      "key": "baseUrl"
+      "name": "ou",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "permission-mapping",
+              "item": [
+                {
+                  "name": "Kion List OU permission mappings",
+                  "id": "d6d9d507-927e-45df-a93e-d36a733dbb44",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ou/:id/permission-mapping",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ou",
+                        ":id",
+                        "permission-mapping"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c8e06da4-0535-4879-a589-a0dd45c61fd3",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Returns permission mappings for a specific OU."
+                  },
+                  "response": [
+                    {
+                      "id": "e2af14f8-f428-489a-8bc3-e52eca627af1",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/ou/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ou",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-e2af14f8-f428-489a-8bc3-e52eca627af1"
+                    },
+                    {
+                      "id": "e4d8f4a4-2113-4198-b489-cdf7951b56fc",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/ou/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ou",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-e4d8f4a4-2113-4198-b489-cdf7951b56fc"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-d6d9d507-927e-45df-a93e-d36a733dbb44"
+                },
+                {
+                  "name": "Kion Create an OU permission mapping",
+                  "id": "3389df42-205b-41ff-9d0d-0cbd1bcfb3ec",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ou/:id/permission-mapping",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ou",
+                        ":id",
+                        "permission-mapping"
+                      ],
+                      "variable": [
+                        {
+                          "id": "968430cb-cbde-42b3-9e41-73d9726aa7c0",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Creates a permission mapping on an OU."
+                  },
+                  "response": [
+                    {
+                      "id": "9393d527-015f-4c84-85c1-6bf72f1f1a7f",
+                      "name": "Permission mapping created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ou/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ou",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-9393d527-015f-4c84-85c1-6bf72f1f1a7f"
+                    },
+                    {
+                      "id": "0a251515-569f-4ea5-ba1a-1ed7b0970434",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ou/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ou",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-0a251515-569f-4ea5-ba1a-1ed7b0970434"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-3389df42-205b-41ff-9d0d-0cbd1bcfb3ec"
+                }
+              ],
+              "id": "ecce1681-91ef-4707-853b-d44fb16e3372",
+              "createdAt": "2026-10-22T02:21:27.000Z",
+              "updatedAt": "2026-10-22T02:21:27.000Z",
+              "uid": "35240-ecce1681-91ef-4707-853b-d44fb16e3372"
+            }
+          ],
+          "id": "3664d4d0-a4ea-4f2f-96c4-625b55da72ca",
+          "createdAt": "2026-10-22T02:21:27.000Z",
+          "updatedAt": "2026-10-22T02:21:27.000Z",
+          "uid": "35240-3664d4d0-a4ea-4f2f-96c4-625b55da72ca"
+        }
+      ],
+      "id": "94a71e8c-29ab-4a31-ad49-914d9b601f2e",
+      "createdAt": "2026-10-22T02:21:27.000Z",
+      "updatedAt": "2026-10-22T02:21:27.000Z",
+      "uid": "35240-94a71e8c-29ab-4a31-ad49-914d9b601f2e"
+    },
+    {
+      "name": "funding-source",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "permission-mapping",
+              "item": [
+                {
+                  "name": "Kion List funding source permission mappings",
+                  "id": "1b35131e-3b45-47f8-b370-9fcd2c780ca5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/funding-source/:id/permission-mapping",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "funding-source",
+                        ":id",
+                        "permission-mapping"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4c6a5973-ed10-4e0b-84b9-ad40f24f8e80",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Returns permission mappings for a specific funding source."
+                  },
+                  "response": [
+                    {
+                      "id": "2097f349-fbec-4448-be40-362a5aa36515",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/funding-source/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "funding-source",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-2097f349-fbec-4448-be40-362a5aa36515"
+                    },
+                    {
+                      "id": "c371127f-2dd1-4991-89a9-76487430aaa3",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/funding-source/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "funding-source",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-c371127f-2dd1-4991-89a9-76487430aaa3"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-1b35131e-3b45-47f8-b370-9fcd2c780ca5"
+                },
+                {
+                  "name": "Kion Create a funding source permission mapping",
+                  "id": "8eb46bfc-cc4e-4b7c-9589-f3a4acd833cb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/funding-source/:id/permission-mapping",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "funding-source",
+                        ":id",
+                        "permission-mapping"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d581f133-8808-40c4-b5d9-aa33fd3da7a7",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Creates a permission mapping on a funding source."
+                  },
+                  "response": [
+                    {
+                      "id": "aa784fa8-f74b-48f1-b7c5-297f645efe2b",
+                      "name": "Permission mapping created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/funding-source/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "funding-source",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-aa784fa8-f74b-48f1-b7c5-297f645efe2b"
+                    },
+                    {
+                      "id": "88e65902-fe44-4a73-b633-aab0b9c18734",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/funding-source/:id/permission-mapping",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "funding-source",
+                            ":id",
+                            "permission-mapping"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:21:28.000Z",
+                      "updatedAt": "2026-10-22T02:21:28.000Z",
+                      "uid": "35240-88e65902-fe44-4a73-b633-aab0b9c18734"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-8eb46bfc-cc4e-4b7c-9589-f3a4acd833cb"
+                }
+              ],
+              "id": "8d25f554-1b48-46c2-930d-8f5b33b883ee",
+              "createdAt": "2026-10-22T02:21:27.000Z",
+              "updatedAt": "2026-10-22T02:21:27.000Z",
+              "uid": "35240-8d25f554-1b48-46c2-930d-8f5b33b883ee"
+            }
+          ],
+          "id": "40bd4d73-95b5-4566-a79e-5ee7ad2fa0f9",
+          "createdAt": "2026-10-22T02:21:27.000Z",
+          "updatedAt": "2026-10-22T02:21:27.000Z",
+          "uid": "35240-40bd4d73-95b5-4566-a79e-5ee7ad2fa0f9"
+        }
+      ],
+      "id": "d8c53325-a1b2-49d8-a5d8-2523b6332543",
+      "createdAt": "2026-10-22T02:21:27.000Z",
+      "updatedAt": "2026-10-22T02:21:27.000Z",
+      "uid": "35240-d8c53325-a1b2-49d8-a5d8-2523b6332543"
+    },
+    {
+      "name": "global-permission-mapping",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Kion Get a global permission mapping",
+              "id": "3edf5ba7-6c00-4464-b7b3-e0b6b46ec5b0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "global-permission-mapping",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b6ee8212-f2ca-4546-90b7-27067dfa6e99",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "326a038d-dca1-4fb8-a21f-c8c16738b06a",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "global-permission-mapping",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-326a038d-dca1-4fb8-a21f-c8c16738b06a"
+                },
+                {
+                  "id": "9ea7b8cf-3fa4-41c9-9330-d4cae1e8ed03",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "global-permission-mapping",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-9ea7b8cf-3fa4-41c9-9330-d4cae1e8ed03"
+                },
+                {
+                  "id": "ba4d4d7d-e452-49a2-9744-7858726fcad3",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "global-permission-mapping",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-ba4d4d7d-e452-49a2-9744-7858726fcad3"
+                }
+              ],
+              "createdAt": "2026-10-22T02:21:28.000Z",
+              "updatedAt": "2026-10-22T02:21:28.000Z",
+              "uid": "35240-3edf5ba7-6c00-4464-b7b3-e0b6b46ec5b0"
+            },
+            {
+              "name": "Kion Update a global permission mapping",
+              "id": "913dada7-8bba-424a-823b-7936c3692771",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "global-permission-mapping",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "804c410c-1c30-4bf5-8a4a-2ee6c804df7b",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9317d073-f460-4b04-93e4-ca7ada6be8b5",
+                  "name": "Mapping updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "global-permission-mapping",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-9317d073-f460-4b04-93e4-ca7ada6be8b5"
+                },
+                {
+                  "id": "d9e92049-1287-4af4-ba3e-560181b48801",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "global-permission-mapping",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-d9e92049-1287-4af4-ba3e-560181b48801"
+                },
+                {
+                  "id": "55bf05b1-0268-441f-b8bd-55c79e3d1f5b",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "global-permission-mapping",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-55bf05b1-0268-441f-b8bd-55c79e3d1f5b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:21:28.000Z",
+              "updatedAt": "2026-10-22T02:21:28.000Z",
+              "uid": "35240-913dada7-8bba-424a-823b-7936c3692771"
+            },
+            {
+              "name": "Kion Delete a global permission mapping",
+              "id": "85421f32-b7ed-44ac-ac02-16ebad16e68f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "global-permission-mapping",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7f242f42-389a-4abe-978f-26e8473a866f",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d0b484c2-b19d-4c1e-bac3-dc9fa321a3fe",
+                  "name": "Mapping deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "global-permission-mapping",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-d0b484c2-b19d-4c1e-bac3-dc9fa321a3fe"
+                },
+                {
+                  "id": "03adad71-ee26-4da9-9e15-e0fb4531e044",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "global-permission-mapping",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-03adad71-ee26-4da9-9e15-e0fb4531e044"
+                },
+                {
+                  "id": "5f82c7c3-d428-469c-b4fe-1d637c75c9a4",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/global-permission-mapping/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "global-permission-mapping",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:28.000Z",
+                  "updatedAt": "2026-10-22T02:21:28.000Z",
+                  "uid": "35240-5f82c7c3-d428-469c-b4fe-1d637c75c9a4"
+                }
+              ],
+              "createdAt": "2026-10-22T02:21:28.000Z",
+              "updatedAt": "2026-10-22T02:21:28.000Z",
+              "uid": "35240-85421f32-b7ed-44ac-ac02-16ebad16e68f"
+            }
+          ],
+          "id": "a3d42b6b-a544-402f-b418-7cf193d8a1ff",
+          "createdAt": "2026-10-22T02:21:27.000Z",
+          "updatedAt": "2026-10-22T02:21:27.000Z",
+          "uid": "35240-a3d42b6b-a544-402f-b418-7cf193d8a1ff"
+        },
+        {
+          "name": "Kion List global permission mappings",
+          "id": "837b34ac-0bae-4c18-8280-b1ba71b8af2a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/global-permission-mapping",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "global-permission-mapping"
+              ]
+            },
+            "description": "Returns a list of all global permission mappings."
+          },
+          "response": [
+            {
+              "id": "da48f41a-aded-47e4-a4b0-2b35a0d88ecf",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/global-permission-mapping",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "global-permission-mapping"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:21:28.000Z",
+              "updatedAt": "2026-10-22T02:21:28.000Z",
+              "uid": "35240-da48f41a-aded-47e4-a4b0-2b35a0d88ecf"
+            },
+            {
+              "id": "b161a0a0-65a9-4882-9c18-84dc8a161a94",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/global-permission-mapping",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "global-permission-mapping"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:21:28.000Z",
+              "updatedAt": "2026-10-22T02:21:28.000Z",
+              "uid": "35240-b161a0a0-65a9-4882-9c18-84dc8a161a94"
+            }
+          ],
+          "createdAt": "2026-10-22T02:21:28.000Z",
+          "updatedAt": "2026-10-22T02:21:28.000Z",
+          "uid": "35240-837b34ac-0bae-4c18-8280-b1ba71b8af2a"
+        },
+        {
+          "name": "Kion Create a global permission mapping",
+          "id": "8f28d649-7f6c-4256-9a10-8b72e9d0d822",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/global-permission-mapping",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "global-permission-mapping"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "95b1a061-0e45-4c40-9f61-546802f85090",
+              "name": "Mapping created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/global-permission-mapping",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "global-permission-mapping"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:21:28.000Z",
+              "updatedAt": "2026-10-22T02:21:28.000Z",
+              "uid": "35240-95b1a061-0e45-4c40-9f61-546802f85090"
+            },
+            {
+              "id": "b097c4d0-11eb-4e52-ab30-39d5edd39ac4",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"app_role_id\": \"<integer>\",\n  \"user_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_group_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/global-permission-mapping",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "global-permission-mapping"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:21:28.000Z",
+              "updatedAt": "2026-10-22T02:21:28.000Z",
+              "uid": "35240-b097c4d0-11eb-4e52-ab30-39d5edd39ac4"
+            }
+          ],
+          "createdAt": "2026-10-22T02:21:28.000Z",
+          "updatedAt": "2026-10-22T02:21:28.000Z",
+          "uid": "35240-8f28d649-7f6c-4256-9a10-8b72e9d0d822"
+        }
+      ],
+      "id": "0c1ca325-5041-473e-8e07-ba4edf34c85a",
+      "createdAt": "2026-10-22T02:21:27.000Z",
+      "updatedAt": "2026-10-22T02:21:27.000Z",
+      "uid": "35240-0c1ca325-5041-473e-8e07-ba4edf34c85a"
     }
   ],
   "auth": {
@@ -2101,17 +1852,19 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "4e8e0df6-78a7-4742-8d3b-a7354bfd2f8c",
-    "name": "Kion Cloud Operations Accounts Permission Mappings API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "kion-instance",
+      "value": "your-kion-instance.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{kion-instance}}/api/v3"
     }
-  }
+  ]
 }

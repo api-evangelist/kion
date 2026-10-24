@@ -1,170 +1,129 @@
 {
+  "info": {
+    "_postman_id": "87be962e-6aab-4056-9ab9-4ed22ab70227",
+    "name": "Kion Cloud Operations Identity Management API",
+    "description": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:21:07.000Z",
+    "updatedAt": "2026-10-22T02:21:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-87be962e-6aab-4056-9ab9-4ed22ab70227"
+  },
   "item": [
     {
-      "id": "8a0a6585-6115-49cc-87c2-adbe66061331",
-      "name": "Identity Management",
-      "description": {
-        "content": "Manage identity management systems (IDMS)",
-        "type": "text/plain"
-      },
+      "name": "idms",
       "item": [
         {
-          "id": "5cee6077-2b49-423c-9f7c-127d561d2f35",
           "name": "Kion List identity management systems",
+          "id": "cac786f9-6ec9-4cdc-acba-47b1d4fc49c0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Kion List identity management systems",
-            "description": {
-              "content": "Returns a list of all identity management systems.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "idms"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/idms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "idms"
+              ]
+            },
+            "description": "Returns a list of all identity management systems."
           },
           "response": [
             {
-              "id": "23aa7de7-3a9b-47ad-8cbe-cacd576d78d5",
+              "id": "2defa42b-7843-4753-95c0-993a255d6b07",
               "name": "Successful response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "idms"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/idms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "idms"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:21:07.000Z",
+              "updatedAt": "2026-10-22T02:21:07.000Z",
+              "uid": "35240-2defa42b-7843-4753-95c0-993a255d6b07"
             },
             {
-              "id": "87c6f75e-9bf8-4602-ba27-7fb649ea0b05",
+              "id": "8a1357d8-9438-45b7-90c1-b8728e2347fb",
               "name": "Authentication failed or API key is missing/invalid",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "idms"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/idms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "idms"
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:21:07.000Z",
+              "updatedAt": "2026-10-22T02:21:07.000Z",
+              "uid": "35240-8a1357d8-9438-45b7-90c1-b8728e2347fb"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:21:07.000Z",
+          "updatedAt": "2026-10-22T02:21:07.000Z",
+          "uid": "35240-cac786f9-6ec9-4cdc-acba-47b1d4fc49c0"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "Your Kion deployment hostname",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "your-kion-instance.example.com",
-      "key": "kion-instance"
-    },
-    {
-      "type": "string",
-      "value": "https://{{kion-instance}}/api/v3",
-      "key": "baseUrl"
+      "id": "055665bc-4d45-458f-8d76-4fafa9a2f883",
+      "createdAt": "2026-10-22T02:21:07.000Z",
+      "updatedAt": "2026-10-22T02:21:07.000Z",
+      "uid": "35240-055665bc-4d45-458f-8d76-4fafa9a2f883"
     }
   ],
   "auth": {
@@ -172,17 +131,19 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "07849533-86c9-4b1c-b75b-491326ea8295",
-    "name": "Kion Cloud Operations Accounts Identity Management API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "kion-instance",
+      "value": "your-kion-instance.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{kion-instance}}/api/v3"
     }
-  }
+  ]
 }

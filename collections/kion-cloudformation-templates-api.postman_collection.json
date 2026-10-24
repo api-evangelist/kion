@@ -1,181 +1,731 @@
 {
+  "info": {
+    "_postman_id": "680893a7-da10-4aba-a1b8-97d586a350cb",
+    "name": "Kion Cloud Operations CloudFormation Templates API",
+    "description": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:20:20.000Z",
+    "updatedAt": "2026-10-22T02:20:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-680893a7-da10-4aba-a1b8-97d586a350cb"
+  },
   "item": [
     {
-      "id": "d2e8cf47-e9b4-4a90-855b-bdf08454852a",
-      "name": "CloudFormation Templates",
-      "description": {
-        "content": "Manage AWS CloudFormation templates",
-        "type": "text/plain"
-      },
+      "name": "aws-cloudformation-template",
       "item": [
         {
-          "id": "61b44d40-82fa-4390-b47a-f0deb9bea3ce",
-          "name": "Kion List CloudFormation templates",
-          "request": {
-            "name": "Kion List CloudFormation templates",
-            "description": {
-              "content": "Returns a list of all AWS CloudFormation templates.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "aws-cloudformation-template"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Kion Get a CloudFormation template",
+              "id": "a8ff0549-a15e-46ce-a58a-7c3d65cde695",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-cloudformation-template",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3d31f736-772d-4c46-8314-af41ccf8aa2c",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                },
+                "description": "Returns details for a specific CloudFormation template."
+              },
+              "response": [
                 {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
+                  "id": "99144383-d0e9-4b10-ac77-169a6586cd26",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-cloudformation-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:20:21.000Z",
+                  "updatedAt": "2026-10-22T02:20:21.000Z",
+                  "uid": "35240-99144383-d0e9-4b10-ac77-169a6586cd26"
+                },
+                {
+                  "id": "daf9a22d-c84b-45ed-b8a0-4d7fa3240728",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-cloudformation-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:20:21.000Z",
+                  "updatedAt": "2026-10-22T02:20:21.000Z",
+                  "uid": "35240-daf9a22d-c84b-45ed-b8a0-4d7fa3240728"
+                },
+                {
+                  "id": "bdac32e8-0766-475c-94c9-9118018792a7",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-cloudformation-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:20:21.000Z",
+                  "updatedAt": "2026-10-22T02:20:21.000Z",
+                  "uid": "35240-bdac32e8-0766-475c-94c9-9118018792a7"
                 }
-              ]
+              ],
+              "createdAt": "2026-10-22T02:20:21.000Z",
+              "updatedAt": "2026-10-22T02:20:21.000Z",
+              "uid": "35240-a8ff0549-a15e-46ce-a58a-7c3d65cde695"
             },
+            {
+              "name": "Kion Update a CloudFormation template",
+              "id": "4fcc3d28-4add-438e-a599-3afb815b4f35",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"quis_da\": \"<string>\",\n    \"Ut_6c\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-cloudformation-template",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1e7f64e7-eefb-40ee-8f4e-2a8cc87deb5b",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                },
+                "description": "Updates an existing CloudFormation template."
+              },
+              "response": [
+                {
+                  "id": "0e6d491a-01e7-4e69-b240-fb5336398f47",
+                  "name": "Template updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"quis_da\": \"<string>\",\n    \"Ut_6c\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-cloudformation-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:20:21.000Z",
+                  "updatedAt": "2026-10-22T02:20:21.000Z",
+                  "uid": "35240-0e6d491a-01e7-4e69-b240-fb5336398f47"
+                },
+                {
+                  "id": "7971b342-a1b5-4ea6-a201-143410a45c6f",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"quis_da\": \"<string>\",\n    \"Ut_6c\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-cloudformation-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:20:21.000Z",
+                  "updatedAt": "2026-10-22T02:20:21.000Z",
+                  "uid": "35240-7971b342-a1b5-4ea6-a201-143410a45c6f"
+                },
+                {
+                  "id": "0a2589ca-2453-43a1-9412-7b61b39a17a5",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"quis_da\": \"<string>\",\n    \"Ut_6c\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-cloudformation-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:20:21.000Z",
+                  "updatedAt": "2026-10-22T02:20:21.000Z",
+                  "uid": "35240-0a2589ca-2453-43a1-9412-7b61b39a17a5"
+                }
+              ],
+              "createdAt": "2026-10-22T02:20:21.000Z",
+              "updatedAt": "2026-10-22T02:20:21.000Z",
+              "uid": "35240-4fcc3d28-4add-438e-a599-3afb815b4f35"
+            },
+            {
+              "name": "Kion Delete a CloudFormation template",
+              "id": "910a89a3-b4ca-41e5-9a5f-2ec693430579",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-cloudformation-template",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b8a249bb-5d95-455f-92b2-b0bdd5dbfdaf",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                },
+                "description": "Deletes a CloudFormation template."
+              },
+              "response": [
+                {
+                  "id": "272bc81a-67c7-4792-a743-48809e376ec9",
+                  "name": "Template deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-cloudformation-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:20:21.000Z",
+                  "updatedAt": "2026-10-22T02:20:21.000Z",
+                  "uid": "35240-272bc81a-67c7-4792-a743-48809e376ec9"
+                },
+                {
+                  "id": "29e022e9-851a-4637-a52b-c1522b90f8bc",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-cloudformation-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:20:21.000Z",
+                  "updatedAt": "2026-10-22T02:20:21.000Z",
+                  "uid": "35240-29e022e9-851a-4637-a52b-c1522b90f8bc"
+                },
+                {
+                  "id": "4d0be9b2-13b4-4d3b-afe3-32f9ea99b913",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-cloudformation-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-cloudformation-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:20:21.000Z",
+                  "updatedAt": "2026-10-22T02:20:21.000Z",
+                  "uid": "35240-4d0be9b2-13b4-4d3b-afe3-32f9ea99b913"
+                }
+              ],
+              "createdAt": "2026-10-22T02:20:21.000Z",
+              "updatedAt": "2026-10-22T02:20:21.000Z",
+              "uid": "35240-910a89a3-b4ca-41e5-9a5f-2ec693430579"
+            }
+          ],
+          "id": "a2b96ece-7b2b-4f0b-adc4-a21ae6e02bb1",
+          "createdAt": "2026-10-22T02:20:21.000Z",
+          "updatedAt": "2026-10-22T02:20:21.000Z",
+          "uid": "35240-a2b96ece-7b2b-4f0b-adc4-a21ae6e02bb1"
+        },
+        {
+          "name": "Kion List CloudFormation templates",
+          "id": "fac77b4f-3317-46b1-9d1e-f5ab6a80d82e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "12fc3078-b679-48c7-b167-1cae5d0c0e58",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 8657,\n  \"data\": [\n    {\n      \"id\": 4217,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"template_url\": \"string\",\n      \"template_body\": \"string\",\n      \"region\": \"string\",\n      \"sns_arns\": \"string\",\n      \"terminate_protected\": false,\n      \"owner_users\": [\n        {\n          \"id\": 9795\n        },\n        {\n          \"id\": 974\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 7678\n        },\n        {\n          \"id\": 4164\n        }\n      ],\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"created_at\": \"1992-10-15T05:12:46.602Z\"\n    },\n    {\n      \"id\": 6532,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"template_url\": \"string\",\n      \"template_body\": \"string\",\n      \"region\": \"string\",\n      \"sns_arns\": \"string\",\n      \"terminate_protected\": true,\n      \"owner_users\": [\n        {\n          \"id\": 9871\n        },\n        {\n          \"id\": 9164\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 2125\n        },\n        {\n          \"id\": 4326\n        }\n      ],\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"1988-12-19T20:26:44.097Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e00693ae-da21-485c-8ae5-076919dc4dc8",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6ed61c7e-466d-4bfb-8225-cc3583dd6c5c",
-          "name": "Kion Create a CloudFormation template",
-          "request": {
-            "name": "Kion Create a CloudFormation template",
-            "description": {
-              "content": "Creates a new AWS CloudFormation template.",
-              "type": "text/plain"
-            },
             "url": {
-              "path": [
-                "aws-cloudformation-template"
-              ],
+              "raw": "{{baseUrl}}/aws-cloudformation-template",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
+              "path": [
+                "aws-cloudformation-template"
               ]
             },
+            "description": "Returns a list of all AWS CloudFormation templates."
+          },
+          "response": [
+            {
+              "id": "5952222a-4801-4eac-a575-21c7604475ef",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aws-cloudformation-template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-cloudformation-template"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"template_url\": \"<string>\",\n      \"template_body\": \"<string>\",\n      \"region\": \"<string>\",\n      \"sns_arns\": \"<string>\",\n      \"terminate_protected\": \"<boolean>\",\n      \"owner_users\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"labels\": {\n        \"deserunt_c1\": \"<string>\",\n        \"suntc\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"template_url\": \"<string>\",\n      \"template_body\": \"<string>\",\n      \"region\": \"<string>\",\n      \"sns_arns\": \"<string>\",\n      \"terminate_protected\": \"<boolean>\",\n      \"owner_users\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"labels\": {\n        \"consecteture8_\": \"<string>\",\n        \"aliqua109\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:20:21.000Z",
+              "updatedAt": "2026-10-22T02:20:21.000Z",
+              "uid": "35240-5952222a-4801-4eac-a575-21c7604475ef"
+            },
+            {
+              "id": "14f39f41-1cf7-43dd-9737-1900ab8460d2",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aws-cloudformation-template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-cloudformation-template"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:20:21.000Z",
+              "updatedAt": "2026-10-22T02:20:21.000Z",
+              "uid": "35240-14f39f41-1cf7-43dd-9737-1900ab8460d2"
+            }
+          ],
+          "createdAt": "2026-10-22T02:20:21.000Z",
+          "updatedAt": "2026-10-22T02:20:21.000Z",
+          "uid": "35240-fac77b4f-3317-46b1-9d1e-f5ab6a80d82e"
+        },
+        {
+          "name": "Kion Create a CloudFormation template",
+          "id": "300210ac-4257-4db8-8a92-178b2884a29e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -186,853 +736,141 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"eiusmod_1ab\": \"<string>\",\n    \"nostrud_d1f\": \"<string>\"\n  }\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/aws-cloudformation-template",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aws-cloudformation-template"
+              ]
+            },
+            "description": "Creates a new AWS CloudFormation template."
           },
           "response": [
             {
-              "id": "ce832cef-ad06-42df-86db-7ec3d4f23cd9",
+              "id": "15970333-1ba4-4628-9479-508ed0a1b52e",
               "name": "Template created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"eiusmod_1ab\": \"<string>\",\n    \"nostrud_d1f\": \"<string>\"\n  }\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/aws-cloudformation-template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-cloudformation-template"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:20:21.000Z",
+              "updatedAt": "2026-10-22T02:20:21.000Z",
+              "uid": "35240-15970333-1ba4-4628-9479-508ed0a1b52e"
             },
             {
-              "id": "6a8bad10-9c0d-43de-9501-e6b614f9e00b",
+              "id": "163ee575-13de-4aa0-beef-e6ddab2a431a",
               "name": "Authentication failed or API key is missing/invalid",
               "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"eiusmod_1ab\": \"<string>\",\n    \"nostrud_d1f\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/aws-cloudformation-template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "aws-cloudformation-template"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
                 }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:20:21.000Z",
+              "updatedAt": "2026-10-22T02:20:21.000Z",
+              "uid": "35240-163ee575-13de-4aa0-beef-e6ddab2a431a"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1bdaffa3-d37c-4517-aa39-527b4f01b256",
-          "name": "Kion Get a CloudFormation template",
-          "request": {
-            "name": "Kion Get a CloudFormation template",
-            "description": {
-              "content": "Returns details for a specific CloudFormation template.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "aws-cloudformation-template",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f1256c03-9329-46c8-be9c-26431052f612",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "05671c46-95ba-4d99-8b5d-b1f492f2a41e",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "30250b93-4434-4c56-bce7-6da341c2cf95",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f5108c23-77e4-49cf-aa5f-7ff99a6a2ddc",
-          "name": "Kion Update a CloudFormation template",
-          "request": {
-            "name": "Kion Update a CloudFormation template",
-            "description": {
-              "content": "Updates an existing CloudFormation template.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "aws-cloudformation-template",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "3d3524f6-f20c-45de-9d53-0ef9dfae304a",
-              "name": "Template updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "e0737209-51a2-44a5-b20a-f089b6474fdc",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "226c5ed0-10b6-4ed4-bd32-f95247b70d92",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"template_url\": \"<string>\",\n  \"template_body\": \"<string>\",\n  \"region\": \"<string>\",\n  \"sns_arns\": \"<string>\",\n  \"terminate_protected\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c355727a-389d-4b8f-b5b0-2020e7409c5e",
-          "name": "Kion Delete a CloudFormation template",
-          "request": {
-            "name": "Kion Delete a CloudFormation template",
-            "description": {
-              "content": "Deletes a CloudFormation template.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "aws-cloudformation-template",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7206c3eb-8be5-4595-8a0c-f67c89b79978",
-              "name": "Template deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "bf0b37eb-0c2d-4e17-b393-6af13785664a",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2acf8a21-580b-4d43-a2d5-a12e313c7ebc",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-cloudformation-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:20:21.000Z",
+          "updatedAt": "2026-10-22T02:20:21.000Z",
+          "uid": "35240-300210ac-4257-4db8-8a92-178b2884a29e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "Your Kion deployment hostname",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "your-kion-instance.example.com",
-      "key": "kion-instance"
-    },
-    {
-      "type": "string",
-      "value": "https://{{kion-instance}}/api/v3",
-      "key": "baseUrl"
+      "id": "cbe37c55-908f-4bfc-84e1-9867ea4681f0",
+      "createdAt": "2026-10-22T02:20:21.000Z",
+      "updatedAt": "2026-10-22T02:20:21.000Z",
+      "uid": "35240-cbe37c55-908f-4bfc-84e1-9867ea4681f0"
     }
   ],
   "auth": {
@@ -1040,17 +878,19 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "13cffa91-88c3-4335-af60-a9b9984848c7",
-    "name": "Kion Cloud Operations Accounts CloudFormation Templates API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "kion-instance",
+      "value": "your-kion-instance.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{kion-instance}}/api/v3"
     }
-  }
+  ]
 }

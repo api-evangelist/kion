@@ -1,181 +1,729 @@
 {
+  "info": {
+    "_postman_id": "8ddfc795-3f96-42b2-954e-22b09e7cab32",
+    "name": "Kion Cloud Operations Azure ARM Templates API",
+    "description": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:19:44.000Z",
+    "updatedAt": "2026-10-22T02:19:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8ddfc795-3f96-42b2-954e-22b09e7cab32"
+  },
   "item": [
     {
-      "id": "dc48dd05-f803-4073-bd7d-365f363c2b89",
-      "name": "Azure ARM Templates",
-      "description": {
-        "content": "Manage Azure ARM templates",
-        "type": "text/plain"
-      },
+      "name": "azure-arm-template",
       "item": [
         {
-          "id": "7983f113-c6eb-481e-b74e-1c952cd020a8",
-          "name": "Kion List Azure ARM templates",
-          "request": {
-            "name": "Kion List Azure ARM templates",
-            "description": {
-              "content": "Returns a list of all Azure ARM templates.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "azure-arm-template"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Kion Get an Azure ARM template",
+              "id": "c92d347f-c01d-4e85-9b41-d04ab67b537a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/azure-arm-template/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "azure-arm-template",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0a2eee10-0036-4a85-8ddd-ef48e1e6a546",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                },
+                "description": "Returns details for a specific Azure ARM template."
+              },
+              "response": [
                 {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
+                  "id": "57e48d23-b1e5-41b8-a0f4-231c54d23d26",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/azure-arm-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "azure-arm-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:19:45.000Z",
+                  "updatedAt": "2026-10-22T02:19:45.000Z",
+                  "uid": "35240-57e48d23-b1e5-41b8-a0f4-231c54d23d26"
+                },
+                {
+                  "id": "e3d2398d-9bef-47b8-b297-6135026a3aca",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/azure-arm-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "azure-arm-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:19:45.000Z",
+                  "updatedAt": "2026-10-22T02:19:45.000Z",
+                  "uid": "35240-e3d2398d-9bef-47b8-b297-6135026a3aca"
+                },
+                {
+                  "id": "750f4d9a-56fb-46c0-8942-a9e188be808d",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/azure-arm-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "azure-arm-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:19:45.000Z",
+                  "updatedAt": "2026-10-22T02:19:45.000Z",
+                  "uid": "35240-750f4d9a-56fb-46c0-8942-a9e188be808d"
                 }
-              ]
+              ],
+              "createdAt": "2026-10-22T02:19:45.000Z",
+              "updatedAt": "2026-10-22T02:19:45.000Z",
+              "uid": "35240-c92d347f-c01d-4e85-9b41-d04ab67b537a"
             },
+            {
+              "name": "Kion Update an Azure ARM template",
+              "id": "1384d372-e0d5-4b18-af9e-354338266e0c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"Ut_27\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/azure-arm-template/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "azure-arm-template",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1f415b51-375b-44fe-bc8d-71f035c3cc36",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a23bfb7c-9f17-4bcf-8d74-8b2e21ba0ead",
+                  "name": "Template updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"Ut_27\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/azure-arm-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "azure-arm-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:19:45.000Z",
+                  "updatedAt": "2026-10-22T02:19:45.000Z",
+                  "uid": "35240-a23bfb7c-9f17-4bcf-8d74-8b2e21ba0ead"
+                },
+                {
+                  "id": "08edbdb4-ee0d-4d4d-ba7b-98811d95be73",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"Ut_27\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/azure-arm-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "azure-arm-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:19:45.000Z",
+                  "updatedAt": "2026-10-22T02:19:45.000Z",
+                  "uid": "35240-08edbdb4-ee0d-4d4d-ba7b-98811d95be73"
+                },
+                {
+                  "id": "ea00506f-34fa-40fb-917b-69d0580e0366",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"Ut_27\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/azure-arm-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "azure-arm-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:19:45.000Z",
+                  "updatedAt": "2026-10-22T02:19:45.000Z",
+                  "uid": "35240-ea00506f-34fa-40fb-917b-69d0580e0366"
+                }
+              ],
+              "createdAt": "2026-10-22T02:19:45.000Z",
+              "updatedAt": "2026-10-22T02:19:45.000Z",
+              "uid": "35240-1384d372-e0d5-4b18-af9e-354338266e0c"
+            },
+            {
+              "name": "Kion Delete an Azure ARM template",
+              "id": "f489ae66-943b-4f49-b4a5-5db082852135",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/azure-arm-template/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "azure-arm-template",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1a7e075b-86b6-499b-9356-1c7d99d81b34",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "cc5f9351-2b54-41c9-87e0-7602395a6304",
+                  "name": "Template deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/azure-arm-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "azure-arm-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:19:45.000Z",
+                  "updatedAt": "2026-10-22T02:19:45.000Z",
+                  "uid": "35240-cc5f9351-2b54-41c9-87e0-7602395a6304"
+                },
+                {
+                  "id": "3de06f64-ab29-4a62-932b-f4d4dbf11b4c",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/azure-arm-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "azure-arm-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:19:45.000Z",
+                  "updatedAt": "2026-10-22T02:19:45.000Z",
+                  "uid": "35240-3de06f64-ab29-4a62-932b-f4d4dbf11b4c"
+                },
+                {
+                  "id": "0e30093b-c90c-44cf-a2e1-ca3d1e99c874",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/azure-arm-template/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "azure-arm-template",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:19:45.000Z",
+                  "updatedAt": "2026-10-22T02:19:45.000Z",
+                  "uid": "35240-0e30093b-c90c-44cf-a2e1-ca3d1e99c874"
+                }
+              ],
+              "createdAt": "2026-10-22T02:19:45.000Z",
+              "updatedAt": "2026-10-22T02:19:45.000Z",
+              "uid": "35240-f489ae66-943b-4f49-b4a5-5db082852135"
+            }
+          ],
+          "id": "d9c2cbef-251b-463e-a7ae-15b8105b4410",
+          "createdAt": "2026-10-22T02:19:45.000Z",
+          "updatedAt": "2026-10-22T02:19:45.000Z",
+          "uid": "35240-d9c2cbef-251b-463e-a7ae-15b8105b4410"
+        },
+        {
+          "name": "Kion List Azure ARM templates",
+          "id": "84f28174-95e1-461b-a7a0-88d0933521c3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ecb811b2-4068-4d38-a26b-769cdb9950c7",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 4456,\n  \"data\": [\n    {\n      \"id\": 6065,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"resource_group_name\": \"string\",\n      \"resource_group_region\": \"string\",\n      \"template\": \"string\",\n      \"deployment_mode\": \"string\",\n      \"owner_users\": [\n        {\n          \"id\": 2898\n        },\n        {\n          \"id\": 1739\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 8134\n        },\n        {\n          \"id\": 6942\n        }\n      ],\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"created_at\": \"1995-11-30T20:09:16.988Z\"\n    },\n    {\n      \"id\": 3008,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"resource_group_name\": \"string\",\n      \"resource_group_region\": \"string\",\n      \"template\": \"string\",\n      \"deployment_mode\": \"string\",\n      \"owner_users\": [\n        {\n          \"id\": 7042\n        },\n        {\n          \"id\": 1212\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 5829\n        },\n        {\n          \"id\": 7961\n        }\n      ],\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"created_at\": \"1990-07-05T22:29:27.326Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a84a096a-8622-4e99-ae79-9d8e7d2c9434",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2c217093-05ca-4ffc-8525-2b564dafb68c",
-          "name": "Kion Create an Azure ARM template",
-          "request": {
-            "name": "Kion Create an Azure ARM template",
-            "description": {
-              "content": "Creates a new Azure ARM template.",
-              "type": "text/plain"
-            },
             "url": {
-              "path": [
-                "azure-arm-template"
-              ],
+              "raw": "{{baseUrl}}/azure-arm-template",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
+              "path": [
+                "azure-arm-template"
               ]
             },
+            "description": "Returns a list of all Azure ARM templates."
+          },
+          "response": [
+            {
+              "id": "650dd3dd-562c-4780-90a7-af1d1c6af1ae",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/azure-arm-template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "azure-arm-template"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"resource_group_name\": \"<string>\",\n      \"resource_group_region\": \"<string>\",\n      \"template\": \"<string>\",\n      \"deployment_mode\": \"<string>\",\n      \"owner_users\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"labels\": {\n        \"mollit6\": \"<string>\",\n        \"ullamco_1de\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"resource_group_name\": \"<string>\",\n      \"resource_group_region\": \"<string>\",\n      \"template\": \"<string>\",\n      \"deployment_mode\": \"<string>\",\n      \"owner_users\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"labels\": {\n        \"ida6_\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:19:45.000Z",
+              "updatedAt": "2026-10-22T02:19:45.000Z",
+              "uid": "35240-650dd3dd-562c-4780-90a7-af1d1c6af1ae"
+            },
+            {
+              "id": "4b6a732b-c3d6-4abc-bd94-d051033dc5fd",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/azure-arm-template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "azure-arm-template"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:19:45.000Z",
+              "updatedAt": "2026-10-22T02:19:45.000Z",
+              "uid": "35240-4b6a732b-c3d6-4abc-bd94-d051033dc5fd"
+            }
+          ],
+          "createdAt": "2026-10-22T02:19:45.000Z",
+          "updatedAt": "2026-10-22T02:19:45.000Z",
+          "uid": "35240-84f28174-95e1-461b-a7a0-88d0933521c3"
+        },
+        {
+          "name": "Kion Create an Azure ARM template",
+          "id": "7127a210-213f-4707-9205-bc200aed14ce",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -186,847 +734,141 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"dolore_61\": \"<string>\",\n    \"Duis_653\": \"<string>\"\n  }\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/azure-arm-template",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "azure-arm-template"
+              ]
+            },
+            "description": "Creates a new Azure ARM template."
           },
           "response": [
             {
-              "id": "5e656309-5270-4d0f-9dae-bdb29ff17fa9",
+              "id": "50979309-8509-45e8-94ef-630c363331f6",
               "name": "Template created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"dolore_61\": \"<string>\",\n    \"Duis_653\": \"<string>\"\n  }\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/azure-arm-template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "azure-arm-template"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:19:45.000Z",
+              "updatedAt": "2026-10-22T02:19:45.000Z",
+              "uid": "35240-50979309-8509-45e8-94ef-630c363331f6"
             },
             {
-              "id": "ee585419-505d-48db-bc2a-83b04e6c8df3",
+              "id": "baeecdfd-484b-49c9-a022-c3efcbddf49c",
               "name": "Authentication failed or API key is missing/invalid",
               "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"dolore_61\": \"<string>\",\n    \"Duis_653\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/azure-arm-template",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "azure-arm-template"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
                 }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:19:45.000Z",
+              "updatedAt": "2026-10-22T02:19:45.000Z",
+              "uid": "35240-baeecdfd-484b-49c9-a022-c3efcbddf49c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2b4ee0b0-7d8f-4d79-a33d-d74d165f3517",
-          "name": "Kion Get an Azure ARM template",
-          "request": {
-            "name": "Kion Get an Azure ARM template",
-            "description": {
-              "content": "Returns details for a specific Azure ARM template.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "azure-arm-template",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "cf8a88b8-5c96-4322-b58c-cbf5c07a4dc1",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ba981df6-7610-406a-808a-7c1b5648c966",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d220fe43-cebf-4045-b1db-ec176541a239",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "cef82043-379b-4fa5-a2be-fa83c7a6a694",
-          "name": "Kion Update an Azure ARM template",
-          "request": {
-            "name": "Kion Update an Azure ARM template",
-            "description": {},
-            "url": {
-              "path": [
-                "azure-arm-template",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "979d9b5d-2022-433a-bdd0-ccfb8efd14e5",
-              "name": "Template updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "259ec907-55c9-49cf-a197-929a9b54a138",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a349cc35-7f5e-475f-97ab-cc7abdb501dd",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"resource_group_name\": \"<string>\",\n  \"resource_group_region\": \"<string>\",\n  \"template\": \"<string>\",\n  \"deployment_mode\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6c45aa94-733e-4d8c-85f1-b5cb88c1ae09",
-          "name": "Kion Delete an Azure ARM template",
-          "request": {
-            "name": "Kion Delete an Azure ARM template",
-            "description": {},
-            "url": {
-              "path": [
-                "azure-arm-template",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5c8f5686-d89b-4cb0-803d-877e3c3c98d6",
-              "name": "Template deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "dcda089a-0509-474a-bd59-0d873038daf4",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a2620998-3b1c-499b-b0d7-dae4b4f3d2c0",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "azure-arm-template",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:19:45.000Z",
+          "updatedAt": "2026-10-22T02:19:45.000Z",
+          "uid": "35240-7127a210-213f-4707-9205-bc200aed14ce"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "Your Kion deployment hostname",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "your-kion-instance.example.com",
-      "key": "kion-instance"
-    },
-    {
-      "type": "string",
-      "value": "https://{{kion-instance}}/api/v3",
-      "key": "baseUrl"
+      "id": "6d4408cb-cc6f-4706-8894-c640064993b6",
+      "createdAt": "2026-10-22T02:19:45.000Z",
+      "updatedAt": "2026-10-22T02:19:45.000Z",
+      "uid": "35240-6d4408cb-cc6f-4706-8894-c640064993b6"
     }
   ],
   "auth": {
@@ -1034,17 +876,19 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "0e13dbb0-203c-4e3f-b985-dea4bb873bdd",
-    "name": "Kion Cloud Operations Accounts Azure ARM Templates API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "kion-instance",
+      "value": "your-kion-instance.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{kion-instance}}/api/v3"
     }
-  }
+  ]
 }

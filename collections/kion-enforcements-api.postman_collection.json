@@ -1,395 +1,352 @@
 {
+  "info": {
+    "_postman_id": "07a9415a-b0ac-4fe0-bf2a-15be6f72ea21",
+    "name": "Kion Cloud Operations Enforcements API",
+    "description": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:20:42.000Z",
+    "updatedAt": "2026-10-22T02:20:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-07a9415a-b0ac-4fe0-bf2a-15be6f72ea21"
+  },
   "item": [
     {
-      "id": "bb5ab2fd-8270-4ff1-9d6c-7046e8313568",
-      "name": "Enforcements",
-      "description": {
-        "content": "Manage project enforcements",
-        "type": "text/plain"
-      },
+      "name": "project",
       "item": [
         {
-          "id": "df75858e-c239-4bd5-9f42-6ab13235eadd",
-          "name": "Kion List project enforcements",
-          "request": {
-            "name": "Kion List project enforcements",
-            "description": {
-              "content": "Returns enforcements for a specific project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id",
-                "enforcement"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{id}",
+          "item": [
             {
-              "id": "0ca9b6e4-81bf-46b3-b69e-f243a31294f4",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "enforcement"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "enforcement",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Kion List project enforcements",
+                  "id": "e44f4f37-4e8e-4399-a0e2-e6529a9a1bab",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id/enforcement",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id",
+                        "enforcement"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3de8f669-3252-4bdb-a584-6982f1a619d6",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Returns enforcements for a specific project."
+                  },
+                  "response": [
+                    {
+                      "id": "c46f8f1d-cc64-44c6-bf34-17eb9dd0155c",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/enforcement",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "enforcement"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"project_id\": \"<integer>\",\n      \"cloud_rule_id\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"overwrite\": \"<boolean>\",\n      \"timeframe\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"threshold_type\": \"<string>\",\n      \"enabled\": \"<boolean>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"project_id\": \"<integer>\",\n      \"cloud_rule_id\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"overwrite\": \"<boolean>\",\n      \"timeframe\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"threshold_type\": \"<string>\",\n      \"enabled\": \"<boolean>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:20:42.000Z",
+                      "updatedAt": "2026-10-22T02:20:42.000Z",
+                      "uid": "35240-c46f8f1d-cc64-44c6-bf34-17eb9dd0155c"
+                    },
+                    {
+                      "id": "10fd0909-bb06-4270-bc35-a8216c450119",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/enforcement",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "enforcement"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:20:42.000Z",
+                      "updatedAt": "2026-10-22T02:20:42.000Z",
+                      "uid": "35240-10fd0909-bb06-4270-bc35-a8216c450119"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:20:42.000Z",
+                  "updatedAt": "2026-10-22T02:20:42.000Z",
+                  "uid": "35240-e44f4f37-4e8e-4399-a0e2-e6529a9a1bab"
+                },
+                {
+                  "name": "Kion Create a project enforcement",
+                  "id": "74964a9e-11c6-48ba-94b8-3c7a8843080a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"cloud_rule_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"overwrite\": \"<boolean>\",\n  \"timeframe\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"threshold_type\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id/enforcement",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id",
+                        "enforcement"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9a07cad1-a3f6-4396-94c3-eb3058034236",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Creates an enforcement on a project."
+                  },
+                  "response": [
+                    {
+                      "id": "6d6c013c-c180-45f5-9282-0836b0bf42da",
+                      "name": "Enforcement created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cloud_rule_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"overwrite\": \"<boolean>\",\n  \"timeframe\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"threshold_type\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/enforcement",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "enforcement"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:20:42.000Z",
+                      "updatedAt": "2026-10-22T02:20:42.000Z",
+                      "uid": "35240-6d6c013c-c180-45f5-9282-0836b0bf42da"
+                    },
+                    {
+                      "id": "afb2dac4-8f8b-4abf-8fd0-e5dd27cbd8ce",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cloud_rule_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"overwrite\": \"<boolean>\",\n  \"timeframe\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"threshold_type\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/enforcement",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "enforcement"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:20:42.000Z",
+                      "updatedAt": "2026-10-22T02:20:42.000Z",
+                      "uid": "35240-afb2dac4-8f8b-4abf-8fd0-e5dd27cbd8ce"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:20:42.000Z",
+                  "updatedAt": "2026-10-22T02:20:42.000Z",
+                  "uid": "35240-74964a9e-11c6-48ba-94b8-3c7a8843080a"
                 }
               ],
-              "body": "{\n  \"status\": 4416,\n  \"data\": [\n    {\n      \"id\": 340,\n      \"project_id\": 8366,\n      \"cloud_rule_id\": 1411,\n      \"description\": \"string\",\n      \"overwrite\": true,\n      \"timeframe\": \"string\",\n      \"amount\": 3606.24217935427,\n      \"threshold_type\": \"string\",\n      \"enabled\": true\n    },\n    {\n      \"id\": 461,\n      \"project_id\": 1195,\n      \"cloud_rule_id\": 4174,\n      \"description\": \"string\",\n      \"overwrite\": true,\n      \"timeframe\": \"string\",\n      \"amount\": 7456.658092966588,\n      \"threshold_type\": \"string\",\n      \"enabled\": false\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "c040159d-c75d-4bc2-a223-3d774388a1f3",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "enforcement"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "7896ddc9-8aab-4b57-bf91-fb5c0d0c7321",
+              "createdAt": "2026-10-22T02:20:42.000Z",
+              "updatedAt": "2026-10-22T02:20:42.000Z",
+              "uid": "35240-7896ddc9-8aab-4b57-bf91-fb5c0d0c7321"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5b683f40-63ab-45d7-b63f-771d136123b3",
-          "name": "Kion Create a project enforcement",
-          "request": {
-            "name": "Kion Create a project enforcement",
-            "description": {
-              "content": "Creates an enforcement on a project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id",
-                "enforcement"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"cloud_rule_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"overwrite\": \"<boolean>\",\n  \"timeframe\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"threshold_type\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "4a56f909-2c15-4aaa-b2dd-ccd46787b3a7",
-              "name": "Enforcement created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "enforcement"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"cloud_rule_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"overwrite\": \"<boolean>\",\n  \"timeframe\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"threshold_type\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "56495e27-2fec-44de-b471-b3efc8d64953",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "enforcement"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"cloud_rule_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"overwrite\": \"<boolean>\",\n  \"timeframe\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"threshold_type\": \"<string>\",\n  \"enabled\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "b5305203-d0a5-4fab-bc89-94afd035c481",
+          "createdAt": "2026-10-22T02:20:42.000Z",
+          "updatedAt": "2026-10-22T02:20:42.000Z",
+          "uid": "35240-b5305203-d0a5-4fab-bc89-94afd035c481"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "Your Kion deployment hostname",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "your-kion-instance.example.com",
-      "key": "kion-instance"
-    },
-    {
-      "type": "string",
-      "value": "https://{{kion-instance}}/api/v3",
-      "key": "baseUrl"
+      "id": "08416cf1-70cd-4151-a8bb-daed5028c552",
+      "createdAt": "2026-10-22T02:20:42.000Z",
+      "updatedAt": "2026-10-22T02:20:42.000Z",
+      "uid": "35240-08416cf1-70cd-4151-a8bb-daed5028c552"
     }
   ],
   "auth": {
@@ -397,17 +354,19 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "beea1a55-57d8-4920-b6be-03573f7f8d0b",
-    "name": "Kion Cloud Operations Accounts Enforcements API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "kion-instance",
+      "value": "your-kion-instance.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{kion-instance}}/api/v3"
     }
-  }
+  ]
 }

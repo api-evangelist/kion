@@ -1,181 +1,731 @@
 {
+  "info": {
+    "_postman_id": "870c0b32-b5b9-4930-b9bb-50a94443ea5a",
+    "name": "Kion Cloud Operations IAM Policies API",
+    "description": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:21:01.000Z",
+    "updatedAt": "2026-10-22T02:21:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-870c0b32-b5b9-4930-b9bb-50a94443ea5a"
+  },
   "item": [
     {
-      "id": "4282ea93-05fb-4b02-9e1f-5f672a431a15",
-      "name": "IAM Policies",
-      "description": {
-        "content": "Manage AWS IAM policies",
-        "type": "text/plain"
-      },
+      "name": "aws-iam-policy",
       "item": [
         {
-          "id": "46d4330c-9ad7-415a-96b9-c82f30a9d066",
-          "name": "Kion List AWS IAM policies",
-          "request": {
-            "name": "Kion List AWS IAM policies",
-            "description": {
-              "content": "Returns a list of all AWS IAM policies.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "aws-iam-policy"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
+          "name": "{id}",
+          "item": [
+            {
+              "name": "Kion Get an AWS IAM policy",
+              "id": "3107b68f-1555-47b0-8b93-b3b7b2b6f723",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-iam-policy",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e1d35f2f-b472-4a9c-8b96-30ddf57d0e71",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                },
+                "description": "Returns details for a specific AWS IAM policy."
+              },
+              "response": [
                 {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
+                  "id": "9cabd427-43f4-4742-af4e-ef8daaac2d33",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-iam-policy",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:21:01.000Z",
+                  "updatedAt": "2026-10-22T02:21:01.000Z",
+                  "uid": "35240-9cabd427-43f4-4742-af4e-ef8daaac2d33"
+                },
+                {
+                  "id": "e9e6ef20-28f2-4f68-ad8e-5fc69c4882f8",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-iam-policy",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:01.000Z",
+                  "updatedAt": "2026-10-22T02:21:01.000Z",
+                  "uid": "35240-e9e6ef20-28f2-4f68-ad8e-5fc69c4882f8"
+                },
+                {
+                  "id": "b9cb72e9-210f-47ca-9c24-dbf8e8649217",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-iam-policy",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:01.000Z",
+                  "updatedAt": "2026-10-22T02:21:01.000Z",
+                  "uid": "35240-b9cb72e9-210f-47ca-9c24-dbf8e8649217"
                 }
-              ]
+              ],
+              "createdAt": "2026-10-22T02:21:01.000Z",
+              "updatedAt": "2026-10-22T02:21:01.000Z",
+              "uid": "35240-3107b68f-1555-47b0-8b93-b3b7b2b6f723"
             },
+            {
+              "name": "Kion Update an AWS IAM policy",
+              "id": "f7af09f2-74d0-4d93-a2ea-a5190e743ce5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"labels\": {\n    \"fugiat_597\": \"<string>\",\n    \"ad_a\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-iam-policy",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "bcc1b646-fbee-4e46-bad5-4a3fd228f38c",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                },
+                "description": "Updates an existing AWS IAM policy."
+              },
+              "response": [
+                {
+                  "id": "0ba97943-2d4b-4ebf-b1e2-0534be221d7b",
+                  "name": "Policy updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"labels\": {\n    \"fugiat_597\": \"<string>\",\n    \"ad_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-iam-policy",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:21:01.000Z",
+                  "updatedAt": "2026-10-22T02:21:01.000Z",
+                  "uid": "35240-0ba97943-2d4b-4ebf-b1e2-0534be221d7b"
+                },
+                {
+                  "id": "adb49860-6fb0-419b-85c6-8f3ed8a86b2b",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"labels\": {\n    \"fugiat_597\": \"<string>\",\n    \"ad_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-iam-policy",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:01.000Z",
+                  "updatedAt": "2026-10-22T02:21:01.000Z",
+                  "uid": "35240-adb49860-6fb0-419b-85c6-8f3ed8a86b2b"
+                },
+                {
+                  "id": "324e2b0b-bb29-4720-8d7f-3a2bbf56f733",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"labels\": {\n    \"fugiat_597\": \"<string>\",\n    \"ad_a\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-iam-policy",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:01.000Z",
+                  "updatedAt": "2026-10-22T02:21:01.000Z",
+                  "uid": "35240-324e2b0b-bb29-4720-8d7f-3a2bbf56f733"
+                }
+              ],
+              "createdAt": "2026-10-22T02:21:01.000Z",
+              "updatedAt": "2026-10-22T02:21:01.000Z",
+              "uid": "35240-f7af09f2-74d0-4d93-a2ea-a5190e743ce5"
+            },
+            {
+              "name": "Kion Delete an AWS IAM policy",
+              "id": "d623006a-9123-4c6d-b123-253eee4d154e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-iam-policy",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1c347415-1014-490d-9183-e97e0b470d44",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                },
+                "description": "Deletes an AWS IAM policy."
+              },
+              "response": [
+                {
+                  "id": "0c92a9d8-b7df-4272-8940-6bb148372a44",
+                  "name": "Policy deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-iam-policy",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:21:01.000Z",
+                  "updatedAt": "2026-10-22T02:21:01.000Z",
+                  "uid": "35240-0c92a9d8-b7df-4272-8940-6bb148372a44"
+                },
+                {
+                  "id": "14cb0b6a-632b-41e3-b453-f302f06c59fd",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-iam-policy",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:01.000Z",
+                  "updatedAt": "2026-10-22T02:21:01.000Z",
+                  "uid": "35240-14cb0b6a-632b-41e3-b453-f302f06c59fd"
+                },
+                {
+                  "id": "f6e21727-d76b-4aa0-80c0-04a1e29eb20b",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/aws-iam-policy/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "aws-iam-policy",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:01.000Z",
+                  "updatedAt": "2026-10-22T02:21:01.000Z",
+                  "uid": "35240-f6e21727-d76b-4aa0-80c0-04a1e29eb20b"
+                }
+              ],
+              "createdAt": "2026-10-22T02:21:01.000Z",
+              "updatedAt": "2026-10-22T02:21:01.000Z",
+              "uid": "35240-d623006a-9123-4c6d-b123-253eee4d154e"
+            }
+          ],
+          "id": "b4abfa3d-f302-40e9-a970-026ebea9cb40",
+          "createdAt": "2026-10-22T02:21:01.000Z",
+          "updatedAt": "2026-10-22T02:21:01.000Z",
+          "uid": "35240-b4abfa3d-f302-40e9-a970-026ebea9cb40"
+        },
+        {
+          "name": "Kion List AWS IAM policies",
+          "id": "64520d8f-a6c7-4203-9550-736ee886eef3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "4df22297-5bf2-4197-9eb1-f23aa2b167df",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 6371,\n  \"data\": [\n    {\n      \"id\": 5423,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"aws_iam_path\": \"string\",\n      \"policy\": \"string\",\n      \"aws_managed_policy\": true,\n      \"owner_users\": [\n        {\n          \"id\": 6616\n        },\n        {\n          \"id\": 4569\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 1988\n        },\n        {\n          \"id\": 1760\n        }\n      ],\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"created_at\": \"1979-01-25T14:50:43.965Z\"\n    },\n    {\n      \"id\": 345,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"aws_iam_path\": \"string\",\n      \"policy\": \"string\",\n      \"aws_managed_policy\": true,\n      \"owner_users\": [\n        {\n          \"id\": 4365\n        },\n        {\n          \"id\": 2981\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": 8603\n        },\n        {\n          \"id\": 4778\n        }\n      ],\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"created_at\": \"1973-03-20T15:57:51.067Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "48d5283a-70f2-44c8-a9f3-e38cbb002b3f",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "34fb8662-d3f1-4666-8815-05d59b5d5dc5",
-          "name": "Kion Create an AWS IAM policy",
-          "request": {
-            "name": "Kion Create an AWS IAM policy",
-            "description": {
-              "content": "Creates a new AWS IAM policy.",
-              "type": "text/plain"
-            },
             "url": {
-              "path": [
-                "aws-iam-policy"
-              ],
+              "raw": "{{baseUrl}}/aws-iam-policy",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
+              "path": [
+                "aws-iam-policy"
               ]
             },
+            "description": "Returns a list of all AWS IAM policies."
+          },
+          "response": [
+            {
+              "id": "24d60775-e97a-496f-aea2-6d94c85ffdea",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aws-iam-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-iam-policy"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aws_iam_path\": \"<string>\",\n      \"policy\": \"<string>\",\n      \"aws_managed_policy\": \"<boolean>\",\n      \"owner_users\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"labels\": {\n        \"deserunt6\": \"<string>\",\n        \"tempore37\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"aws_iam_path\": \"<string>\",\n      \"policy\": \"<string>\",\n      \"aws_managed_policy\": \"<boolean>\",\n      \"owner_users\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"owner_user_groups\": [\n        {\n          \"id\": \"<integer>\"\n        },\n        {\n          \"id\": \"<integer>\"\n        }\n      ],\n      \"labels\": {\n        \"id7d\": \"<string>\",\n        \"esse9\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:21:01.000Z",
+              "updatedAt": "2026-10-22T02:21:01.000Z",
+              "uid": "35240-24d60775-e97a-496f-aea2-6d94c85ffdea"
+            },
+            {
+              "id": "d7971a11-88d4-430d-a1ff-a0e24fcce785",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/aws-iam-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-iam-policy"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:21:01.000Z",
+              "updatedAt": "2026-10-22T02:21:01.000Z",
+              "uid": "35240-d7971a11-88d4-430d-a1ff-a0e24fcce785"
+            }
+          ],
+          "createdAt": "2026-10-22T02:21:01.000Z",
+          "updatedAt": "2026-10-22T02:21:01.000Z",
+          "uid": "35240-64520d8f-a6c7-4203-9550-736ee886eef3"
+        },
+        {
+          "name": "Kion Create an AWS IAM policy",
+          "id": "c24293bf-39f6-4b75-8e5e-a3c88de4fcd4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
             "header": [
               {
                 "key": "Content-Type",
@@ -186,853 +736,141 @@
                 "value": "application/json"
               }
             ],
-            "method": "POST",
-            "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"aws_managed_policy\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  }\n}",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"aws_managed_policy\": \"<boolean>\",\n  \"labels\": {\n    \"mollit8\": \"<string>\",\n    \"dolor7a\": \"<string>\"\n  }\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/aws-iam-policy",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "aws-iam-policy"
+              ]
+            },
+            "description": "Creates a new AWS IAM policy."
           },
           "response": [
             {
-              "id": "e1bf5bba-22c7-4779-97fd-1146a91db6ad",
+              "id": "c90af050-1791-4b11-b523-7cd874a6739f",
               "name": "Policy created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"aws_managed_policy\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"aws_managed_policy\": \"<boolean>\",\n  \"labels\": {\n    \"mollit8\": \"<string>\",\n    \"dolor7a\": \"<string>\"\n  }\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/aws-iam-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "aws-iam-policy"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:21:01.000Z",
+              "updatedAt": "2026-10-22T02:21:01.000Z",
+              "uid": "35240-c90af050-1791-4b11-b523-7cd874a6739f"
             },
             {
-              "id": "dc717d57-2e53-407d-b92c-1b04feffe0f3",
+              "id": "3eabc363-ec71-4469-937f-3860aa125eaf",
               "name": "Authentication failed or API key is missing/invalid",
               "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"aws_managed_policy\": \"<boolean>\",\n  \"labels\": {\n    \"mollit8\": \"<string>\",\n    \"dolor7a\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/aws-iam-policy",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "aws-iam-policy"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"aws_managed_policy\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
                 }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:21:01.000Z",
+              "updatedAt": "2026-10-22T02:21:01.000Z",
+              "uid": "35240-3eabc363-ec71-4469-937f-3860aa125eaf"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "abda2d86-4f2c-4d59-84e8-bd44db9ad049",
-          "name": "Kion Get an AWS IAM policy",
-          "request": {
-            "name": "Kion Get an AWS IAM policy",
-            "description": {
-              "content": "Returns details for a specific AWS IAM policy.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "aws-iam-policy",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "afc88a22-c06e-4171-bacf-aafbfb51906d",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "bd2b0293-783d-4ff8-be02-20c7cb3c5c91",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "77ea4b98-3047-4547-8b28-e9e49daff773",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "2612b7af-bfc6-4d3e-8db2-1bc30105b76f",
-          "name": "Kion Update an AWS IAM policy",
-          "request": {
-            "name": "Kion Update an AWS IAM policy",
-            "description": {
-              "content": "Updates an existing AWS IAM policy.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "aws-iam-policy",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "b91bc26c-347a-48cd-99e2-d6787c309156",
-              "name": "Policy updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "72082a58-93cd-45e3-ac56-dba2367536f1",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "25c8d0e1-f575-4e70-9860-548577f2b034",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"aws_iam_path\": \"<string>\",\n  \"policy\": \"<string>\",\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3560a8b7-a573-4c4b-a255-608b25b86a9b",
-          "name": "Kion Delete an AWS IAM policy",
-          "request": {
-            "name": "Kion Delete an AWS IAM policy",
-            "description": {
-              "content": "Deletes an AWS IAM policy.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "aws-iam-policy",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c7766aa4-8c84-4ff5-b680-f877d32bf6d1",
-              "name": "Policy deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "8a42dcd6-0032-4c98-9b61-aae6aeef0b8d",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "795883f6-b3cf-477b-ad1e-ce625c19aa98",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "aws-iam-policy",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:21:01.000Z",
+          "updatedAt": "2026-10-22T02:21:01.000Z",
+          "uid": "35240-c24293bf-39f6-4b75-8e5e-a3c88de4fcd4"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "Your Kion deployment hostname",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "your-kion-instance.example.com",
-      "key": "kion-instance"
-    },
-    {
-      "type": "string",
-      "value": "https://{{kion-instance}}/api/v3",
-      "key": "baseUrl"
+      "id": "2d35b13f-971a-4dbe-93f6-79c697121837",
+      "createdAt": "2026-10-22T02:21:01.000Z",
+      "updatedAt": "2026-10-22T02:21:01.000Z",
+      "uid": "35240-2d35b13f-971a-4dbe-93f6-79c697121837"
     }
   ],
   "auth": {
@@ -1040,17 +878,19 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "e596b687-3a23-42d8-b850-a59346cfd8d0",
-    "name": "Kion Cloud Operations Accounts IAM Policies API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "kion-instance",
+      "value": "your-kion-instance.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{kion-instance}}/api/v3"
     }
-  }
+  ]
 }

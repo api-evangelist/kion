@@ -1,1440 +1,1250 @@
 {
+  "info": {
+    "_postman_id": "b6720ea3-39d0-4899-8a6e-d3eac0fa9053",
+    "name": "Kion Cloud Operations Projects API",
+    "description": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:21:33.000Z",
+    "updatedAt": "2026-10-22T02:21:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b6720ea3-39d0-4899-8a6e-d3eac0fa9053"
+  },
   "item": [
     {
-      "id": "53746347-0a44-4152-8b3f-964e92e53151",
-      "name": "Projects",
-      "description": {
-        "content": "Manage projects which are the organizational unit for attaching cloud accounts",
-        "type": "text/plain"
-      },
+      "name": "project",
       "item": [
         {
-          "id": "29de4744-c8a0-491e-a71d-9e1d6ed28306",
-          "name": "Kion List projects",
-          "request": {
-            "name": "Kion List projects",
-            "description": {
-              "content": "Returns a list of all projects.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project"
+          "name": "{id}",
+          "item": [
+            {
+              "name": "note",
+              "item": [
+                {
+                  "name": "Kion List project notes",
+                  "id": "9d29d20d-0381-465f-a2ca-f6176ebedbed",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id/note",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id",
+                        "note"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6531ce97-fbe4-4241-8ff7-b9b454722436",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Returns notes for a specific project."
+                  },
+                  "response": [
+                    {
+                      "id": "46963599-ba2c-4427-96a1-6d2d24023d07",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/note",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "note"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"project_id\": \"<integer>\",\n      \"content\": \"<string>\",\n      \"created_by_user_id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"project_id\": \"<integer>\",\n      \"content\": \"<string>\",\n      \"created_by_user_id\": \"<integer>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:21:34.000Z",
+                      "updatedAt": "2026-10-22T02:21:34.000Z",
+                      "uid": "35240-46963599-ba2c-4427-96a1-6d2d24023d07"
+                    },
+                    {
+                      "id": "5e28e162-baee-4941-b372-97be3f0c753f",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/note",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "note"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:21:34.000Z",
+                      "updatedAt": "2026-10-22T02:21:34.000Z",
+                      "uid": "35240-5e28e162-baee-4941-b372-97be3f0c753f"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-9d29d20d-0381-465f-a2ca-f6176ebedbed"
+                },
+                {
+                  "name": "Kion Create a project note",
+                  "id": "81abaa9b-0ae3-48fe-b66a-a407033681f6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"content\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id/note",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id",
+                        "note"
+                      ],
+                      "variable": [
+                        {
+                          "id": "cce021f6-ee97-4e4e-8fa2-6f65afb08533",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Creates a note on a project."
+                  },
+                  "response": [
+                    {
+                      "id": "540f3e01-d4da-4995-b666-2a11048cc99b",
+                      "name": "Note created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"content\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/note",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "note"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:21:34.000Z",
+                      "updatedAt": "2026-10-22T02:21:34.000Z",
+                      "uid": "35240-540f3e01-d4da-4995-b666-2a11048cc99b"
+                    },
+                    {
+                      "id": "ea68064a-5139-4466-a941-97faff67a59e",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"content\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/note",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "note"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:21:34.000Z",
+                      "updatedAt": "2026-10-22T02:21:34.000Z",
+                      "uid": "35240-ea68064a-5139-4466-a941-97faff67a59e"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-81abaa9b-0ae3-48fe-b66a-a407033681f6"
+                }
               ],
+              "id": "7ab62e86-51b6-418d-bb5b-8fb403dcdd79",
+              "createdAt": "2026-10-22T02:21:34.000Z",
+              "updatedAt": "2026-10-22T02:21:34.000Z",
+              "uid": "35240-7ab62e86-51b6-418d-bb5b-8fb403dcdd79"
+            },
+            {
+              "name": "Kion Get a project",
+              "id": "2e6f7b3b-9522-4d94-a18c-cbdfb9eaa3f6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/project/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "project",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "f3e11934-0364-4bab-8be9-bea3ed8d7741",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                },
+                "description": "Returns details for a specific project."
+              },
+              "response": [
+                {
+                  "id": "3a0f09c0-f161-41da-a0a1-dedef267c259",
+                  "name": "Successful response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"ou_id\": \"<integer>\",\n    \"default_aws_region\": \"<string>\",\n    \"permission_scheme_id\": \"<integer>\",\n    \"project_funding\": [\n      {\n        \"funding_source_id\": \"<integer>\",\n        \"amount\": \"<number>\",\n        \"start_datecode\": \"<string>\",\n        \"end_datecode\": \"<string>\"\n      },\n      {\n        \"funding_source_id\": \"<integer>\",\n        \"amount\": \"<number>\",\n        \"start_datecode\": \"<string>\",\n        \"end_datecode\": \"<string>\"\n      }\n    ],\n    \"budget\": {\n      \"amount\": \"<number>\",\n      \"funding_source_id\": \"<integer>\"\n    },\n    \"labels\": {\n      \"fugiatf5\": \"<string>\",\n      \"Lorem_4e\": \"<string>\"\n    },\n    \"archived\": \"<boolean>\",\n    \"auto_pay\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\"\n  }\n}",
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-3a0f09c0-f161-41da-a0a1-dedef267c259"
+                },
+                {
+                  "id": "f2bbf92a-58ed-4f1d-91a8-790f07fd2767",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-f2bbf92a-58ed-4f1d-91a8-790f07fd2767"
+                },
+                {
+                  "id": "5363aada-8c27-405f-8823-642e8493cdbe",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-5363aada-8c27-405f-8823-642e8493cdbe"
+                }
+              ],
+              "createdAt": "2026-10-22T02:21:34.000Z",
+              "updatedAt": "2026-10-22T02:21:34.000Z",
+              "uid": "35240-2e6f7b3b-9522-4d94-a18c-cbdfb9eaa3f6"
+            },
+            {
+              "name": "Kion Update a project",
+              "id": "d8143861-a4c8-443f-9fa1-78b13937376c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"archived\": \"<boolean>\",\n  \"auto_pay\": \"<boolean>\",\n  \"labels\": {\n    \"id_a0\": \"<string>\",\n    \"temporb\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/project/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "project",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "20c934dd-ff81-4853-adda-2272fb5bf5e1",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                },
+                "description": "Updates an existing project."
+              },
+              "response": [
+                {
+                  "id": "21bc8a1e-c2c8-42b1-80d1-46e08eeeea14",
+                  "name": "Project updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"archived\": \"<boolean>\",\n  \"auto_pay\": \"<boolean>\",\n  \"labels\": {\n    \"id_a0\": \"<string>\",\n    \"temporb\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-21bc8a1e-c2c8-42b1-80d1-46e08eeeea14"
+                },
+                {
+                  "id": "1289513a-0942-4672-b553-f7452a8656c6",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"archived\": \"<boolean>\",\n  \"auto_pay\": \"<boolean>\",\n  \"labels\": {\n    \"id_a0\": \"<string>\",\n    \"temporb\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-1289513a-0942-4672-b553-f7452a8656c6"
+                },
+                {
+                  "id": "2a175c4f-a785-4a1a-89ad-0353366b49da",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"archived\": \"<boolean>\",\n  \"auto_pay\": \"<boolean>\",\n  \"labels\": {\n    \"id_a0\": \"<string>\",\n    \"temporb\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-2a175c4f-a785-4a1a-89ad-0353366b49da"
+                }
+              ],
+              "createdAt": "2026-10-22T02:21:34.000Z",
+              "updatedAt": "2026-10-22T02:21:34.000Z",
+              "uid": "35240-d8143861-a4c8-443f-9fa1-78b13937376c"
+            },
+            {
+              "name": "Kion Delete a project",
+              "id": "80002007-83f3-4c02-95fb-aa7426a80d77",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/project/:id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "project",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "27930c34-79ea-4a89-945a-53fd2d5bfd03",
+                      "key": "id",
+                      "value": "<integer>",
+                      "description": "(Required) The unique identifier of the resource in Kion"
+                    }
+                  ]
+                },
+                "description": "Deletes a project."
+              },
+              "response": [
+                {
+                  "id": "e538c015-b52d-4893-b596-831ab2b08872",
+                  "name": "Project deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-e538c015-b52d-4893-b596-831ab2b08872"
+                },
+                {
+                  "id": "031812fe-c023-48ad-8756-901fce08117f",
+                  "name": "Authentication failed or API key is missing/invalid",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-031812fe-c023-48ad-8756-901fce08117f"
+                },
+                {
+                  "id": "a7cf3309-09eb-43d5-959b-720466afc521",
+                  "name": "The requested resource was not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-22T02:21:34.000Z",
+                  "updatedAt": "2026-10-22T02:21:34.000Z",
+                  "uid": "35240-a7cf3309-09eb-43d5-959b-720466afc521"
+                }
+              ],
+              "createdAt": "2026-10-22T02:21:34.000Z",
+              "updatedAt": "2026-10-22T02:21:34.000Z",
+              "uid": "35240-80002007-83f3-4c02-95fb-aa7426a80d77"
+            }
+          ],
+          "id": "0965756f-2428-49a1-810d-a81ffc226d7f",
+          "createdAt": "2026-10-22T02:21:34.000Z",
+          "updatedAt": "2026-10-22T02:21:34.000Z",
+          "uid": "35240-0965756f-2428-49a1-810d-a81ffc226d7f"
+        },
+        {
+          "name": "Kion List projects",
+          "id": "3a5057b1-0d90-4ae2-aa15-fa065a388c92",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/project?page=1&page_size=50",
               "host": [
                 "{{baseUrl}}"
+              ],
+              "path": [
+                "project"
               ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "Page number for pagination",
                   "key": "page",
-                  "value": "1",
-                  "description": "Page number for pagination"
+                  "value": "1"
                 },
                 {
-                  "disabled": false,
+                  "description": "Number of items per page",
                   "key": "page_size",
-                  "value": "50",
-                  "description": "Number of items per page"
-                }
-              ],
-              "variable": [
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
+                  "value": "50"
                 }
               ]
             },
+            "description": "Returns a list of all projects."
+          },
+          "response": [
+            {
+              "id": "e0a71c99-ff74-4383-aef0-22c0f5a2fa80",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/project?page=1&page_size=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "project"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number for pagination",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of items per page",
+                      "key": "page_size",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"ou_id\": \"<integer>\",\n      \"default_aws_region\": \"<string>\",\n      \"permission_scheme_id\": \"<integer>\",\n      \"project_funding\": [\n        {\n          \"funding_source_id\": \"<integer>\",\n          \"amount\": \"<number>\",\n          \"start_datecode\": \"<string>\",\n          \"end_datecode\": \"<string>\"\n        },\n        {\n          \"funding_source_id\": \"<integer>\",\n          \"amount\": \"<number>\",\n          \"start_datecode\": \"<string>\",\n          \"end_datecode\": \"<string>\"\n        }\n      ],\n      \"budget\": {\n        \"amount\": \"<number>\",\n        \"funding_source_id\": \"<integer>\"\n      },\n      \"labels\": {\n        \"officia_49\": \"<string>\",\n        \"pariatur0\": \"<string>\",\n        \"quis8\": \"<string>\"\n      },\n      \"archived\": \"<boolean>\",\n      \"auto_pay\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"ou_id\": \"<integer>\",\n      \"default_aws_region\": \"<string>\",\n      \"permission_scheme_id\": \"<integer>\",\n      \"project_funding\": [\n        {\n          \"funding_source_id\": \"<integer>\",\n          \"amount\": \"<number>\",\n          \"start_datecode\": \"<string>\",\n          \"end_datecode\": \"<string>\"\n        },\n        {\n          \"funding_source_id\": \"<integer>\",\n          \"amount\": \"<number>\",\n          \"start_datecode\": \"<string>\",\n          \"end_datecode\": \"<string>\"\n        }\n      ],\n      \"budget\": {\n        \"amount\": \"<number>\",\n        \"funding_source_id\": \"<integer>\"\n      },\n      \"labels\": {\n        \"tempor_599\": \"<string>\",\n        \"nulla5\": \"<string>\"\n      },\n      \"archived\": \"<boolean>\",\n      \"auto_pay\": \"<boolean>\",\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-22T02:21:34.000Z",
+              "updatedAt": "2026-10-22T02:21:34.000Z",
+              "uid": "35240-e0a71c99-ff74-4383-aef0-22c0f5a2fa80"
+            },
+            {
+              "id": "2186b940-c028-4bc5-a541-76cb6018b7ac",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/project?page=1&page_size=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "project"
+                  ],
+                  "query": [
+                    {
+                      "description": "Page number for pagination",
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Number of items per page",
+                      "key": "page_size",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:21:34.000Z",
+              "updatedAt": "2026-10-22T02:21:34.000Z",
+              "uid": "35240-2186b940-c028-4bc5-a541-76cb6018b7ac"
+            }
+          ],
+          "createdAt": "2026-10-22T02:21:34.000Z",
+          "updatedAt": "2026-10-22T02:21:34.000Z",
+          "uid": "35240-3a5057b1-0d90-4ae2-aa15-fa065a388c92"
+        },
+        {
+          "name": "Kion Create a project",
+          "id": "0ea46b93-a80c-41f0-9d20-373f4188bc9b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
             "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7881275c-e672-4925-a6ef-0ae6eae6b94e",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "page_size",
-                      "value": "50"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"project_funding\": [\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    },\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    }\n  ],\n  \"labels\": {\n    \"incididunt74\": \"<string>\",\n    \"proident8f\": \"<string>\",\n    \"commodo1d\": \"<string>\",\n    \"veniama92\": \"<string>\"\n  },\n  \"auto_pay\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
                 }
-              ],
-              "body": "{\n  \"status\": 4537,\n  \"data\": [\n    {\n      \"id\": 1610,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"ou_id\": 4772,\n      \"default_aws_region\": \"string\",\n      \"permission_scheme_id\": 3738,\n      \"project_funding\": [\n        {\n          \"funding_source_id\": 2997,\n          \"amount\": 4573.3132142870745,\n          \"start_datecode\": \"string\",\n          \"end_datecode\": \"string\"\n        },\n        {\n          \"funding_source_id\": 5983,\n          \"amount\": 3459.6819402025826,\n          \"start_datecode\": \"string\",\n          \"end_datecode\": \"string\"\n        }\n      ],\n      \"budget\": {\n        \"amount\": 3390.5550940047037,\n        \"funding_source_id\": 4089\n      },\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"archived\": true,\n      \"auto_pay\": true,\n      \"created_at\": \"1952-11-29T18:20:28.971Z\"\n    },\n    {\n      \"id\": 556,\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"ou_id\": 7100,\n      \"default_aws_region\": \"string\",\n      \"permission_scheme_id\": 3801,\n      \"project_funding\": [\n        {\n          \"funding_source_id\": 169,\n          \"amount\": 4597.488144011248,\n          \"start_datecode\": \"string\",\n          \"end_datecode\": \"string\"\n        },\n        {\n          \"funding_source_id\": 2025,\n          \"amount\": 7295.324421144226,\n          \"start_datecode\": \"string\",\n          \"end_datecode\": \"string\"\n        }\n      ],\n      \"budget\": {\n        \"amount\": 93.90217357643226,\n        \"funding_source_id\": 2825\n      },\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"archived\": false,\n      \"auto_pay\": false,\n      \"created_at\": \"1975-03-12T16:01:34.178Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a5619830-78f0-4ff4-8c23-d4e4cf038453",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "page_size",
-                      "value": "50"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "cda18d28-3e04-405e-8355-b4c5996f3bec",
-          "name": "Kion Create a project",
-          "request": {
-            "name": "Kion Create a project",
-            "description": {
-              "content": "Creates a new project in Kion.",
-              "type": "text/plain"
+              }
             },
             "url": {
+              "raw": "{{baseUrl}}/project",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "project"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
               ]
             },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"project_funding\": [\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    },\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    }\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"auto_pay\": \"<boolean>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
+            "description": "Creates a new project in Kion."
           },
           "response": [
             {
-              "id": "65f863fc-c0f5-4e86-b1b2-074208b14f8b",
+              "id": "8cb59375-c4a7-4979-87f1-491cbd6f2227",
               "name": "Project created",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "project"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
+                "method": "POST",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"project_funding\": [\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    },\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    }\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"auto_pay\": \"<boolean>\"\n}",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"project_funding\": [\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    },\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    }\n  ],\n  \"labels\": {\n    \"incididunt74\": \"<string>\",\n    \"proident8f\": \"<string>\",\n    \"commodo1d\": \"<string>\",\n    \"veniama92\": \"<string>\"\n  },\n  \"auto_pay\": \"<boolean>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/project",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "project"
+                  ]
                 }
               },
               "status": "Created",
               "code": 201,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": 1623,\n  \"data\": {\n    \"id\": 1033,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"ou_id\": 3621,\n    \"default_aws_region\": \"string\",\n    \"permission_scheme_id\": 9355,\n    \"project_funding\": [\n      {\n        \"funding_source_id\": 3505,\n        \"amount\": 1361.8584910030295,\n        \"start_datecode\": \"string\",\n        \"end_datecode\": \"string\"\n      },\n      {\n        \"funding_source_id\": 4601,\n        \"amount\": 1773.4037734134167,\n        \"start_datecode\": \"string\",\n        \"end_datecode\": \"string\"\n      }\n    ],\n    \"budget\": {\n      \"amount\": 4744.56343965993,\n      \"funding_source_id\": 6438\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"archived\": true,\n    \"auto_pay\": true,\n    \"created_at\": \"1958-11-14T06:08:19.237Z\"\n  }\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"ou_id\": \"<integer>\",\n    \"default_aws_region\": \"<string>\",\n    \"permission_scheme_id\": \"<integer>\",\n    \"project_funding\": [\n      {\n        \"funding_source_id\": \"<integer>\",\n        \"amount\": \"<number>\",\n        \"start_datecode\": \"<string>\",\n        \"end_datecode\": \"<string>\"\n      },\n      {\n        \"funding_source_id\": \"<integer>\",\n        \"amount\": \"<number>\",\n        \"start_datecode\": \"<string>\",\n        \"end_datecode\": \"<string>\"\n      }\n    ],\n    \"budget\": {\n      \"amount\": \"<number>\",\n      \"funding_source_id\": \"<integer>\"\n    },\n    \"labels\": {\n      \"fugiatf5\": \"<string>\",\n      \"Lorem_4e\": \"<string>\"\n    },\n    \"archived\": \"<boolean>\",\n    \"auto_pay\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:21:34.000Z",
+              "updatedAt": "2026-10-22T02:21:34.000Z",
+              "uid": "35240-8cb59375-c4a7-4979-87f1-491cbd6f2227"
             },
             {
-              "id": "7c36318e-c1cc-462c-a059-a613c24ae1a0",
+              "id": "5b4675cd-abad-4b14-9998-552ce5d22005",
               "name": "Authentication failed or API key is missing/invalid",
               "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"project_funding\": [\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    },\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    }\n  ],\n  \"labels\": {\n    \"incididunt74\": \"<string>\",\n    \"proident8f\": \"<string>\",\n    \"commodo1d\": \"<string>\",\n    \"veniama92\": \"<string>\"\n  },\n  \"auto_pay\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
                 "url": {
+                  "raw": "{{baseUrl}}/project",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "project"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"project_funding\": [\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    },\n    {\n      \"funding_source_id\": \"<integer>\",\n      \"amount\": \"<number>\",\n      \"start_datecode\": \"<string>\",\n      \"end_datecode\": \"<string>\"\n    }\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"auto_pay\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
                 }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:21:34.000Z",
+              "updatedAt": "2026-10-22T02:21:34.000Z",
+              "uid": "35240-5b4675cd-abad-4b14-9998-552ce5d22005"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "49599243-6f0e-486e-afb9-d183762e2f73",
-          "name": "Kion Get a project",
-          "request": {
-            "name": "Kion Get a project",
-            "description": {
-              "content": "Returns details for a specific project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5c1d73c9-d518-42bf-8d1a-21b5981e6f4d",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 1623,\n  \"data\": {\n    \"id\": 1033,\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"ou_id\": 3621,\n    \"default_aws_region\": \"string\",\n    \"permission_scheme_id\": 9355,\n    \"project_funding\": [\n      {\n        \"funding_source_id\": 3505,\n        \"amount\": 1361.8584910030295,\n        \"start_datecode\": \"string\",\n        \"end_datecode\": \"string\"\n      },\n      {\n        \"funding_source_id\": 4601,\n        \"amount\": 1773.4037734134167,\n        \"start_datecode\": \"string\",\n        \"end_datecode\": \"string\"\n      }\n    ],\n    \"budget\": {\n      \"amount\": 4744.56343965993,\n      \"funding_source_id\": 6438\n    },\n    \"labels\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\",\n      \"key_2\": \"string\"\n    },\n    \"archived\": true,\n    \"auto_pay\": true,\n    \"created_at\": \"1958-11-14T06:08:19.237Z\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "03b8e575-2718-46f6-8c0c-769565785d08",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "97a5a4b6-6dcf-4ec2-9cea-244574c63d29",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "644a4017-3afb-4afa-88ee-667c2e4560e1",
-          "name": "Kion Update a project",
-          "request": {
-            "name": "Kion Update a project",
-            "description": {
-              "content": "Updates an existing project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"archived\": \"<boolean>\",\n  \"auto_pay\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "ba29cd1e-bcef-4ef2-8c65-f7e1c56600bf",
-              "name": "Project updated",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"archived\": \"<boolean>\",\n  \"auto_pay\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "709a0fbf-31ba-4ab3-834d-b3c1bd26f11e",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"archived\": \"<boolean>\",\n  \"auto_pay\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "515f1f76-f45d-4a43-90bf-03c53a16db20",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ou_id\": \"<integer>\",\n  \"default_aws_region\": \"<string>\",\n  \"permission_scheme_id\": \"<integer>\",\n  \"archived\": \"<boolean>\",\n  \"auto_pay\": \"<boolean>\",\n  \"labels\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "85b1b1b4-1ab7-4cbc-a563-766e847f5d2d",
-          "name": "Kion Delete a project",
-          "request": {
-            "name": "Kion Delete a project",
-            "description": {
-              "content": "Deletes a project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d1e4322e-8fae-4f08-9e6f-3297cc6c50b6",
-              "name": "Project deleted",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "0e3c6a99-c2fa-4875-8cd5-3f64ac836d53",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "057f2108-b85f-4fee-bac1-b53a9bf3d0b3",
-              "name": "The requested resource was not found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 404,\n  \"message\": \"Not found\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a0ca8541-7302-47e9-829d-55872bdaef7a",
-          "name": "Kion List project notes",
-          "request": {
-            "name": "Kion List project notes",
-            "description": {
-              "content": "Returns notes for a specific project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id",
-                "note"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5363cc68-66aa-490c-9d67-7597c74fdb87",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "note"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 1884,\n  \"data\": [\n    {\n      \"id\": 2788,\n      \"project_id\": 8923,\n      \"content\": \"string\",\n      \"created_by_user_id\": 1122,\n      \"created_at\": \"2011-11-01T02:26:52.624Z\"\n    },\n    {\n      \"id\": 3076,\n      \"project_id\": 2379,\n      \"content\": \"string\",\n      \"created_by_user_id\": 4685,\n      \"created_at\": \"1991-08-26T01:15:10.533Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9b4f2e55-f18e-427a-9e54-401ff00fe9e2",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "note"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e8911108-ecb4-439f-af90-2e69d0b2e1a7",
-          "name": "Kion Create a project note",
-          "request": {
-            "name": "Kion Create a project note",
-            "description": {
-              "content": "Creates a note on a project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id",
-                "note"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"content\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "763c8ed5-5ccc-4b49-9813-1d8ee9fd446c",
-              "name": "Note created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "note"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"content\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "0f954717-2cde-41e2-8974-97b30e56a100",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "note"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"content\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:21:34.000Z",
+          "updatedAt": "2026-10-22T02:21:34.000Z",
+          "uid": "35240-0ea46b93-a80c-41f0-9d20-373f4188bc9b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "Your Kion deployment hostname",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "your-kion-instance.example.com",
-      "key": "kion-instance"
-    },
-    {
-      "type": "string",
-      "value": "https://{{kion-instance}}/api/v3",
-      "key": "baseUrl"
+      "id": "9f7d5273-7fe3-4111-b46f-fe0de0bd6917",
+      "createdAt": "2026-10-22T02:21:34.000Z",
+      "updatedAt": "2026-10-22T02:21:34.000Z",
+      "uid": "35240-9f7d5273-7fe3-4111-b46f-fe0de0bd6917"
     }
   ],
   "auth": {
@@ -1442,17 +1252,19 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "fdb7944c-8b31-40f6-bb18-139c46944623",
-    "name": "Kion Cloud Operations Accounts Projects API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "kion-instance",
+      "value": "your-kion-instance.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{kion-instance}}/api/v3"
     }
-  }
+  ]
 }

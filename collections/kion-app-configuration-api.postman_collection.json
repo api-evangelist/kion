@@ -1,181 +1,141 @@
 {
+  "info": {
+    "_postman_id": "4bbecea2-dffb-406e-95ad-7c6cad932229",
+    "name": "Kion Cloud Operations App Configuration API",
+    "description": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:19:37.000Z",
+    "updatedAt": "2026-10-22T02:19:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4bbecea2-dffb-406e-95ad-7c6cad932229"
+  },
   "item": [
     {
-      "id": "6f52f8d0-b57d-49e9-84e6-59cf6e6aca19",
-      "name": "App Configuration",
-      "description": {
-        "content": "Manage Kion application configuration settings",
-        "type": "text/plain"
-      },
+      "name": "app-config",
       "item": [
         {
-          "id": "58eaf722-1deb-4431-9071-b1d66f55c128",
           "name": "Kion Get application configuration",
+          "id": "131eafda-8684-41db-93e0-a87a39ad5cf6",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Kion Get application configuration",
-            "description": {
-              "content": "Returns the Kion application configuration settings.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "app-config"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "37330e45-403a-42b5-9669-aadbe0751dd9",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "app-config"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 3026,\n  \"data\": {\n    \"id\": 2936,\n    \"app_name\": \"string\",\n    \"default_aws_region\": \"string\",\n    \"session_timeout\": 1075,\n    \"allow_long_term_access_keys\": true,\n    \"compliance_scan_interval_minutes\": 3065\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4807d581-8fae-4676-9005-7c6184b7ba6e",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "app-config"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "14ea6a94-e2da-49eb-b053-4c53afc95492",
-          "name": "Kion Update application configuration",
-          "request": {
-            "name": "Kion Update application configuration",
-            "description": {
-              "content": "Updates the Kion application configuration settings.",
-              "type": "text/plain"
-            },
             "url": {
-              "path": [
-                "app-config"
-              ],
+              "raw": "{{baseUrl}}/app-config",
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [],
-              "variable": [
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
+              "path": [
+                "app-config"
               ]
             },
+            "description": "Returns the Kion application configuration settings."
+          },
+          "response": [
+            {
+              "id": "716d187a-93d4-433b-bdaf-27b4c633fe81",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/app-config",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "app-config"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"data\": {\n    \"id\": \"<integer>\",\n    \"app_name\": \"<string>\",\n    \"default_aws_region\": \"<string>\",\n    \"session_timeout\": \"<integer>\",\n    \"allow_long_term_access_keys\": \"<boolean>\",\n    \"compliance_scan_interval_minutes\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-10-22T02:19:37.000Z",
+              "updatedAt": "2026-10-22T02:19:37.000Z",
+              "uid": "35240-716d187a-93d4-433b-bdaf-27b4c633fe81"
+            },
+            {
+              "id": "282a4af7-5d07-43f5-bad2-675028d9bf19",
+              "name": "Authentication failed or API key is missing/invalid",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/app-config",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "app-config"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:19:37.000Z",
+              "updatedAt": "2026-10-22T02:19:37.000Z",
+              "uid": "35240-282a4af7-5d07-43f5-bad2-675028d9bf19"
+            }
+          ],
+          "createdAt": "2026-10-22T02:19:37.000Z",
+          "updatedAt": "2026-10-22T02:19:37.000Z",
+          "uid": "35240-131eafda-8684-41db-93e0-a87a39ad5cf6"
+        },
+        {
+          "name": "Kion Update application configuration",
+          "id": "5564a121-e01d-40e2-8a09-10545fdb39a9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
             "header": [
               {
                 "key": "Content-Type",
@@ -186,156 +146,141 @@
                 "value": "application/json"
               }
             ],
-            "method": "PATCH",
-            "auth": null,
             "body": {
               "mode": "raw",
               "raw": "{\n  \"app_name\": \"<string>\",\n  \"default_aws_region\": \"<string>\",\n  \"session_timeout\": \"<integer>\",\n  \"allow_long_term_access_keys\": \"<boolean>\",\n  \"compliance_scan_interval_minutes\": \"<integer>\"\n}",
               "options": {
                 "raw": {
+                  "headerFamily": "json",
                   "language": "json"
                 }
               }
-            }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/app-config",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "app-config"
+              ]
+            },
+            "description": "Updates the Kion application configuration settings."
           },
           "response": [
             {
-              "id": "244a43b2-99c0-4a4b-aa88-8893d28c4a7c",
+              "id": "25c0b475-1fac-4bf5-87a4-9e1ad847319a",
               "name": "Configuration updated",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "app-config"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
+                "method": "PATCH",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "PATCH",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"app_name\": \"<string>\",\n  \"default_aws_region\": \"<string>\",\n  \"session_timeout\": \"<integer>\",\n  \"allow_long_term_access_keys\": \"<boolean>\",\n  \"compliance_scan_interval_minutes\": \"<integer>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/app-config",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "app-config"
+                  ]
                 }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T02:19:37.000Z",
+              "updatedAt": "2026-10-22T02:19:37.000Z",
+              "uid": "35240-25c0b475-1fac-4bf5-87a4-9e1ad847319a"
             },
             {
-              "id": "657c6c2f-c5ed-49e9-a40a-5c02a01e44c0",
+              "id": "29b670be-09d6-4ac6-9d44-6160d7d38c32",
               "name": "Authentication failed or API key is missing/invalid",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "app-config"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
+                "method": "PATCH",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                    "key": "Content-Type",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "PATCH",
                 "body": {
                   "mode": "raw",
                   "raw": "{\n  \"app_name\": \"<string>\",\n  \"default_aws_region\": \"<string>\",\n  \"session_timeout\": \"<integer>\",\n  \"allow_long_term_access_keys\": \"<boolean>\",\n  \"compliance_scan_interval_minutes\": \"<integer>\"\n}",
                   "options": {
                     "raw": {
+                      "headerFamily": "json",
                       "language": "json"
                     }
                   }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/app-config",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "app-config"
+                  ]
                 }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-10-22T02:19:37.000Z",
+              "updatedAt": "2026-10-22T02:19:37.000Z",
+              "uid": "35240-29b670be-09d6-4ac6-9d44-6160d7d38c32"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T02:19:37.000Z",
+          "updatedAt": "2026-10-22T02:19:37.000Z",
+          "uid": "35240-5564a121-e01d-40e2-8a09-10545fdb39a9"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "Your Kion deployment hostname",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "your-kion-instance.example.com",
-      "key": "kion-instance"
-    },
-    {
-      "type": "string",
-      "value": "https://{{kion-instance}}/api/v3",
-      "key": "baseUrl"
+      "id": "acfb1f3e-bd7e-4232-9029-25e9d37eff81",
+      "createdAt": "2026-10-22T02:19:37.000Z",
+      "updatedAt": "2026-10-22T02:19:37.000Z",
+      "uid": "35240-acfb1f3e-bd7e-4232-9029-25e9d37eff81"
     }
   ],
   "auth": {
@@ -343,17 +288,19 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "7a006005-7303-4cbb-a5d6-3f4bf7df15ef",
-    "name": "Kion Cloud Operations Accounts App Configuration API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "kion-instance",
+      "value": "your-kion-instance.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{kion-instance}}/api/v3"
     }
-  }
+  ]
 }

@@ -1,754 +1,681 @@
 {
+  "info": {
+    "_postman_id": "bcf89584-d7cc-48c2-884a-0d615384c475",
+    "name": "Kion Cloud Operations Cloud Access Roles API",
+    "description": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T02:20:06.000Z",
+    "updatedAt": "2026-10-22T02:20:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bcf89584-d7cc-48c2-884a-0d615384c475"
+  },
   "item": [
     {
-      "id": "b4c0bd2c-d35e-44d2-bc00-8bb8f4a9a329",
-      "name": "Cloud Access Roles",
-      "description": {
-        "content": "Manage cloud access roles for OU and project level access",
-        "type": "text/plain"
-      },
+      "name": "project",
       "item": [
         {
-          "id": "97e7e9e9-5709-4f2c-a701-c271af0cf5b6",
-          "name": "Kion List project cloud access roles",
-          "request": {
-            "name": "Kion List project cloud access roles",
-            "description": {
-              "content": "Returns cloud access roles for a specific project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id",
-                "cloud-access-role"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "{id}",
+          "item": [
             {
-              "id": "39c69175-48e2-486b-ab5a-f6e8e85b6c16",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "cloud-access-role"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "cloud-access-role",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "Kion List project cloud access roles",
+                  "id": "d9ad124b-542f-4b3f-bc62-215540e03a72",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id/cloud-access-role",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id",
+                        "cloud-access-role"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1d2abe86-6884-4428-9ac8-e690df4865bb",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Returns cloud access roles for a specific project."
+                  },
+                  "response": [
+                    {
+                      "id": "afa0a0de-26f0-43bb-976e-728fa649097e",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/cloud-access-role",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "cloud-access-role"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"data\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"aws_iam_role_name\": \"<string>\",\n      \"web_access\": \"<boolean>\",\n      \"short_term_access_keys\": \"<boolean>\",\n      \"long_term_access_keys\": \"<boolean>\",\n      \"aws_iam_policies\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"azure_role_definitions\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"gcp_iam_roles\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"users\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"user_groups\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"accounts\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"labels\": {\n        \"aute_d\": \"<string>\",\n        \"labore_3\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"aws_iam_role_name\": \"<string>\",\n      \"web_access\": \"<boolean>\",\n      \"short_term_access_keys\": \"<boolean>\",\n      \"long_term_access_keys\": \"<boolean>\",\n      \"aws_iam_policies\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"azure_role_definitions\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"gcp_iam_roles\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"users\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"user_groups\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"accounts\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"labels\": {\n        \"ut09\": \"<string>\",\n        \"irure8\": \"<string>\"\n      },\n      \"created_at\": \"<dateTime>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-10-22T02:20:07.000Z",
+                      "updatedAt": "2026-10-22T02:20:07.000Z",
+                      "uid": "35240-afa0a0de-26f0-43bb-976e-728fa649097e"
+                    },
+                    {
+                      "id": "b2f6b3ae-07af-49d4-aeb4-63ba41cfe8fd",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/cloud-access-role",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "cloud-access-role"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:20:07.000Z",
+                      "updatedAt": "2026-10-22T02:20:07.000Z",
+                      "uid": "35240-b2f6b3ae-07af-49d4-aeb4-63ba41cfe8fd"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:20:07.000Z",
+                  "updatedAt": "2026-10-22T02:20:07.000Z",
+                  "uid": "35240-d9ad124b-542f-4b3f-bc62-215540e03a72"
+                },
+                {
+                  "name": "Kion Create a project cloud access role",
+                  "id": "71a027cc-4d23-4c1d-84d6-96e6da6c0ceb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"laboris41a\": \"<string>\",\n    \"occaecat1\": \"<string>\",\n    \"commodo_50\": \"<string>\",\n    \"aliquip_b\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/project/:id/cloud-access-role",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "project",
+                        ":id",
+                        "cloud-access-role"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c3a151f3-22d5-4780-a102-2d733a7846c3",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Creates a cloud access role on a project."
+                  },
+                  "response": [
+                    {
+                      "id": "fe52b6a8-3c01-4f06-a0bb-cce9d0fddfdc",
+                      "name": "Cloud access role created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"laboris41a\": \"<string>\",\n    \"occaecat1\": \"<string>\",\n    \"commodo_50\": \"<string>\",\n    \"aliquip_b\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/cloud-access-role",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "cloud-access-role"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:20:07.000Z",
+                      "updatedAt": "2026-10-22T02:20:07.000Z",
+                      "uid": "35240-fe52b6a8-3c01-4f06-a0bb-cce9d0fddfdc"
+                    },
+                    {
+                      "id": "731c8873-84dc-4d51-8085-f37b9781e5e4",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"laboris41a\": \"<string>\",\n    \"occaecat1\": \"<string>\",\n    \"commodo_50\": \"<string>\",\n    \"aliquip_b\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/project/:id/cloud-access-role",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "project",
+                            ":id",
+                            "cloud-access-role"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:20:07.000Z",
+                      "updatedAt": "2026-10-22T02:20:07.000Z",
+                      "uid": "35240-731c8873-84dc-4d51-8085-f37b9781e5e4"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:20:07.000Z",
+                  "updatedAt": "2026-10-22T02:20:07.000Z",
+                  "uid": "35240-71a027cc-4d23-4c1d-84d6-96e6da6c0ceb"
                 }
               ],
-              "body": "{\n  \"status\": 6734,\n  \"data\": [\n    {\n      \"id\": 2670,\n      \"name\": \"string\",\n      \"aws_iam_role_name\": \"string\",\n      \"web_access\": true,\n      \"short_term_access_keys\": false,\n      \"long_term_access_keys\": true,\n      \"aws_iam_policies\": [\n        9301,\n        604\n      ],\n      \"azure_role_definitions\": [\n        7069,\n        2834\n      ],\n      \"gcp_iam_roles\": [\n        5445,\n        710\n      ],\n      \"users\": [\n        5759,\n        974\n      ],\n      \"user_groups\": [\n        8133,\n        7844\n      ],\n      \"accounts\": [\n        5154,\n        7911\n      ],\n      \"labels\": {\n        \"key_0\": \"string\"\n      },\n      \"created_at\": \"1956-02-01T14:37:58.336Z\"\n    },\n    {\n      \"id\": 9453,\n      \"name\": \"string\",\n      \"aws_iam_role_name\": \"string\",\n      \"web_access\": false,\n      \"short_term_access_keys\": true,\n      \"long_term_access_keys\": true,\n      \"aws_iam_policies\": [\n        3430,\n        4729\n      ],\n      \"azure_role_definitions\": [\n        6073,\n        1900\n      ],\n      \"gcp_iam_roles\": [\n        862,\n        6909\n      ],\n      \"users\": [\n        7773,\n        3005\n      ],\n      \"user_groups\": [\n        3623,\n        8851\n      ],\n      \"accounts\": [\n        2055,\n        5665\n      ],\n      \"labels\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"created_at\": \"1989-12-25T12:31:44.493Z\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4d696b95-c921-4e8a-9f7a-887d0582815f",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "cloud-access-role"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "a1930f81-a180-47ae-97fb-dc846027049f",
+              "createdAt": "2026-10-22T02:20:07.000Z",
+              "updatedAt": "2026-10-22T02:20:07.000Z",
+              "uid": "35240-a1930f81-a180-47ae-97fb-dc846027049f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "32606942-e06f-442e-a538-0a8709895634",
-          "name": "Kion Create a project cloud access role",
-          "request": {
-            "name": "Kion Create a project cloud access role",
-            "description": {
-              "content": "Creates a cloud access role on a project.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "project",
-                ":id",
-                "cloud-access-role"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "aeda126b-09c9-4c6b-be89-2836133248fe",
-              "name": "Cloud access role created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "cloud-access-role"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a0ece43f-ab5c-4b8b-abf4-6068de0bc7c7",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "project",
-                    ":id",
-                    "cloud-access-role"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4e845e03-d68d-40db-859a-9386c376183d",
-          "name": "Kion List OU cloud access roles",
-          "request": {
-            "name": "Kion List OU cloud access roles",
-            "description": {
-              "content": "Returns cloud access roles for a specific OU.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "ou",
-                ":id",
-                "cloud-access-role"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d8705813-69a1-4c82-a7d3-1e3375fbc689",
-              "name": "Successful response",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ou",
-                    ":id",
-                    "cloud-access-role"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a078dcb9-c044-4180-a6b0-e13c33d78d7c",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ou",
-                    ":id",
-                    "cloud-access-role"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "34d1b09b-73aa-4a4b-9ba8-daa5c54460ed",
-          "name": "Kion Create an OU cloud access role",
-          "request": {
-            "name": "Kion Create an OU cloud access role",
-            "description": {
-              "content": "Creates a cloud access role on an OU.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "ou",
-                ":id",
-                "cloud-access-role"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "id",
-                  "description": "(Required) The unique identifier of the resource in Kion"
-                },
-                {
-                  "description": "Your Kion deployment hostname",
-                  "type": "any",
-                  "value": "{{kion-instance}}",
-                  "key": "kion-instance"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "28eb93e1-8c80-4c2e-9444-86b4d0087ada",
-              "name": "Cloud access role created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ou",
-                    ":id",
-                    "cloud-access-role"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "532c47e4-0ad2-4b87-886b-5f001f133ffd",
-              "name": "Authentication failed or API key is missing/invalid",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "ou",
-                    ":id",
-                    "cloud-access-role"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "id",
-                      "description": "(Required) The unique identifier of the resource in Kion"
-                    },
-                    {
-                      "description": "Your Kion deployment hostname",
-                      "type": "any",
-                      "value": "{{kion-instance}}",
-                      "key": "kion-instance"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"key_0\": \"<string>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"status\": 401,\n  \"message\": \"Unauthorized\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "5305a7ee-7d4c-4546-b9f2-7c294a711802",
+          "createdAt": "2026-10-22T02:20:07.000Z",
+          "updatedAt": "2026-10-22T02:20:07.000Z",
+          "uid": "35240-5305a7ee-7d4c-4546-b9f2-7c294a711802"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "description": {
-        "content": "Your Kion deployment hostname",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "your-kion-instance.example.com",
-      "key": "kion-instance"
+      "id": "0f19f1a0-3092-447f-a310-bb32e5918d83",
+      "createdAt": "2026-10-22T02:20:07.000Z",
+      "updatedAt": "2026-10-22T02:20:07.000Z",
+      "uid": "35240-0f19f1a0-3092-447f-a310-bb32e5918d83"
     },
     {
-      "type": "string",
-      "value": "https://{{kion-instance}}/api/v3",
-      "key": "baseUrl"
+      "name": "ou",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "cloud-access-role",
+              "item": [
+                {
+                  "name": "Kion List OU cloud access roles",
+                  "id": "332817b7-fe46-40ae-b064-d3dbd8372f2b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/ou/:id/cloud-access-role",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ou",
+                        ":id",
+                        "cloud-access-role"
+                      ],
+                      "variable": [
+                        {
+                          "id": "808a1fd0-9ff8-4c5a-9e61-546fd740ccca",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Returns cloud access roles for a specific OU."
+                  },
+                  "response": [
+                    {
+                      "id": "2e8f3ccc-f352-4928-a9d9-bd0254d40770",
+                      "name": "Successful response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/ou/:id/cloud-access-role",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ou",
+                            ":id",
+                            "cloud-access-role"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:20:07.000Z",
+                      "updatedAt": "2026-10-22T02:20:07.000Z",
+                      "uid": "35240-2e8f3ccc-f352-4928-a9d9-bd0254d40770"
+                    },
+                    {
+                      "id": "0846ad5e-2417-403f-8f6e-98b42cef0897",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/ou/:id/cloud-access-role",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ou",
+                            ":id",
+                            "cloud-access-role"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:20:07.000Z",
+                      "updatedAt": "2026-10-22T02:20:07.000Z",
+                      "uid": "35240-0846ad5e-2417-403f-8f6e-98b42cef0897"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:20:07.000Z",
+                  "updatedAt": "2026-10-22T02:20:07.000Z",
+                  "uid": "35240-332817b7-fe46-40ae-b064-d3dbd8372f2b"
+                },
+                {
+                  "name": "Kion Create an OU cloud access role",
+                  "id": "f2188346-0c4a-47d3-9cca-09ac41f49140",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"laboris41a\": \"<string>\",\n    \"occaecat1\": \"<string>\",\n    \"commodo_50\": \"<string>\",\n    \"aliquip_b\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/ou/:id/cloud-access-role",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "ou",
+                        ":id",
+                        "cloud-access-role"
+                      ],
+                      "variable": [
+                        {
+                          "id": "3cbb0a3d-4f43-498d-a25c-ecb167d14c5d",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The unique identifier of the resource in Kion"
+                        }
+                      ]
+                    },
+                    "description": "Creates a cloud access role on an OU."
+                  },
+                  "response": [
+                    {
+                      "id": "642f81f4-3d02-4315-86e3-86f0df6db27a",
+                      "name": "Cloud access role created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"laboris41a\": \"<string>\",\n    \"occaecat1\": \"<string>\",\n    \"commodo_50\": \"<string>\",\n    \"aliquip_b\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ou/:id/cloud-access-role",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ou",
+                            ":id",
+                            "cloud-access-role"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T02:20:07.000Z",
+                      "updatedAt": "2026-10-22T02:20:07.000Z",
+                      "uid": "35240-642f81f4-3d02-4315-86e3-86f0df6db27a"
+                    },
+                    {
+                      "id": "c1d172fd-8485-444a-80d7-18658c5867af",
+                      "name": "Authentication failed or API key is missing/invalid",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"aws_iam_role_name\": \"<string>\",\n  \"web_access\": \"<boolean>\",\n  \"short_term_access_keys\": \"<boolean>\",\n  \"long_term_access_keys\": \"<boolean>\",\n  \"aws_iam_policies\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"azure_role_definitions\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"gcp_iam_roles\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"users\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"user_groups\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"accounts\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"labels\": {\n    \"laboris41a\": \"<string>\",\n    \"occaecat1\": \"<string>\",\n    \"commodo_50\": \"<string>\",\n    \"aliquip_b\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/ou/:id/cloud-access-role",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "ou",
+                            ":id",
+                            "cloud-access-role"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-10-22T02:20:07.000Z",
+                      "updatedAt": "2026-10-22T02:20:07.000Z",
+                      "uid": "35240-c1d172fd-8485-444a-80d7-18658c5867af"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T02:20:07.000Z",
+                  "updatedAt": "2026-10-22T02:20:07.000Z",
+                  "uid": "35240-f2188346-0c4a-47d3-9cca-09ac41f49140"
+                }
+              ],
+              "id": "5ad0a676-f242-476d-bbcd-a9d2a4818ddb",
+              "createdAt": "2026-10-22T02:20:07.000Z",
+              "updatedAt": "2026-10-22T02:20:07.000Z",
+              "uid": "35240-5ad0a676-f242-476d-bbcd-a9d2a4818ddb"
+            }
+          ],
+          "id": "4378f76d-792e-4cd6-a113-a31f64b24aa2",
+          "createdAt": "2026-10-22T02:20:07.000Z",
+          "updatedAt": "2026-10-22T02:20:07.000Z",
+          "uid": "35240-4378f76d-792e-4cd6-a113-a31f64b24aa2"
+        }
+      ],
+      "id": "56701b42-adf6-4e0d-96c3-7df57eef2f32",
+      "createdAt": "2026-10-22T02:20:07.000Z",
+      "updatedAt": "2026-10-22T02:20:07.000Z",
+      "uid": "35240-56701b42-adf6-4e0d-96c3-7df57eef2f32"
     }
   ],
   "auth": {
@@ -756,17 +683,19 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "a5d214ca-7d20-4c3e-b9b6-27b77b9046ca",
-    "name": "Kion Cloud Operations Accounts Cloud Access Roles API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI. Kion is a self-hosted cloud operations platform that consolidates account provisioning, access management, compliance enforcement, and FinOps into a single interface. The API uses Bearer token authentication via Kion App API Keys and is accessible at the /api/v3/ path of your Kion instance.\n\nContact Support:\n Name: Kion Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "kion-instance",
+      "value": "your-kion-instance.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{kion-instance}}/api/v3"
     }
-  }
+  ]
 }
