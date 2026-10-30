@@ -1,4 +1,4 @@
-# Kion (kion)
+# Kion
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,84 +66,199 @@
 
 Kion is a cloud operations platform that provides automated governance and FinOps capabilities across AWS, Azure, GCP, and OCI through a self-hosted deployment model. The platform consolidates multiple point solutions into a comprehensive system that helps organizations allocate and track cloud spending, identify savings opportunities, enforce budgets, and access real-time and forecasted financial data.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/kion/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/kion/refs/heads/main/apis.yml)
+**Areas:** Cloud Operations · Compliance · Costs · FinOps · Governance · Spend
 
-## Scope
+## Kion on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Kion is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kion/](https://apis.io/providers/kion/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (25)
 
-- Cloud Operations
-- Compliance
-- Costs
-- FinOps
-- Governance
-- Spend
+- [Kion Accounts API](https://apis.io/apis/kion/kion-accounts-api/) — Manage cloud accounts across AWS, Azure, GCP, and OCI
+- [Kion App Configuration API](https://apis.io/apis/kion/kion-app-configuration-api/) — Manage Kion application configuration settings
+- [Kion Azure ARM Templates API](https://apis.io/apis/kion/kion-azure-arm-templates-api/) — Manage Azure ARM templates
+- [Kion Azure Policies API](https://apis.io/apis/kion/kion-azure-policies-api/) — Manage Azure policies
+- [Kion Azure Roles API](https://apis.io/apis/kion/kion-azure-roles-api/) — Manage Azure roles
+- [Kion Cloud Access Roles API](https://apis.io/apis/kion/kion-cloud-access-roles-api/) — Manage cloud access roles for OU and project level access
+- [Kion Cloud Rules API](https://apis.io/apis/kion/kion-cloud-rules-api/) — Manage cloud rules that enforce policies on cloud accounts
+- [Kion CloudFormation Templates API](https://apis.io/apis/kion/kion-cloudformation-templates-api/) — Manage AWS CloudFormation templates
+- [Kion Compliance Checks API](https://apis.io/apis/kion/kion-compliance-checks-api/) — Manage compliance checks for auditing cloud resources
+- [Kion Compliance Standards API](https://apis.io/apis/kion/kion-compliance-standards-api/) — Manage compliance standards grouping multiple compliance checks
+- [Kion Custom Variables API](https://apis.io/apis/kion/kion-custom-variables-api/) — Manage custom variables and overrides
+- [Kion Enforcements API](https://apis.io/apis/kion/kion-enforcements-api/) — Manage project enforcements
+- [Kion Funding Sources API](https://apis.io/apis/kion/kion-funding-sources-api/) — Manage funding sources for tracking and allocating cloud spend
+- [Kion GCP IAM Roles API](https://apis.io/apis/kion/kion-gcp-iam-roles-api/) — Manage GCP IAM roles
+- [Kion IAM Policies API](https://apis.io/apis/kion/kion-iam-policies-api/) — Manage AWS IAM policies
+- [Kion Identity Management API](https://apis.io/apis/kion/kion-identity-management-api/) — Manage identity management systems (IDMS)
+- [Kion Labels API](https://apis.io/apis/kion/kion-labels-api/) — Manage labels for organizing and categorizing resources
+- [Kion Organizational Units API](https://apis.io/apis/kion/kion-organizational-units-api/) — Manage organizational units (OUs) for hierarchical organization
+- [Kion Permission Mappings API](https://apis.io/apis/kion/kion-permission-mappings-api/) — Manage permission mappings at global, OU, project, and funding source levels
+- [Kion Projects API](https://apis.io/apis/kion/kion-projects-api/) — Manage projects which are the organizational unit for attaching cloud accounts
+- [Kion SAML Group Associations API](https://apis.io/apis/kion/kion-saml-group-associations-api/) — Manage SAML group associations for SSO integration
+- [Kion Service Control Policies API](https://apis.io/apis/kion/kion-service-control-policies-api/) — Manage AWS service control policies
+- [Kion User Groups API](https://apis.io/apis/kion/kion-user-groups-api/) — Manage user groups for role-based access control
+- [Kion Users API](https://apis.io/apis/kion/kion-users-api/) — Manage users within the Kion platform
+- [Kion Webhooks API](https://apis.io/apis/kion/kion-webhooks-api/) — Manage webhooks for event notifications
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-01-02
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Kion Cloud Operations API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Kion Public API provides programmatic access to manage cloud operations, governance, compliance, and financial management across AWS, Azure, GCP, and OCI.
+- [Kion Agentic Access](https://apis.io/agentic-access/kion/kion-agentic-access/)
 
-- **Human URL:** [https://support.kion.io/hc/en-us/sections/4412439670797-Public-API](https://support.kion.io/hc/en-us/sections/4412439670797-Public-API)
-- **Base URL:** `https://{kion-instance}/api/v3`
+#### JSON Schema (16)
 
-#### Tags
+The data models the API reads and writes.
 
-- Cloud Operations
-- Compliance
-- Costs
-- FinOps
-- Governance
-- Multi-Cloud
-- Spend
+- [Kion Account](https://apis.io/schemas/kion/account/)
+- [Kion AWS IAM Policy](https://apis.io/schemas/kion/aws-iam-policy/)
+- [Kion Cloud Access Role](https://apis.io/schemas/kion/cloud-access-role/)
+- [Kion Cloud Rule](https://apis.io/schemas/kion/cloud-rule/)
+- [Kion CloudFormation Template](https://apis.io/schemas/kion/cloudformation-template/)
+- [Kion Compliance Check](https://apis.io/schemas/kion/compliance-check/)
+- [Kion Compliance Standard](https://apis.io/schemas/kion/compliance-standard/)
+- [Kion Custom Variable](https://apis.io/schemas/kion/custom-variable/)
+- [Kion Funding Source](https://apis.io/schemas/kion/funding-source/)
+- [Kion Label](https://apis.io/schemas/kion/label/)
+- [Kion Organizational Unit](https://apis.io/schemas/kion/ou/)
+- [Kion Project](https://apis.io/schemas/kion/project/)
+- [Kion Service Control Policy](https://apis.io/schemas/kion/service-control-policy/)
+- [Kion User](https://apis.io/schemas/kion/user/)
+- [Kion User Group](https://apis.io/schemas/kion/user-group/)
+- [Kion Webhook](https://apis.io/schemas/kion/webhook/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://support.kion.io/hc/en-us/articles/360024610491-Getting-Started-with-the-Kion-Public-API)
-- [OpenAPI](openapi/kion-cloud-operations-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/kion-cloud-operations-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/kion-cloud-operations-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/account.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/project.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/ou.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/cloud-rule.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/compliance-check.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/compliance-standard.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/funding-source.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/label.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/user.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/user-group.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/cloud-access-role.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/aws-iam-policy.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/service-control-policy.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/cloudformation-template.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/webhook.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/custom-variable.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/kion-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Linked-data contexts for the provider's vocabulary.
 
-## Common Properties
+- [Kion Context](https://apis.io/jsonld/kion/kion-context/)
 
-- [GitHub Organization](https://github.com/kiongroup)
-- [LinkedIn](https://www.linkedin.com/company/kionsoftware)
+#### Collections (26)
+
+Postman and Open Collection request collections.
+
+- [Kion Cloud Operations Accounts API](https://apis.io/collections/kion/open-kion-accounts-api/)
+- [Kion Cloud Operations Accounts App Configuration API](https://apis.io/collections/kion/open-kion-app-configuration-api/)
+- [Kion Cloud Operations Accounts Azure ARM Templates API](https://apis.io/collections/kion/open-kion-azure-arm-templates-api/)
+- [Kion Cloud Operations Accounts Azure Policies API](https://apis.io/collections/kion/open-kion-azure-policies-api/)
+- [Kion Cloud Operations Accounts Azure Roles API](https://apis.io/collections/kion/open-kion-azure-roles-api/)
+- [Kion Cloud Operations Accounts Cloud Access Roles API](https://apis.io/collections/kion/open-kion-cloud-access-roles-api/)
+- [Kion Cloud Operations API](https://apis.io/collections/kion/open-kion-cloud-operations-api/)
+- [Kion Cloud Operations Accounts Cloud Rules API](https://apis.io/collections/kion/open-kion-cloud-rules-api/)
+- [Kion Cloud Operations Accounts CloudFormation Templates API](https://apis.io/collections/kion/open-kion-cloudformation-templates-api/)
+- [Kion Cloud Operations Accounts Compliance Checks API](https://apis.io/collections/kion/open-kion-compliance-checks-api/)
+- [Kion Cloud Operations Accounts Compliance Standards API](https://apis.io/collections/kion/open-kion-compliance-standards-api/)
+- [Kion Cloud Operations Accounts Custom Variables API](https://apis.io/collections/kion/open-kion-custom-variables-api/)
+- [Kion Cloud Operations Accounts Enforcements API](https://apis.io/collections/kion/open-kion-enforcements-api/)
+- [Kion Cloud Operations Accounts Funding Sources API](https://apis.io/collections/kion/open-kion-funding-sources-api/)
+- [Kion Cloud Operations Accounts GCP IAM Roles API](https://apis.io/collections/kion/open-kion-gcp-iam-roles-api/)
+- [Kion Cloud Operations Accounts IAM Policies API](https://apis.io/collections/kion/open-kion-iam-policies-api/)
+- [Kion Cloud Operations Accounts Identity Management API](https://apis.io/collections/kion/open-kion-identity-management-api/)
+- [Kion Cloud Operations Accounts Labels API](https://apis.io/collections/kion/open-kion-labels-api/)
+- [Kion Cloud Operations Accounts Organizational Units API](https://apis.io/collections/kion/open-kion-organizational-units-api/)
+- [Kion Cloud Operations Accounts Permission Mappings API](https://apis.io/collections/kion/open-kion-permission-mappings-api/)
+- [Kion Cloud Operations Accounts Projects API](https://apis.io/collections/kion/open-kion-projects-api/)
+- [Kion Cloud Operations Accounts SAML Group Associations API](https://apis.io/collections/kion/open-kion-saml-group-associations-api/)
+- [Kion Cloud Operations Accounts Service Control Policies API](https://apis.io/collections/kion/open-kion-service-control-policies-api/)
+- [Kion Cloud Operations Accounts User Groups API](https://apis.io/collections/kion/open-kion-user-groups-api/)
+- [Kion Cloud Operations Accounts Users API](https://apis.io/collections/kion/open-kion-users-api/)
+- …and 1 more published on APIs.io
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Kion — jsonschema rules](https://apis.io/rules/kion/kion-jsonschema-spectral-rules/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Kion Authentication](https://apis.io/security/kion/kion-authentication/)
+- [Kion Domain Security](https://apis.io/security/kion/kion-domain-security/)
+- [Kion Trust Center](https://apis.io/security/kion/kion-trust-center/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Kion Plans Pricing](https://apis.io/plans/kion/kion-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Kion Rate Limits](https://apis.io/rate-limits/kion/kion-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Kion Finops](https://apis.io/finops/kion/kion-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://kion.io/)
-- [Blog](https://kion.io/blog/?Type=blog)
-- [Case Studies](https://kion.io/resources/case-studies/?Type=case-study)
-- [Glossary](https://kion.io/resources/glossary/)
-- [Support](https://kion.io/resources/support/)
-- [Partners](https://kion.io/partners/providers/)
 - [Pricing](https://kion.io/why-kion/pricing-and-licensing/)
-- [Request Demo](https://kion.io/platform/request-a-demo/)
+- [Support](https://kion.io/resources/support/)
+- [Blog](https://kion.io/blog/?Type=blog)
+- [GitHub](https://github.com/kiongroup)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 37.2** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 62.7 |
+| Contract governance | 9.8 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 26.3 |
+
+**Agent readiness 20.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 21.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kion/](https://apis.io/providers/kion/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kion: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kion/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
